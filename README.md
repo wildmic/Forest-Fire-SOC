@@ -1,9 +1,9 @@
-# MATLAB HS12 – Research Plan (Template)
-(text between brackets to be removed)
+﻿# MATLAB HS12 – Research Plan
 
-> * Group Name: (be creative!)
-> * Group participants names: (alphabetically sorted by last name)
-> * Project Title: (can be changed)
+
+> * Group Name: Forest Fire Foxes
+> * Group participants names: Dogra Nishant, Michael Wild	
+> * Project Title: Self-organized criticality by example of Forest Fires
 
 ## General Introduction
 
