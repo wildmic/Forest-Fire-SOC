@@ -55,9 +55,10 @@ We will check the robustness of the SOC by choosing different initial conditions
 
  <br> [1] Self-organied criticality; Per Bak, Chao Tang, and Kurt Wiesenfeld; Phys. Rev. A, Vol 38, No 1, July 1988
  <br> [2] Self-Organized Critical Forest-Fire Model; B. Drossel and F. Schwabl; Phys. Rev. Lett., Vol 69, No 11, Sep 1992
- <br> [3] Phase transitions in a forest-fire model; S. Clar, K. Schenk, and F. Schwabl; Phys. Rev. E, Vol 55, No 3, March 1997
- <br> [4] Self-organized critical forest-fire model on large scales; Klaus Schenk Barbara Drossel and Franz Schwabl; Phys. Rev E, Vol 65, No 026135, Jan 2002
-
+ <br> [3] Scaling laws and simulation results for the self-organized critical forest-fire model; S. Clar, B. Drossel and F. Schwabl, Phys. Rev. E, Vol 50, No 2, Aug 1994
+ <br> [4] Phase transitions in a forest-fire model; S. Clar, K. Schenk, and F. Schwabl; Phys. Rev. E, Vol 55, No 3, March 1997
+ <br> [5] Self-organized critical forest-fire model on large scales; Klaus Schenk Barbara Drossel and Franz Schwabl; Phys. Rev E, Vol 65, No 026135, Jan 2002
+ 
 
 
 ## Research Methods
