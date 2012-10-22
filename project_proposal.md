@@ -9,8 +9,8 @@ In various fields like physics, biology as well as social sciences, a lot of sys
 On the other hand, there is another set of dynamical sytems where the individual degree of freedom keep itself more or less in a stable balance and it is not possible to describe such a system by a few collective degrees of freedom. The key point in such systems is that the interdependence of various degrees of freedom make such systems very susceptible to noise. That's why, these sytems can be called as "Critical".
 
 Self Organized Criticality (SOC) is the study of Cooperative critical phenomenon (which is a combination of above 2 ideas). A Self Organized Critical state is characterized by the following 2 properties:
- > (1) The system evolves to the state without detailed specification of the intial conditions (self organized). It implies that critical state is an attractor of the dynamics.
- > (2) The critical state is robust with respect to variations of parameters and the presence of quenched randomness.
+(1) The system evolves to the state without detailed specification of the intial conditions (self organized). It implies that critical state is an attractor of the dynamics. <br>
+(2) The critical state is robust with respect to variations of parameters and the presence of quenched randomness.<br>
 
 The behaviour of systems at the self organized critical points is characterized by a number of critical exponents. In simple terms, the dynamics of a critical state has a specific temporal fingerprint: the power spectrum scales as inverse of frequency.  Another signature of criticality is spatial self symmetry (e.g. self similar fractal structures)
 
