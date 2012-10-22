@@ -1,5 +1,5 @@
-        Group Name: (be creative!)
-        Group participants names: 
+        Group Name: Forest Fire Foxes (now that's creative!)
+        Group participants names: Nishant Dogra, Michael Wild
         Project Title: Self-Organized Criticality and Phase Transitions in a Forest Fire Model
 
 General Introduction
