@@ -40,9 +40,8 @@ We will check the robustness of the SOC by choosing different initial conditions
  <br> What are the various phases seen in a Forest Fire model besides the Self Organized Critical phase?
  <br> What are the parameters characterizing the phase transition in the Forest Fire Model?
  <br> How does the SOC of the Forest Fire model depend on the dimensionality of the Lattice?
- <br> How does the SOC behavior of the model depend on the neighbour selection on the grid?
+ <br> How does the SOC behavior of the model depend on the neighbourhood selection on the grid?
  <br> Do computational restrictions like finite size grids, periodic boundary conditions and cell updating procedures have a quantitative effect on the behavior of the model?
- <br> Are the obtained results in any way similar to real data?
 
 
 ## Expected Results
