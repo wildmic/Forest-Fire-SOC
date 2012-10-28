@@ -11,6 +11,7 @@ On the other hand, there is another set of dynamical sytems where the individual
 Self Organized Criticality (SOC) is the study of Cooperative critical phenomenon (which is a combination of above 2 ideas). A Self Organized Critical state is characterized by the following 2 properties:
 <br>(1) The system evolves to the state without detailed specification of the intial conditions (self organized). It implies that critical state is an attractor of the dynamics. <br>
 (2) The critical state is robust with respect to variations of parameters and the presence of quenched randomness.<br>
+Note that the critical state usually is not an equilibrium state in a traditional sense.
 
 The behaviour of systems at the self organized critical points is characterized by a number of critical exponents. In simple terms, the dynamics of a critical state has a specific temporal fingerprint: the power spectrum scales as inverse of frequency.  Another signature of criticality is spatial self symmetry (e.g. self similar fractal structures)
 
@@ -35,13 +36,12 @@ We will check the robustness of the SOC by choosing different initial conditions
 ## Fundamental Questions
 
  <br> What are the characteristics (quantitative) of a Self Organized Critical state?
- <br> Why Forest Fire model manifest SOC?
+ <br> Does the Forest Fire model manifest SOC behavior, under which circumstances and why?
  <br> What are the various phases seen in a Forest Fire model besides the Self Organized Critical phase?
  <br> What are the parameters characterizing the phase transition in the Forest Fire Model?
  <br> How does the SOC of the Forest Fire model depend on the dimensionality of the Lattice?
- <br> Is the SOC in Forest Fire model a finite size effect?
- <br> How to simulate SOC in Matlab?
-
+ <br> How does the SOC behavior of the model depend on the neighbourhood selection on the grid?
+ <br> Do computational restrictions like finite size grids, periodic boundary conditions and cell updating procedures have a quantitative effect on the behavior of the model?
 
 
 ## Expected Results
