@@ -14,7 +14,7 @@ for j=1:size(Grid,1)
                     Grid(j,k)=1;
                 else
                     y=rand(1);
-                    if y<growth_rate/10
+                    if y<growth_rate/500
                         Grid(j,k)=1;
                     end
                 end

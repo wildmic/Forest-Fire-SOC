@@ -1,4 +1,4 @@
-function [ output_args ] = fire( grid_size, growth_rate, burn_rate, time  )
+function [ trees ] = fire( m,n, growth_rate, burn_rate, time  )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 % This is a 2D-model for a forest fire on variable grid size domains.
@@ -16,15 +16,19 @@ function [ output_args ] = fire( grid_size, growth_rate, burn_rate, time  )
 
 %% Initialization of the grid
 % An nxn-Grid with n=grid_size is created
-Grid=round(rand(grid_size));
+Grid=round(0.9*rand(m,n));
 % It is initialized with about half the grid points having trees on it.
 % This is not actually necessary for an SOC-behavior of the model, for it
 % should be independant of the boundary conditions.
 figure
 colormap (summer);
+trees=zeros(1,time);
+b_trees=zeros(1,time);
 %% Time Loop
 % looping over all timesteps from 1 to time.
 for i=1:time 
+    
+    
     %update checks each grid cell for ignited trees which it sets as
     %burning (State 3)
     Grid=update(Grid);
@@ -40,10 +44,16 @@ for i=1:time
     %randign randomly drops a match on a grid cell with a probability
     %burn_rate.
     Grid=randign(Grid, burn_rate);
+    [trees(i),b_trees(i)]=diagnostics(Grid);
+    
     image(Grid*25);
-    M(i)=getframe;
+    getframe;
+    
 end
 
+close all;
+figure
+plot(trees)
 
 end
 
