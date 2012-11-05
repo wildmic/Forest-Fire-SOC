@@ -17,6 +17,7 @@ function [ trees ] = fire( m,n, growth_rate, burn_rate, time  )
 %% Initialization of the grid
 % An nxn-Grid with n=grid_size is created
 Grid=round(0.9*rand(m,n));
+%Grid=ones(m,n);
 % It is initialized with about half the grid points having trees on it.
 % This is not actually necessary for an SOC-behavior of the model, for it
 % should be independant of the boundary conditions.
@@ -28,7 +29,7 @@ b_trees=zeros(1,time);
 % looping over all timesteps from 1 to time.
 for i=1:time 
     
-    
+    i
     %update checks each grid cell for ignited trees which it sets as
     %burning (State 3)
     Grid=update(Grid);
@@ -45,9 +46,15 @@ for i=1:time
     %burn_rate.
     Grid=randign(Grid, burn_rate);
     [trees(i),b_trees(i)]=diagnostics(Grid);
+    %This shows the current grid 
+    image(Grid*25); 
     
-    image(Grid*25);
+    %This plot shows the current alive tree population
+    %plot(trees)
+    %if mod(i,50)==0
+        
     getframe;
+    %end
     
 end
 
