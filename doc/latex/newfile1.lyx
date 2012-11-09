@@ -1,0 +1,424 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass amsart
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts true
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\headheight 2cm
+\headsep 2cm
+\footskip 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Self-Organized Criticality by Example of a Forest Fire Model
+\end_layout
+
+\begin_layout Author
+Nishant Dogra, Michael Wild
+\end_layout
+
+\begin_layout Abstract
+In the scope of the course 
+\begin_inset Quotes eld
+\end_inset
+
+Modelling and Simulating Social Systems with Matlab
+\begin_inset Quotes erd
+\end_inset
+
+ at ETH, we set out to find if a traditional implementation of the forest
+ fire model shows typical SOC-behavior or not.
+ We test out different implementations of the same problem in a more realistic
+ way and analize the results obtained from the simulations.
+\end_layout
+
+\begin_layout Part
+Introduction
+\end_layout
+
+\begin_layout Section
+What is Self-Organized Criticality?
+\end_layout
+
+\begin_layout Standard
+Self-Organized Criticality (SOC) is the idea that the dynamics of a physical
+ system tend to converge on a critical point which commonly is not the tradition
+al equilibrium state, independant of the initial conditions imposed upon.
+ At this critical point, a small disturbance can propagate through the whole
+ system.
+ The concept is best understood by example, so we want to bring up the very
+ educative, although 1D, example first proposed by Bak et al.
+ 
+\end_layout
+
+\begin_layout Standard
+Imagine a line which is discretisized into 
+\begin_inset Formula $n$
+\end_inset
+
+ intervals.
+ We shall denote them with 
+\begin_inset Formula $z_{1},\ldots,z_{n}$
+\end_inset
+
+.
+ There are n rules in this example:
+\end_layout
+
+\begin_layout Itemize
+Every interval or cell has a number of particles in it, which is directly
+ proportional to the height 
+\begin_inset Formula $h(z_{i})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If the difference 
+\begin_inset Formula $\Delta h=h(z_{i})-h(z_{i+1})$
+\end_inset
+
+ between two neighbouring cells exceeds a predefined value 
+\begin_inset Formula $d$
+\end_inset
+
+, the cell containing more particles will drop particles onto the other
+ until the difference is less than this value.
+\end_layout
+
+\begin_layout Itemize
+Each timestep, a particle is dropped on 
+\begin_inset Formula $z_{1}.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+We consider closed boundary conditions, meaning that 
+\begin_inset Formula $z_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{n}$
+\end_inset
+
+ may contain any number of particles as long as they comply with the rules
+ of height difference in respect to 
+\begin_inset Formula $z_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{n-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now an equilibrium state in the traditional, physical sense to this example
+ would of course be a flat surface.
+ But what happens in the simulation, and what is easy to see, is, that a
+ well defined slope is starting to form.
+ This slope will steepen until it reaches a certain point, the critical
+ point, to be specific.
+ At this point, the height difference between any two neighbouring cells
+ will be exactly 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ Now what will happen if we drop the next particle on 
+\begin_inset Formula $z_{1}$
+\end_inset
+
+? Of course, 
+\begin_inset Formula $\Delta h_{12}>d$
+\end_inset
+
+, so a particle will drop to 
+\begin_inset Formula $z_{2}$
+\end_inset
+
+.
+ This leads to 
+\begin_inset Formula $\Delta h_{23}>d$
+\end_inset
+
+.
+ The process repeats itself until the particle reaches 
+\begin_inset Formula $z_{n}$
+\end_inset
+
+, where the propagation stops because of the proposed boundary conditions.
+ 
+\end_layout
+
+\begin_layout Standard
+This example neatly shows how the system, at the critical point, will allow
+ a yet so small disturbance to propagate through the whole system.
+ It is also easy to see that the system, with any initial conditions, will
+ alway converge to the critical point.
+\end_layout
+
+\begin_layout Standard
+Now this is essentially a 1D-Model.
+ It is not easily possible to transform the results on higher dimension
+ problems, but the basic idea should be explained.
+\end_layout
+
+\begin_layout Standard
+Another key idea of the SOC-idea is the stability of the state in respect
+ to disturbances and boundary conditions.
+ This will cause some headaches when the idea is applied to a forest fire
+ model, but will be explained later.
+\end_layout
+
+\begin_layout Section
+What is a Forest Fire Model?
+\end_layout
+
+\begin_layout Standard
+A Forest Fire Model (FFM) is basically a cellular automata with 3 states
+ and 4 rules.
+ The cell states are:
+\end_layout
+
+\begin_layout Itemize
+0: Empty 
+\end_layout
+
+\begin_layout Itemize
+1: Alive 
+\end_layout
+
+\begin_layout Itemize
+2: Burning
+\end_layout
+
+\begin_layout Standard
+The 4 rules are defined as follows:
+\end_layout
+
+\begin_layout Itemize
+An empty site will turn into an alive site with probability 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+An alive site will turn into a burning site with probabiltiy 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If any neighbor of an alive site is burning, so will this site.
+\end_layout
+
+\begin_layout Itemize
+A burning site becomes an empty site in the next timestep.
+\end_layout
+
+\begin_layout Standard
+There are several ways to implement the aforementioned rules.
+ This can have a large effect on the results of the simulation and will
+ be treated later.
+ It is, however, important to note that for a realistic model, 
+\begin_inset Formula $\frac{f}{p}\ll1$
+\end_inset
+
+ and therefore 
+\begin_inset Formula $f\ll p$
+\end_inset
+
+ should be valid.
+ 
+\end_layout
+
+\begin_layout Standard
+It is also important to note that an FFM is not only related to Forest fires
+ but has applications that go well beyond that.
+ An example would be the spreading pattern of a desease, which follows the
+ same, basic rules.
+\end_layout
+
+\begin_layout Section
+Power laws
+\end_layout
+
+\begin_layout Standard
+Power laws are functions of the form 
+\begin_inset Formula $P(s)\varpropto s^{-\tau}$
+\end_inset
+
+.
+ These functions are found in many data sets, such as the size distribution
+ of cities in a certain area.
+ Take any Country, one will find one very large metropolis, a few large
+ cities, many medium sized towns and a huge lot of small towns.
+ Power laws imply that the frequency of a general data point is inversely
+ proportional to its magnitude.
+ 
+\end_layout
+
+\begin_layout Standard
+In context to the FFM, it is proposed as a way of quantifying the frequency
+ of Fires with respect to their cluster size.
+ 
+\end_layout
+
+\begin_layout Standard
+Power laws have also prominently been found in data sets of earthquakes,
+ where they apply almost perfectly, meaning that small earthquakes happen
+ very often in respect to the frequency of big ones.
+\end_layout
+
+\begin_layout Section
+Key Parameters in SOC
+\end_layout
+
+\begin_layout Standard
+To find out wether a basic FFM exhibits SOC behavior, we need to define
+ a set of parameters which serves as indicators for the desired analysis.
+ A first indicator is the cluster size distribution.
+ To understand the meaning of the cluster size, we need to have a short
+ look at network theory.
+ Consider an instantaneous fire which burns every tree directly or indirectly
+ connected to the ignitor.
+ One can look at this network as a graph of nodes which are connected if
+ they are neighbors on the grid.
+ Now we define the cluster size as the network diameter, meaning the longest
+ shortest connection between any two nodes.
+ Since this network illustation is well connected to the grid reality, we
+ can take that as a good indicator for the distance the fire can travel
+ on the grid.
+ This is equivalent to the criterium for SOC that was mentioned before,
+ which stated that a disturbance can travel through the whole system.
+ We shall denote the cluster size with the parameter 
+\begin_inset Formula $D.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Modelling the problem
+\end_layout
+
+\begin_layout Section
+Cellular automata
+\end_layout
+
+\begin_layout Standard
+A cellular automata is a very powerful way of simulating problems which
+ are defined by a set of rules.
+ It is usually simulated on a grid, but not necessarily restricted to those
+ geometrical constraints.
+ The main characteristics are:
+\end_layout
+
+\begin_layout Itemize
+Every grid point has a state
+\end_layout
+
+\begin_layout Itemize
+Grid points change their state depending on the neighbor states according
+ to a set of rules
+\end_layout
+
+\begin_layout Itemize
+Random actions may be introduced
+\end_layout
+
+\begin_layout Standard
+In the example of the FFM, every grid point has three states (empty, alive
+ and burning) and four rules, the most obvious of which is 
+\begin_inset Quotes eld
+\end_inset
+
+change state to burning if you are alive and your neighbor is burning
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Cellular Automata can exhibit very complicated behavior when fed with very
+ simple rules, which is the main reason why they are so powerful.
+ There are similarities to agent-based models and networks, but it is not
+ to be mistaken for one of these.
+\end_layout
+
+\end_body
+\end_document

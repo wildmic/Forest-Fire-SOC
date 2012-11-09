@@ -12,7 +12,12 @@ function [ F ] = FFM( G_Size,f,p,t )
 %itself, so that the return value of the initial burn function is the total
 %number of burned trees in the process. 
 %If for any timestep, this number is different from zero, then a fire has
-%occurred. The incidents are stored in the variable F
+%occurred. The incidents are stored in the variable F.
+%The grid has periodic boundary conditions and is initialized empty, which
+%usually results in a lot of small fires in the beginning.
+%If the grid is very large, then due to the nature of the implementation, a
+%larger number of timesteps is needed to fill the grid to a certain amount
+%than with a smaller grid.
 G=zeros(G_Size);
 colormap summer;
 F=0;
@@ -41,8 +46,8 @@ for i=1:t
     %Since the burning process is instantaneous in comparison to the growth
     %we can search for every connected cell and burn it. This is
     %implemented in a recursive function.
-    %image(G*25)
-    %getframe;
+    image(G*25)
+    getframe;
     if n>0
         
         F(r)=n;
