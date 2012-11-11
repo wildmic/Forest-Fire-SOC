@@ -349,25 +349,72 @@ Key Parameters in SOC
 \begin_layout Standard
 To find out wether a basic FFM exhibits SOC behavior, we need to define
  a set of parameters which serves as indicators for the desired analysis.
- A first indicator is the cluster size distribution.
- To understand the meaning of the cluster size, we need to have a short
- look at network theory.
- Consider an instantaneous fire which burns every tree directly or indirectly
- connected to the ignitor.
- One can look at this network as a graph of nodes which are connected if
- they are neighbors on the grid.
- Now we define the cluster size as the network diameter, meaning the longest
- shortest connection between any two nodes.
- Since this network illustation is well connected to the grid reality, we
- can take that as a good indicator for the distance the fire can travel
- on the grid.
- This is equivalent to the criterium for SOC that was mentioned before,
- which stated that a disturbance can travel through the whole system.
- We shall denote the cluster size with the parameter 
-\begin_inset Formula $D.$
+ 
+\end_layout
+
+\begin_layout Itemize
+The time needed to burn down a forest cluster: This is heavily dependant
+ on the form of the implementation.
+ If we choose to implement it in a way like [reference needed], we will
+ have an instantaneous fire which essentially takes no time to burn and
+ just resets all the connected trees.
+ If however, we choose the form of a 
+\begin_inset Quotes eld
 \end_inset
 
+visible
+\begin_inset Quotes erd
+\end_inset
 
+ fire, meaning that the ratio 
+\begin_inset Formula $f/p\ll1$
+\end_inset
+
+ is not 
+\begin_inset Formula $0$
+\end_inset
+
+ in limit and that it takes the fire one timestep to advance a grid cell,
+ then the time needed to burn a forest cluster is an important variable
+ we need to extract from the simulation.
+\end_layout
+
+\begin_layout Itemize
+Number distribution of the size of clusters: Here we first need to define
+ what a cluster is.
+ A cluster is a set of neighboring cells all obtaining the same state.
+ When we talk about forest clusters, we of course mean connected trees.
+ In the implementation where the fire spreads infinitly fast, the forest
+ cluster containing the ignitor cell is the same as the burnt area.
+ The size distribution therefore is a very good indicator for the fire size
+ distribution.
+ 
+\end_layout
+
+\begin_layout Itemize
+The mean number of forest clusters in a unit volume 
+\begin_inset Formula $n(s)$
+\end_inset
+
+, where 
+\begin_inset Formula $s$
+\end_inset
+
+ is the number of trees in a cluster.
+ 
+\end_layout
+
+\begin_layout Itemize
+Number of fires per unit time step: This is a tuning parameter of the model.
+\end_layout
+
+\begin_layout Itemize
+Correlation length.
+\end_layout
+
+\begin_layout Standard
+We have tried to implement the model in a way that the measurment of these
+ desired variables is possible with the least needed effort.
 \end_layout
 
 \begin_layout Part

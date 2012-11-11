@@ -18,7 +18,7 @@ function [ F ] = FFM( G_Size,f,p,t )
 %If the grid is very large, then due to the nature of the implementation, a
 %larger number of timesteps is needed to fill the grid to a certain amount
 %than with a smaller grid.
-G=zeros(G_Size);
+G=ceil(rand(G_Size)-0.5);
 colormap summer;
 F=0;
 r=1;
@@ -46,8 +46,8 @@ for i=1:t
     %Since the burning process is instantaneous in comparison to the growth
     %we can search for every connected cell and burn it. This is
     %implemented in a recursive function.
-    %image(G*25)
-    %getframe;
+    image(G*25)
+    getframe;
     if n>0
         
         F(r)=n;

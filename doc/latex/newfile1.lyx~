@@ -413,5 +413,12 @@ change state to burning if you are alive and your neighbor is burning
  
 \end_layout
 
+\begin_layout Standard
+Cellular Automata can exhibit very complicated behavior when fed with very
+ simple rules, which is the main reason why they are so powerful.
+ There are similarities to agent-based models and networks, but it is not
+ to be mistaken for one of these.
+\end_layout
+
 \end_body
 \end_document
