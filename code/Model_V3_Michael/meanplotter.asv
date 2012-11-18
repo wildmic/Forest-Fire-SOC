@@ -6,24 +6,46 @@ s(k)=0;
 % 
 % 
 
-
+s(k)=0;
+fac(k)=0;
+sf(k)=0;
 for i=1:k
-    N=FFM(G_s,TN*i,1,t);
-    s(i)=mean(N(1))*TN*i;
-    fac(i)=mean(N(2))/(G_s-mean(N(2)));
+    % Output stores the two Vectors s (fire sizes) and N (Number of trees)
+    % from the simulation
+    Output=FFM(G_s,TN*i,1,t);
+    % s(i) is the mean fire size in the i-th simulation
+    s(i)=mean(Output(1))*TN*i;
+    % fac(i) is the probability correction factor N/(G-N) of the i-th
+    % simulation. 
+    fac(i)=mean(Output(2))/(G_s*G_s-mean(Output(2)));
+    % sf(i) is the mean fire size multiplied by the probability factor
     sf(i)=s(i)*fac(i);
   %s(i)=mean(FFM(G_s,TN*i,1,t),1)*TN*i;
+    % Progressbar(k,i) is just a neat visualization function for the
+    % progress of the meanplotter function. It shows a progress bar! (who
+    % would've thought??)
     progressbar(k,i);
     
 end
 p=1:k;
+% p is the vector which stores the different Theta's
 p=p*TN;
-subplot(2,2,1),plot(p,sf,'--rs','MarkerSize',10,'MarkerFaceColor','k','MarkerEdgeColor','g')
-xlabel('Theta=f/p')
-ylabel('MeanBurnAmount*Theta*N/(G-N)')
-subplot(2,2,2),plot(p,s,'--rs','MarkerSize',10,'MarkerFaceColor','r','MarkerEdgeColor','r')
-xlabel('Theta=f/p')
-ylabel('\oveline s \cdot \Theta')
+% The First plot shows the weighted mean fire sizes. The graph should be
+% more or less constant.
+subplot(2,2,1),plot(p,sf,'--rs','MarkerSize',5,'MarkerFaceColor','k','MarkerEdgeColor','g')
+xlabel('\Theta=f/p')
+ylabel('S*\Theta*N/(G-N)')
+% The Second Plot shows the unweighted mean fire sizes. The graph should be
+% rising.
+subplot(2,2,2),plot(p,s,'--rs','MarkerSize',5,'MarkerFaceColor','k','MarkerEdgeColor','g')
+xlabel('\Theta=f/p')
+ylabel(' s_bar \cdot \Theta')
+% The Third Graph shows the correction Factor
+subplot(2,2,3),plot(p,fac,'--rs','MarkerSize',5,'MarkerFaceColor','k','MarkerEdgeColor','g')
+xlabel('\Theta = f/p')
+ylabel('N/(G-N)')
+% The Fourth Graph shows the mean number of trees
+subplot(2,2,4),plot(p,N
 
 subplot
 
