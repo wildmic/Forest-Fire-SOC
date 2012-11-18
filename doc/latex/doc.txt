@@ -1,0 +1,131 @@
+Self-Organized Criticality by Example of a Forest Fire Model
+
+Nishant Dogra, Michael Wild
+
+Abstract. In the scope of the course “Modelling and Simulating Social Systems with Matlab” at ETH, we set out to find if a traditional implementation of the forest fire model shows typical SOC-behavior or not. We test out different implementations of the same problem in a more realistic way and analize the results obtained from the simulations.
+
+Part I Introduction
+
+1 What is Self-Organized Criticality?
+
+Self-Organized Criticality (SOC) is the idea that the dynamics of a physical system tend to converge on a critical point which commonly is not the traditional equilibrium state, independant of the initial conditions imposed upon. At this critical point, a small disturbance can propagate through the whole system. The concept is best understood by example, so we want to bring up the very educative, although 1D, example first proposed by Bak et al. 
+
+Imagine a line which is discretisized into n  intervals. We shall denote them with z_{1},\ldots,z_{n} . There are n rules in this example:
+
+• Every interval or cell has a number of particles in it, which is directly proportional to the height h(z_{i}) .
+
+• If the difference \Delta h=h(z_{i})-h(z_{i+1})  between two neighbouring cells exceeds a predefined value d , the cell containing more particles will drop particles onto the other until the difference is less than this value.
+
+• Each timestep, a particle is dropped on z_{1}.  
+
+• We consider closed boundary conditions, meaning that z_{1}  and z_{n}  may contain any number of particles as long as they comply with the rules of height difference in respect to z_{2}  and z_{n-1} .
+
+Now an equilibrium state in the traditional, physical sense to this example would of course be a flat surface. But what happens in the simulation, and what is easy to see, is, that a well defined slope is starting to form. This slope will steepen until it reaches a certain point, the critical point, to be specific. At this point, the height difference between any two neighbouring cells will be exactly d . Now what will happen if we drop the next particle on z_{1} ? Of course, \Delta h_{12}>d , so a particle will drop to z_{2} . This leads to \Delta h_{23}>d . The process repeats itself until the particle reaches z_{n} , where the propagation stops because of the proposed boundary conditions. 
+
+This example neatly shows how the system, at the critical point, will allow a yet so small disturbance to propagate through the whole system. It is also easy to see that the system, with any initial conditions, will alway converge to the critical point.
+
+Now this is essentially a 1D-Model. It is not easily possible to transform the results on higher dimension problems, but the basic idea should be explained.
+
+Another key idea of the SOC-idea is the stability of the state in respect to disturbances and boundary conditions. This will cause some headaches when the idea is applied to a forest fire model, but will be explained later.
+
+2 What is a Forest Fire Model?
+
+A Forest Fire Model (FFM) is basically a cellular automata with 3 states and 4 rules. The cell states are:
+
+• 0: Empty 
+
+• 1: Alive 
+
+• 2: Burning
+
+The 4 rules are defined as follows:
+
+• An empty site will turn into an alive site with probability p .
+
+• An alive site will turn into a burning site with probabiltiy f .
+
+• If any neighbor of an alive site is burning, so will this site.
+
+• A burning site becomes an empty site in the next timestep.
+
+There are several ways to implement the aforementioned rules. This can have a large effect on the results of the simulation and will be treated later. It is, however, important to note that for a realistic model, \frac{f}{p}\ll1  and therefore f\ll p  should be valid. 
+
+It is also important to note that an FFM is not only related to Forest fires but has applications that go well beyond that. An example would be the spreading pattern of a desease, which follows the same, basic rules.
+
+3 Power laws
+
+Power laws are functions of the form P(s)\varpropto s^{-\tau} . These functions are found in many data sets, such as the size distribution of cities in a certain area. Take any Country, one will find one very large metropolis, a few large cities, many medium sized towns and a huge lot of small towns. Power laws imply that the frequency of a general data point is inversely proportional to its magnitude. 
+
+In context to the FFM, it is proposed as a way of quantifying the frequency of Fires with respect to their cluster size. 
+
+Power laws have also prominently been found in data sets of earthquakes, where they apply almost perfectly, meaning that small earthquakes happen very often in respect to the frequency of big ones.
+
+4 Key Parameters in SOC
+
+To find out wether a basic FFM exhibits SOC behavior, we need to define a set of parameters which serves as indicators for the desired analysis. 
+
+• The time needed to burn down a forest cluster: This is heavily dependant on the form of the implementation. If we choose to implement it in a way like [reference needed], we will have an instantaneous fire which essentially takes no time to burn and just resets all the connected trees. If however, we choose the form of a “visible” fire, meaning that the ratio f/p\ll1  is not 0  in limit and that it takes the fire one timestep to advance a grid cell, then the time needed to burn a forest cluster is an important variable we need to extract from the simulation.
+
+• Number distribution of the size of clusters: Here we first need to define what a cluster is. A cluster is a set of neighboring cells all obtaining the same state. When we talk about forest clusters, we of course mean connected trees. In the implementation where the fire spreads infinitly fast, the forest cluster containing the ignitor cell is the same as the burnt area. The size distribution therefore is a very good indicator for the fire size distribution. 
+
+• The mean number of forest clusters in a unit volume n(s) , where s  is the number of trees in a cluster. 
+
+• Number of fires per unit time step: This is a tuning parameter of the model.
+
+• Correlation length.
+
+We have tried to implement the model in a way that the measurment of these desired variables is possible with the least needed effort.
+
+Part II Modelling the problem
+
+5 Cellular automata
+
+A cellular automata is a very powerful way of simulating problems which are defined by a set of rules. It is usually simulated on a grid, but not necessarily restricted to those geometrical constraints. The main characteristics are:
+
+• Every grid point has a state
+
+• Grid points change their state depending on the neighbor states according to a set of rules
+
+• Random actions may be introduced
+
+In the example of the FFM, every grid point has three states (empty, alive and burning) and four rules, the most obvious of which is “change state to burning if you are alive and your neighbor is burning”. 
+
+Cellular Automata can exhibit very complicated behavior when fed with very simple rules, which is the main reason why they are so powerful. There are similarities to agent-based models and networks, but it is not to be mistaken for one of these.
+
+6 Modelling approaches
+
+There are two principal modelling approaches, based on the decision to implement the system as a cellular automata. The main difference is the way in which the grid is updated. We implemented both versions and found interesting discrepancies between the two. 
+
+6.1 Grid-based updating
+
+The grid based updating procedure is a straight-forward implementation. It follows these main steps:
+
+1. The most outer loop over all timesteps.
+
+2. The next two loops go over all grid points.
+
+3. For every grid point, the following actions are taken in order:
+
+4. • If the grid point is empty, grow a tree with some probability p .
+
+5. The loop over all grid points is closed and re-opened.
+
+6. Every grid cell checks for burning direct neighbors, and if they have, ignite the current grid cell.
+
+7. The loop over all grid points is closed again and re-opened.
+
+8. Every grid cell checks its state for burning. If so, it turns into an empty site.
+
+9. Every grid cell checks its state for ignited. If so, it tuns into a burning tree.
+
+10. All loops are closed.
+
+The reason we need multiple spatial loops is because of the update procedure. We needed to introduce the differentiation between a burning and just ignited tree. This eliminates updating artifacts like an instantaneous fire spreading in update direction. It is quite important to have multiple loops in that order for not having problems.
+
+6.2 Random-based updating
+
+The random based updating procedure is much simpler and faster and eliminates most of the problems encountered in grid-based updating implementations. However, this method only works if we consider the spreading of the fire as instantaneous on a timescale used for the growth of trees, meaning that lim\, f/p\rightarrow0 . It follows these steps:
+
+1. Loop over all timesteps.
+
+2. Pick a random cell. 

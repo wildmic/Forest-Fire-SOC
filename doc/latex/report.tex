@@ -1,0 +1,228 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                
+\geometry{letterpaper}                   
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{natbib}
+\usepackage{amssymb, amsmath}
+
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%\title{Self-Organized Criticality}
+%\author{Nishant Dogra, Michael Wild}
+%\date{date} 
+
+\begin{document}
+
+
+
+\input{cover}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Agreement for free-download}
+\bigskip
+
+
+\bigskip
+
+
+\large We hereby agree to make our source code for this project freely available for download from the web pages of the SOMS chair. Furthermore, we assure that all source code is written by ourselves and is not violating any copyright restrictions.
+
+\begin{center}
+
+\bigskip
+
+
+
+
+\bigskip
+
+
+\begin{tabular}{@{}p{3.3cm}@{}p{6cm}@{}@{}p{6cm}@{}}
+\begin{minipage}{3cm}
+
+\end{minipage}
+&
+\begin{minipage}{6cm}
+\vspace{2mm} \large Name 1
+
+ \vspace{\baselineskip}
+
+\end{minipage}
+&
+\begin{minipage}{6cm}
+
+\large Name 2
+
+\end{minipage}
+\end{tabular}
+
+
+\end{center}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% IMPORTANT
+% you MUST include the ETH declaration of originality here; it is available for download on the course website or at http://www.ethz.ch/faculty/exams/plagiarism/index_EN; it can be printed as pdf and should be filled out in handwriting
+
+
+%%%%%%%%%% Table of content %%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Abstract}
+
+\section{Individual contributions}
+
+\section{Introduction and Motivations}
+\subsection{What is Self-Organized Criticality?}
+Self-Organized Criticality is the Concept that the dynamics of a physical system converge to a critical point independant of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. The concept is best understood by example, so we shall bring up a very educative one introduced first by (P.Bak, C.Tang, K.Wiesenfeld, Phys. Rev. A 38, 1988). 
+Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independant of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
+It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
+
+\subsection{Forest-Fire Model}
+A Forest Fire Model is basically a cellular automata. Each cell has three possible states:
+\begin{enumerate}
+\item Empty Site
+\item Alive Tree
+\item Burning Tree
+\end{enumerate}
+There are four rules defined for each cell, which are executed simultaneously:
+\begin {itemize}
+\item A burning tree turns into an empty site
+\item A tree starts to burn if at least one of its neighbors are burning
+\item A tree will grow on an empty site randomly with probability $p$
+\item A tree will burn randomly with probability $f$
+
+\end{itemize}
+It is important to note that the Forest Fire Model does not only apply to forest fires as its name would suggest. A whole class of problems follows the same basic rules and can be treated accordingly. An example would be the spreading of a disease, where one can directly transform the above rules and states.
+
+\subsection{Power Laws}
+Power laws are functions of the form $ P(s) \varpropto s^{-\tau}$ . These functions are found in many data sets, such as the size distribution of cities in a certain area. Take any country, one will find one very large metropolis, a few large cities, many medium sized towns and a huge lot of small towns. Power laws imply that the frequency of a general data point is inversely proportional to its magnitude. 
+
+In context to the FFM, it is proposed as a way of quantifying the frequency of Fires with respect to their cluster size. 
+
+Power laws have also prominently been found in data sets of earthquakes, where they apply almost perfectly, meaning that small earthquakes happen very often in respect to the frequency of big ones.
+
+\subsection{Key Parameters in SOC}
+
+To find out wether a basic FFM exhibits SOC behavior, we need to define a set of parameters which serves as indicators for the desired analysis. 
+\begin{itemize}
+
+\item The time needed to burn down a forest cluster: This is heavily dependant on the form of the implementation. If we choose to implement it in a way like [reference needed], we will have an instantaneous fire which essentially takes no time to burn and just resets all the connected trees. If however, we choose the form of a “visible” fire, meaning that the ratio $f/p\ll1$  is not 0  in limit and that it takes the fire one timestep to advance a grid cell, then the time needed to burn a forest cluster is an important variable we need to extract from the simulation.
+
+\item Number distribution of the size of clusters: Here we first need to define what a cluster is. A cluster is a set of neighboring cells all obtaining the same state. When we talk about forest clusters, we of course mean connected trees. In the implementation where the fire spreads infinitly fast, the forest cluster containing the ignitor cell is the same as the burnt area. The size distribution therefore is a very good indicator for the fire size distribution. 
+
+\item The mean number of forest clusters in a unit volume $n(s)$ , where s  is the number of trees in a cluster. 
+
+\item Number of fires per unit time step: This is a tuning parameter of the model.
+
+\item Correlation length.
+\end{itemize}
+We have tried to implement the model in a way that the measurment of these desired variables is possible with the least needed effort.
+
+\subsection{Motivation}
+Why is it important to study these effects? As mentioned before, forest fire models apply to a wide range of problems and are therefore helpful in predicting the behaviour of such systems. Self-Organized criticality is the concept that describes the dynamics of such models and the two fields are therefore closely connected. One has closely studied these effects to make better predictions about forest fires. The main problem was, that in most cases, even relatively small fires were extinguished by the authorities. Since that led to an overcritical state, the probability for a huge, devastating fire rose quickly. This has happended in the past and had a serios impact on the ecosystem of those areas.
+Since the problem of self-organized criticality has been understood, one has stopped to extinguish every little fire, therefore avoiding to reach an overcritical state at which the disturbance (a small fire) can propagate throughout the whole system (large-scale fire). 
+The same ideas can be applied to a variety of problems such as disease spreading or urban planning.
+
+
+\section{Description of the Model}
+\subsection{Cellular automata}
+
+A cellular automata is a very powerful way of simulating problems which are defined by a set of rules. It is usually simulated on a grid, but not necessarily restricted to those geometrical constraints. The main characteristics are:
+\begin{itemize}
+\item Every grid point has a state
+
+\item Grid points change their state depending on the neighbor states according to a set of rules
+
+\item Random actions may be introduced
+\end{itemize}
+
+In the example of the FFM, every grid point has three states (empty, alive and burning) and four rules, the most obvious of which is “change state to burning if you are alive and your neighbor is burning”. 
+
+Cellular Automata can exhibit very complicated behavior when fed with very simple rules, which is the main reason why they are so powerful. There are similarities to agent-based models and networks, but it is not to be mistaken for one of these.
+
+\subsection{Modelling Approaches}
+\subsubsection{Grid Based Updating}
+In a grid based updating implementation, in every timestep, every cell is checked for the rules in the model in the following order:
+\begin{enumerate}
+\item Loop over all Grid points
+\begin{itemize}
+\item If grid point is empty, grow a tree with probability $p$
+\end {itemize}
+\item Loop over all grid points
+\begin {itemize}
+\item Check for burning direct neighbors, if yes, ignite current cell.
+\end {itemize}
+\item Loop over all grid points 
+\begin {itemize}
+\item If cell is burning, turn it into an empty site.
+\item If cell is ignited, turn it into a burning cell.
+\end {itemize}
+\end {enumerate}
+
+This is the first grid-based updating implementation we came up with. It needs a workaround for the ignited/burning differentiation, because otherwise, the updating order has a direct impact on the fire propagation. It is also necessary to have multiple loops over the grid cell in order to not have instantaneous fire spreading.
+
+The second approach to grid-based updating is with a second grid that stores temporary information. [Insert Description here]
+
+\subsubsection{Random Based Updating}
+In a random based updating implementation, at the beginning of every time step, one random cell is chosen. It then checks for the rules of the model and acts accordingly. In order to see fires, we need to have instantaneous burning, which is actually permitted by the model. However, it changes the dynamics of the system drastically. But more about that later. The following steps are taken for each timestep:
+
+\begin{enumerate}
+\item Choose a single cell
+\item If cell is empty, grow a tree with probability $p$
+\item If cell is a tree, with probabiltiy $f$, burn it and the connected cluster
+\end{enumerate}
+
+This implementation of the forest fire model has several advantages:
+\begin{itemize}
+\item There are no problems due to updating processes
+\item Much shorter implementation
+\item Easier to extract data
+\end{itemize}
+The last point is to be explained more extensively: Every time a tree ignites, the whole connected cluster is burned down. Since the whole process happens in a single timestep, we were able to use a recursive function. This function would search every neighboring cell and pass the function on to it if it is alive, just after burning itself. Now with this function structure, we were easily able to retrieve much wanted data such as total function calls (Fire size) or recursion depth (Cluster size). Problems with this implementation will be discussed later.
+
+\section{Implementation}
+
+\section{Simulation Results and Discussion}
+The first step in the simulation was to see if we could reproduce some of the results found in the references. For starters, we wanted to see if the Formula $\overline s \varpropto  \Theta^{-1}$ would hold. This shold be explained: We define the factor $f \over p$ as $\Theta$ and the mean number of trees burned by one fire as $\overline s$. Then the change in the Number of trees present in the system for some large time t is given as $$\Delta N = p\cdot t - f\cdot \overline s \cdot t$$ 
+If we reach a critical point, then this difference should be zero for large times. Then we can write $$p\cdot t = f\cdot \overline s \cdot t \mbox{ or }p=f\cdot \overline s$$ 
+Since we defined $\Theta = f / p$, we can now write $$\overline s \approx \Theta ^{-1}$$
+What does it tell us if we find this to be true? It tells us, that the system dynamics have a stationary point. However, since we average over quite a large time, the result is not a strong one, but merely a check if the simulations work right.
+In a first attempt to recreate this result, it did not work. We plotted the curve $\overline s \cdot \Theta $ for values of very small to very large $\Theta$ (which shold be constant), and observed a small, but relevant slope with quite big differences for small values of $\Theta$. 
+Now there comes a problem with the implementation. Since we only plant a tree with probability $p$ if the site is \emph{empty} and only set a site on fire if the site has an alive tree (and no actions are taken if these requirements are not fulfilled), the above equation has to be rewritten in terms of the probabilities: $$\Delta N= \frac{(G-N)} {G} \cdot p\cdot t- \frac{N}{G} \cdot f\cdot \overline s\cdot t$$
+where $G$ is the total Number of Grid Points. For a stationary point, this $\Delta N$ again has to be $0$, therefore we can write $$(G-N)\cdot p = N\cdot f \cdot \overline s$$
+This means that $$\Theta \cdot \overline s=\frac{G-N}{N}$$ should hold. Now $\frac {G-N}{N}$ is indeed a constant, which should not change. However, it is implicitly dependant on $\Theta$, since this has a direct impact on the mean number $N$ of alive trees in the system. Imagine for example a very small $f$, meaning that fires are very rare. Then this constant factor is very small because $N$ approaches $G$. For larger values of $\Theta$, $N$ will become smaller and therefore, the factor $\frac{G-N}{N}$ will become larger. 
+That was the result that we obtained from the simulation. It therefore suggests that the simulation is working as expected. 
+
+\section{Summary and Outlook}
+
+\section{References}
+
+
+
+
+
+
+
+
+\end{document}  
+
+
+
+ 

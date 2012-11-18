@@ -467,5 +467,137 @@ Cellular Automata can exhibit very complicated behavior when fed with very
  to be mistaken for one of these.
 \end_layout
 
+\begin_layout Section
+Modelling approaches
+\end_layout
+
+\begin_layout Standard
+There are two principal modelling approaches, based on the decision to implement
+ the system as a cellular automata.
+ The main difference is the way in which the grid is updated.
+ We implemented both versions and found interesting discrepancies between
+ the two.
+ 
+\end_layout
+
+\begin_layout Subsection
+Grid-based updating
+\end_layout
+
+\begin_layout Standard
+The grid based updating procedure is a straight-forward implementation.
+ It follows these main steps:
+\end_layout
+
+\begin_layout Enumerate
+The most outer loop over all timesteps.
+\end_layout
+
+\begin_layout Enumerate
+The next two loops go over all grid points.
+\end_layout
+
+\begin_layout Enumerate
+For every grid point, the following actions are taken in order:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+status open
+
+\begin_layout Itemize
+If the grid point is empty, grow a tree with some probability 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+If the grid point already has a tree, ignite it with some probabilty 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The loop over all grid points is closed and re-opened.
+\end_layout
+
+\begin_layout Enumerate
+Every grid cell checks for burning direct neighbors, and if they have, ignite
+ the current grid cell.
+\end_layout
+
+\begin_layout Enumerate
+The loop over all grid points is closed again and re-opened.
+\end_layout
+
+\begin_layout Enumerate
+Every grid cell checks its state for burning.
+ If so, it turns into an empty site.
+\end_layout
+
+\begin_layout Enumerate
+Every grid cell checks its state for ignited.
+ If so, it tuns into a burning tree.
+\end_layout
+
+\begin_layout Enumerate
+All loops are closed.
+\end_layout
+
+\begin_layout Standard
+The reason we need multiple spatial loops is because of the update procedure.
+ We needed to introduce the differentiation between a burning and just ignited
+ tree.
+ This eliminates updating artifacts like an instantaneous fire spreading
+ in update direction.
+ It is quite important to have multiple loops in that order for not having
+ problems.
+\end_layout
+
+\begin_layout Subsection
+Random-based updating
+\end_layout
+
+\begin_layout Standard
+The random based updating procedure is much simpler and faster and eliminates
+ most of the problems encountered in grid-based updating implementations.
+ However, this method only works if we consider the spreading of the fire
+ as instantaneous on a timescale used for the growth of trees, meaning that
+ 
+\begin_inset Formula $lim\, f/p\rightarrow0$
+\end_inset
+
+.
+ It follows these steps:
+\end_layout
+
+\begin_layout Enumerate
+Loop over all timesteps.
+\end_layout
+
+\begin_layout Enumerate
+Pick a random cell.
+ 
+\end_layout
+
 \end_body
 \end_document
