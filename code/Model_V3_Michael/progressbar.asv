@@ -4,15 +4,20 @@ function[]=progressbar(k,n)
     clc
     fprintf('0','%')
     fprintf('[')
-    for j=1:floor(n/2)
+    p=floor(k/50);
+    for j=1:floor(n/p)
         fprintf('-')
     end
-    fprintf('>%d',(n/k))
-    for j=1:(floor(k/2)-floor(n/2))
+    
+    fprintf('>%2.1g',(100*n/k))
+    for j=1:(floor(k/p)-floor(n/p))
         
         fprintf(' ')
     end
-    fprintf(']1')
+    if (n/k)<10
+        fprintf(' ')
+    end
+    fprintf(']100')
    
     
 

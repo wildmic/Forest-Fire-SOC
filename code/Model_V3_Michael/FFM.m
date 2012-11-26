@@ -1,4 +1,4 @@
-function [ F,Nt_mean ] = FFM( G_Size,f,p,t )
+function [ F,Nt_mean, Nt] = FFM( G_Size,f,p,t )
 %This FFM bases on the assumption that the process of a forest fire is
 %instantaneous in comparison to the time it takes to regrow the trees
 %(which actually is quite realistic). It also does not loop over all cells
@@ -18,8 +18,8 @@ function [ F,Nt_mean ] = FFM( G_Size,f,p,t )
 %If the grid is very large, then due to the nature of the implementation, a
 %larger number of timesteps is needed to fill the grid to a certain amount
 %than with a smaller grid.
-%G=ceil(rand(G_Size)-0.5);
-G=ones(G_Size);
+G=ceil(rand(G_Size)-0.5);
+%G=ones(G_Size);
 colormap summer;
 % F is the fire size counter
 F(t)=0;
@@ -35,9 +35,9 @@ for i=1:t
     Nt(i)=sum(sum(G));
     n=0;
     reL=0;
+
     
-    
-    %Pick a random grid cell
+    %Pick a random grid cell 
     x=ceil(G_Size*(rand(1)));
     y=ceil(G_Size*(rand(1)));
     %if the grid cell is empty
@@ -47,13 +47,23 @@ for i=1:t
         if k<p
             G(x,y)=1;
         end
-    else 
+    end
+%    else 
         %if there is a tree, with some probability, burn it.
-        k=rand();
-        if k<f
-            G(x,y)=2;
+%        k=rand();
+%        if k<f
+%            G(x,y)=2;
             %[G,n,reL]=burnview(x,y,G,reL);
-            [G,n,reL]=burnview2(x,y,G,reL,0,0,0,0);
+%            [G,n,reL]=burnview2(x,y,G,reL,0,0,0,0);
+%        end
+%    end
+    
+    % Alternative Burn algorithm analogous to a system excitation with
+    % fixed frequency:
+    if mod(i,1/f)==0
+        if G(x,y)==1
+        G(x,y)=2;
+        [G,n,reL]=burnview2(x,y,G,reL,0,0,0,0);
         end
     end
     %Since the burning process is instantaneous in comparison to the growth
@@ -68,10 +78,29 @@ for i=1:t
         r=r+1;
         
     end
+    %if mod(i,1000)==0
+     %   i
+    %end
     
 end
 F=F(1:r-1);
 Nt_mean=max(Nt);
+% plot(Nt);
+
+% Save Simulation Data
+cd Results
+cd Single_Simulation_Results
+folder_name=datestr(now,1);
+if exist(folder_name)~=7
+mkdir (folder_name)
+end
+cd (folder_name)
+data_name=datestr(now,'HH_MM_SS');
+data=struct('Sim_Time',t,'Grid_Size',G_Size,'Theta',f/p,'Number_of_trees',Nt,'Fire_size_evolution',F);
+save(data_name,'data');
+cd ..
+cd ..
+cd ..
 
 end
 
