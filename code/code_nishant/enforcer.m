@@ -1,6 +1,9 @@
 function [Forest_grid]=enforcer(Forest_grid,In_small,In_large,N)
 %It replaces all the cells with index In_large with the index In_small
-    i=1;
+%This is the inefficient guy!!!!
+%It takes an index (In_large) and replaces all the cells with that index by
+%a smaller index (In_small) 
+i=1;
     while i<=N
         j=1;
         while j<=N
