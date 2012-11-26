@@ -157,30 +157,59 @@ In the example of the FFM, every grid point has three states (empty, alive and b
 
 Cellular Automata can exhibit very complicated behavior when fed with very simple rules, which is the main reason why they are so powerful. There are similarities to agent-based models and networks, but it is not to be mistaken for one of these.
 
-\subsection{Modelling Approaches}
-\subsubsection{Grid Based Updating}
-In a grid based updating implementation, in every timestep, every cell is checked for the rules in the model in the following order:
-\begin{enumerate}
-\item Loop over all Grid points
-\begin{itemize}
-\item If grid point is empty, grow a tree with probability $p$
-\end {itemize}
-\item Loop over all grid points
-\begin {itemize}
-\item Check for burning direct neighbors, if yes, ignite current cell.
-\end {itemize}
-\item Loop over all grid points 
-\begin {itemize}
-\item If cell is burning, turn it into an empty site.
-\item If cell is ignited, turn it into a burning cell.
-\end {itemize}
-\end {enumerate}
-
-This is the first grid-based updating implementation we came up with. It needs a workaround for the ignited/burning differentiation, because otherwise, the updating order has a direct impact on the fire propagation. It is also necessary to have multiple loops over the grid cell in order to not have instantaneous fire spreading.
 
 The second approach to grid-based updating is with a second grid that stores temporary information. [Insert Description here]
 
-\subsubsection{Random Based Updating}
+
+\section{Implementation}
+As discussed before, there are two main implementation methods for the model: One way is to update the whole grid every timestep, whereas the second method picks a cell randomly at every timestep an only updates the chosen one.
+Both versions store the Grid in a Matrix which is initialized as follows:
+\begin{verbatim}
+Grid=zeros(Grid_Size);
+\end{verbatim}
+or if the grid should be filled by a degree of $k$:
+\begin{verbatim}
+Grid=floor(rand(Grid_Size)+k);
+\end{verbatim}
+\subsection{Grid Based Updating}
+The basic construct of the grid based updating implementation looks like this:
+\begin{verbatim}
+for i=1:t % Loop over all timesteps
+	for j=1:size(Grid,1) % Loop over all y-coordinates
+		for k=1:size(Grid,2) % Loop over all x-coordinates
+			if Grid(j,k)==0 %If the grid point is empty
+				//Grid(j,k)=1 with some probability p
+			end
+		end
+	end
+	for j=1:size(Grid,1) % Loop over all y-coordinates
+		for k=1:size(Grid,2) % Loop over all x-coordinates
+			//if Neighbor(j,k)==3 % If grid neighbor is burning
+				Grid(j,k)=2 % Set current grid point on fire
+			end
+		end
+	end
+	for j=1:size(Grid,1) % Loop over all y-coordinates
+		for k=1:size(Grid,2) % Loop over all x-coordinates
+			if Grid(j,k)==3 % If Grid point is burning
+				Grid(j,k)=0; % Turn it into an empty site
+			end
+			if Grid(j,k)==2 % If grid point is ignited
+				Grid(j,k)=3; % Turn it into an empty site.
+			end
+		end
+	end
+end
+\end{verbatim}
+Several things are to note here:
+\begin{itemize}
+\item We need several spatial loops in order to successfully suppress updating fragments like infinite fire propagation speed in updating direction. 
+\item For the same reason, we need a differention between newly ignited (state 2) and burning (state 3) trees. 
+\item The Algorithm is quite slow because of all the loops and if-statements.
+\end{itemize}
+
+
+\subsection{Random Based Updating}
 In a random based updating implementation, at the beginning of every time step, one random cell is chosen. It then checks for the rules of the model and acts accordingly. In order to see fires, we need to have instantaneous burning, which is actually permitted by the model. However, it changes the dynamics of the system drastically. But more about that later. The following steps are taken for each timestep:
 
 \begin{enumerate}
@@ -188,6 +217,18 @@ In a random based updating implementation, at the beginning of every time step, 
 \item If cell is empty, grow a tree with probability $p$
 \item If cell is a tree, with probabiltiy $f$, burn it and the connected cluster
 \end{enumerate}
+In Matlab, this looks something like this:
+\begin{verbatim}
+for i=1:t % Loop over all timesteps
+(j,k)=ceil(Grid_Size*rand(1,2)); % Choose a random cell
+	if  Grid(j,k)==0 % If the cell is empty
+		\\With some probability p set G(j,k)==1;
+	end
+	if Grid(j,k)==1 % If the cell is alive
+		\\with some probability f execute burn(j,k);
+	end
+end
+\end{verbatim}
 
 This implementation of the forest fire model has several advantages:
 \begin{itemize}
@@ -196,8 +237,42 @@ This implementation of the forest fire model has several advantages:
 \item Easier to extract data
 \end{itemize}
 The last point is to be explained more extensively: Every time a tree ignites, the whole connected cluster is burned down. Since the whole process happens in a single timestep, we were able to use a recursive function. This function would search every neighboring cell and pass the function on to it if it is alive, just after burning itself. Now with this function structure, we were easily able to retrieve much wanted data such as total function calls (Fire size) or recursion depth (Cluster size). Problems with this implementation will be discussed later.
+\subsubsection{The "burn" function}
+The burn function makes the magic happen for the whole program. It basically takes the current grid cell coordinates and the recursion depth as input. Here is what it does with that:
+\begin{enumerate}
+\item Set the current cell as 0 (empty)
+\item Add one to the recursion level
+\item Retrieve the direct neighbor coordinates from the \emph{neighbor} function
+\item check every neighbor for being alive. If so, call the \emph{burn} function with the neighbor coordinates.
+\item Add the returned values to the current values (trees burned)
+\item If no neighbor is alive, return trees burned as one.
+\end {enumerate}
+In other words: This function propagates throughout the system until it reaches a grid cell which has no alive neighbors. It then goes back to the last grid cell where it did have another possibility to go to and chooses that one. This process repeats until there are no trees left in the cluster. Each time the function goes back on its path, it accumulates all the trees burned by that branch. In the end, that gives us a very clear picture about how many trees were burned by evaluating the initial call.
+\paragraph*{Problems with the \emph{burn} function}
+The big problem with this function was, that it would exceed the available stack memory pretty fast. This would always happen if the grid is relatively full. What then happens is that there is no boundary to the cluster, since we are using periodic boundary conditions. The function would propagate throughout the whole system in one single branch. This causes \emph{MATLAB} to crash gracefully and tell the user that one should set the recursion limit to a higher value. What we learned from that, is, that a normal computer crashes at about 2'500 recursions. Now this means that we would not be able to simulate grids of size $25 \times 25$ or more which is not acceptable.
+\paragraph*{Solution}
+The solution obviously was to limit the recursion depth of the function. This was relatively easy to implement, we just had to add 1 every time the function was called. There was, however, a payoff. Since the Function did not have "full" freedom anymore, it could happen that it did not burn the whole cluster. The fraction was in the range of 0.99, but still, it was not quite the optimum. 
+\paragraph*{Improvements} were made in these ways:
+\begin{itemize}
+\item The order in which the neighbors were checked was turned into random. This effectively resulted in the "drunkards walk" and proved to be a little more effective.
+\item The recursion depth was discretized into directions, which made it also more effective.
+\end{itemize}
 
-\section{Implementation}
+\subsection{Diagnostics}
+Since we wanted to determine some properties of the simulation, we had to implement diagnostics. These were the properties measured:
+\paragraph*{Number of alive trees} 
+The Number of trees alive is relatively easy to measure in the random based updating implementation. This comes from the property that there are only two states, 0 (empty) and 1 (alive). It therefore is sufficient to execute
+\begin{verbatim}
+N=sum(sum(Grid));
+\end{verbatim}
+This value also allows us to compute other properties very quickly, like the mean number of alive trees in a simulation or the number of empty sites.
+In the grid based updating implementation, this was implemented with a loop and a counting variable. The Loop would simply check every entry of the grid for being 1 (alive) and subsequently add 1 to the counting variable.
+\paragraph*{Trees burned in a fire}
+This was quite difficult to measure in the grid updating version. The big problem was that there was a possibility of multiple fires happening at the same time. It is therefore not possible to just loop over the whole grid and count the burning trees. One needs to track single fires and only add the trees burned by this incident. The other big problem is, that there is also the possibility of trees growing at the edge of the cluster that is on fire. This means that it is not possible to just search for the entire connected cluster, since its size can (and does!) vary during the fire.
+In the random updating version, this was a lot easier, since the fires would spread instantaneously. Since we were using a recursive function to burn the cluster, we could just pass the trees burned by each sub-branch of the function back to the branch head (initial function call). There are also no issues of multiple fires happening simultaneously and changing cluster sizes.
+\paragraph*{Cluster size distribution}
+For long simulation times, the cluster size distribution approaches the fire size distribution if the fires spread instantaneously. 
+
 
 \section{Simulation Results and Discussion}
 The first step in the simulation was to see if we could reproduce some of the results found in the references. For starters, we wanted to see if the Formula $\overline s \varpropto  \Theta^{-1}$ would hold. This shold be explained: We define the factor $f \over p$ as $\Theta$ and the mean number of trees burned by one fire as $\overline s$. Then the change in the Number of trees present in the system for some large time t is given as $$\Delta N = p\cdot t - f\cdot \overline s \cdot t$$ 

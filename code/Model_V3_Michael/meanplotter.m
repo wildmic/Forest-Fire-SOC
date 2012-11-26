@@ -20,7 +20,7 @@ for i=1:k
     % simulation. 
     % N(i) is the mean number of alive trees in the system for the i-th
     % simulation.
-    N(i)=mean(Output(2));
+    N(i)=Output(2);
     fac(i)=N(i)/(G_s^2-N(i));
     % sf(i) is the mean fire size multiplied by the probability factor
     sf(i)=s(i)*fac(i);

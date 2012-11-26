@@ -1,4 +1,4 @@
-function [ F,Nt_b ] = FFM( G_Size,f,p,t )
+function [ F,Nt_mean ] = FFM( G_Size,f,p,t )
 %This FFM bases on the assumption that the process of a forest fire is
 %instantaneous in comparison to the time it takes to regrow the trees
 %(which actually is quite realistic). It also does not loop over all cells
@@ -21,6 +21,7 @@ function [ F,Nt_b ] = FFM( G_Size,f,p,t )
 %G=ceil(rand(G_Size)-0.5);
 G=ones(G_Size);
 colormap summer;
+% F is the fire size counter
 F(t)=0;
 r=1;
 
@@ -28,7 +29,7 @@ r=1;
 Nt(t)=0;
 %Nt_b is the mean number of trees present in the system averaged over all
 %timesteps
-Nt_b=0;
+Nt_mean=0;
 
 for i=1:t
     Nt(i)=sum(sum(G));
@@ -70,7 +71,7 @@ for i=1:t
     
 end
 F=F(1:r-1);
-Nt_b=mean(Nt);
+Nt_mean=max(Nt);
 
 end
 
