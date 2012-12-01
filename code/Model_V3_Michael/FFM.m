@@ -19,11 +19,13 @@ function [ F,Nt_mean, Nt] = FFM( G_Size,f,p,t )
 %larger number of timesteps is needed to fill the grid to a certain amount
 %than with a smaller grid.
 G=ceil(rand(G_Size)-0.5);
+
 %G=ones(G_Size);
 colormap summer;
 % F is the fire size counter
 F(t)=0;
 r=1;
+CRadius=zeros(1,ceil(t*f));
 
 %Nt is the total number of trees present in the system
 Nt(t)=0;
@@ -63,8 +65,18 @@ for i=1:t
     if mod(i,1/f)==0
         if G(x,y)==1
         G(x,y)=2;
-        [G,n,reL]=burnview2(x,y,G,reL,0,0,0,0);
+        [G,n,reL,xvec,yvec]=burnview2(x,y,G,reL,0,0,0,0,0,0);
         end
+        xvec;
+        yvec;
+        pause(0.5)
+        x_center=mean(xvec);
+        y_center=mean(yvec);
+        radius=zeros(1,ceil(size(xvec,2)));
+        for index=1:size(xvec)
+            radius(index)=sqrt((xvec(index)-x_center)^2+(yvec(index)-y_center)^2);
+        end
+        CRadius(f*i)=mean(radius);
     end
     %Since the burning process is instantaneous in comparison to the growth
     %we can search for every connected cell and burn it. This is
@@ -78,9 +90,9 @@ for i=1:t
         r=r+1;
         
     end
-    %if mod(i,1000)==0
-     %   i
-    %end
+    if mod(i,100)==0
+     i
+    end
     
 end
 F=F(1:r-1);
@@ -96,7 +108,7 @@ mkdir (folder_name)
 end
 cd (folder_name)
 data_name=datestr(now,'HH_MM_SS');
-data=struct('Sim_Time',t,'Grid_Size',G_Size,'Theta',f/p,'Number_of_trees',Nt,'Fire_size_evolution',F);
+data=struct('Sim_Time',t,'Grid_Size',G_Size,'Theta',f/p,'Number_of_trees',Nt,'Fire_size_evolution',F,'CRadius',CRadius);
 save(data_name,'data');
 cd ..
 cd ..

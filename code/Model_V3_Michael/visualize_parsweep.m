@@ -2,7 +2,7 @@ function [] = visualize_parsweep(data)
 
 figure
 subplot(2,1,1)
-plot( data.Theta_vector,data.Mean_tree)
+plot( data.Theta_vector,data.Mean_tree./data.Grid_Size^2)
 xlabel('\Theta')
 ylabel('Mean # of trees alive')
 subplot(2,1,2)

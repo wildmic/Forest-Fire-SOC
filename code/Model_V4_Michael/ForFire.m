@@ -1,0 +1,225 @@
+function [data]= ForFire (GSize, f, p, t, d_rate,output)
+%% Input variables
+% The input variables are:
+% GSize (for creating a grid GSize x GSize
+% f, the fire parameter (chance of spontaneous fire)
+% p, the growth parameter
+% t, the simulation time
+% d_rate, the diagnostics rate (set it to 50 or more for performance
+% issues)
+if output
+fprintf('Initializing Simulation...\n');
+tic
+end
+%%Initialization
+% Both the original and the shadow grid are initialized empty and global.
+% The original grid contains the information about the state of a cell
+% The shadow grid contains the information about the cluster Index of a
+% cell.
+global grid 
+grid=zeros(GSize);
+global shgrid
+shgrid=grid;
+% The index matrix contains all the possible indexes and their availability
+% where 1 means that the index is already in use and 0 means that the index
+% is currently not in use
+% There are GSize^2/2 possible clusters (in a perfect
+% chessboard-configuration)
+% Index(1,k) returns the k-th index
+% Index(2,k) returns the availability
+indexes=1:ceil(GSize^2/2);
+availability=zeros(1,ceil(GSize^2/2));
+global Index
+Index=[indexes;availability];
+%figure
+%colormap(jet);
+sizevec=0;
+radvec=0;
+Ntrees=zeros(1,t/d_rate);
+op=0;
+
+
+%% Loop over all timesteps 
+for i=1:t
+    
+    % Pick a random cell to work on
+    x=ceil(GSize*rand());
+    y=ceil(GSize*rand());
+    % Generate random number for growth and fire possibilities
+    valrand=rand();
+    % Check if site is empty
+    if grid(x,y)==0
+        % Check if growth is possible
+        if valrand<p
+            % Grow a tree
+            grid(x,y)=1;
+            % Updating the shadowgrid
+            [a,b,c,d]=GetNcIndex(x,y);
+            % if all neighbors are empty, set the index to the smallest
+            % possible
+            if ((a+b+c+d)==0)
+                shgrid(x,y)=lowIndex();
+                %fprintf('cell at %d,%d has no indexed neighbors and has been set to %d \n',x,y,shgrid(x,y));
+            end
+            % if only one neighbor is already indexed
+            % note that the program does NOT need to know which one it is,
+            % since the condition is satisfied iff exactly one of them is
+            % different from zero which automatically gives the max value
+            if ((max([a,b,c,d])==(a+b+c+d) )&& max([a,b,c,d])~=0)
+                shgrid(x,y)=max([a,b,c,d]);
+                %fprintf('cell at %d, %d has one indexed neighbor and has been set to %d \n',x,y,shgrid(x,y));
+            end
+            % if more than one neighbors are already indexed, the lowest
+            % will be chosen and the other indexed cluster will be changed
+            % to this one too
+            if (max([a,b,c,d])<(a+b+c+d))
+                % check for empty ones
+                % the resulting vector cInd holds all the relevant indexes.
+                % meaning that the empty ones are thrown out
+                %fprintf('cell at %d,%d has more than two indexed neighbors ', x,y);
+                cInd=0;
+                if a>0
+                    cInd=a;
+                end
+                if b>0
+                    cInd=[cInd b];
+                end
+                if c>0
+                    cInd=[cInd c];
+                end
+                if d>0
+                    cInd=[cInd d];
+                end
+                if cInd(1)==0
+                    cInd=cInd(2:size(cInd,2));
+                end
+                shgrid(x,y)=min(cInd);
+                %fprintf('and has been set to %d \n',shgrid(x,y));
+              
+                for k=1:size(cInd,2)
+                    changeIndex(cInd(k),min(cInd));
+                end
+            end
+        end
+    end
+    %check if Grid point is a tree
+    if grid(x,y)==1
+        
+        if valrand<f
+        clusterburn(x,y);
+        end
+    end
+ 
+    
+    if mod(i,d_rate)==0
+    [cSize,cRadius,N]=diagnostics();
+   sizevec=[sizevec; cSize];
+   radvec=[radvec; cRadius];
+   Ntrees(i/d_rate)=N;
+   op=op+1;
+   if mod(op,t/d_rate/100)==0
+       if output
+   fprintf('Simulation is at %d percent, estimated time left: %d seconds\n', round(i/t*100), round((t-i)/i*toc));
+       end
+   op=0;
+   end
+    end
+  
+   
+ 
+%    subplot(2,2,1);
+%    image(shgrid*3);
+%    subplot(2,2,2);
+%    image(10*grid);
+%    subplot(2,2,3);
+%    hist(cRadius);
+%    subplot(2,2,4);
+%    hist(cSize);
+%    getframe;
+%    end
+   
+    
+end
+fourierTrees=fft(Ntrees);
+for i=50:size(fourierTrees,2)
+    fourierTrees(i)=0;
+end
+cleanTrees=ifft(fourierTrees);
+% Data Preview
+if output
+fprintf('preparing data preview...\n');
+    figure('Name','Data Preview');
+    
+    subplot(2,2,1);
+    hist(radvec,20);
+    title('Radius distribution');
+    xlabel('Radius');
+    ylabel('# of measurments');
+    subplot(2,2,2);
+    hist(sizevec,20);
+    title('Size distribution');
+    xlabel('Cluster Size');
+    ylabel('# of measurments');
+    subplot(2,2,3);
+    plot(Ntrees);
+    title('# trees evolution');
+    xlabel('time'); % note that this is not the simulation time but the time divided by the diagnostics period.
+    ylabel('Alive Trees');
+    subplot(2,2,4);
+    plot(real(cleanTrees));
+    title('# trees evolution (denoised)')
+    xlabel('time');
+    ylabel('Alive Trees');
+    
+    fprintf('saving data...\n');
+    % Saving Data
+end
+    
+data=struct('rad_dist',radvec,'size_dist',sizevec,'trees',Ntrees,'d_period',d_rate);
+Theta=p/f;
+a=num2str(GSize);
+b=num2str(Theta);
+c=num2str(t);
+i=0;
+cd Results
+folder_name=[a '_' b '_' c];
+while exist(folder_name)==7
+    d=num2str(i);
+    folder_name=[a '_' b '_' c '_' d];
+    i=i+1;
+end
+mkdir (folder_name)
+cd (folder_name)
+save(folder_name,'data');
+cd ..
+cd ..
+if output
+fprintf('simulation finished. \n');
+end
+
+
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end

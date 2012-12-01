@@ -1,0 +1,31 @@
+function [cSize,cRadius] = diagnostics ()
+global grid;
+global shgrid;
+global Index;
+% retrieve all used indices
+cIndex=find(Index(2,:));
+
+% initialize size vector
+cSize=zeros(size(cIndex,2),1);
+% initialize radius vector
+cRadius=zeros(size(cIndex,2),1);
+%counter variable for the output
+count=1;
+for i=cIndex
+    % retrieve cluster index and retrieve clean matrix
+    ind=Index(1,i);
+    cluster=ismember(shgrid,ind);
+    % find cluster size
+    
+    cSize(count)=sum(sum(cluster));
+    [x,y]=find(cluster);
+    x_center=mean(x);
+    y_center=mean(y);
+    dist=zeros(size(x,1),1);
+    for h=1:size(x)
+        dist(h)=sqrt((x(h)-x_center)^2+(y(h)-y_center)^2);
+    end
+    cRadius(count)=mean(dist);
+    count=count+1;
+end
+    
