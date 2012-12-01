@@ -7,6 +7,10 @@ function [data]= ForFire (GSize, f, p, t, d_rate,output)
 % t, the simulation time
 % d_rate, the diagnostics rate (set it to 50 or more for performance
 % issues)
+% output, the option of having a command window output (set it to 1) which
+% tells the current state of the simulation, or having no output (set it to
+% 0) which is much more convenient when doing parameter sweeps. Note that
+% the output does not have a relevant effect on the simulation duration.
 if output
 fprintf('Initializing Simulation...\n');
 tic
@@ -31,11 +35,20 @@ indexes=1:ceil(GSize^2/2);
 availability=zeros(1,ceil(GSize^2/2));
 global Index
 Index=[indexes;availability];
-%figure
-%colormap(jet);
+
+% initialize the vector which holds all the sizes of all the clusters over
+% all timesteps. Since we do not know the amount of clusters we are going
+% to get, it is impossible to initialize it to the correct size. The
+% Performance issues are marginal.
 sizevec=0;
+% initialize the vector which holds all the radii of all the clusters over
+% all timesteps. Same problem as above applies.
 radvec=0;
+% Initialize the vector which will store the amount of alive trees over all
+% timesteps. Since we only measure this property at distinct intervals, its
+% length is well known.
 Ntrees=zeros(1,t/d_rate);
+% Ugly help variable for later...
 op=0;
 
 
@@ -97,7 +110,8 @@ for i=1:t
                 end
                 % set the current grid cell to the lowest available Index
                 shgrid(x,y)=min(cInd);
-                %fprintf('and has been set to %d \n',shgrid(x,y));
+                
+               
                 % for all the other clusters, the indices are changed to
                 % the new, common index.
                 for k=1:size(cInd,2)
