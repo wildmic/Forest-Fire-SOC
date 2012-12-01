@@ -90,12 +90,16 @@ for i=1:t
                 if d>0
                     cInd=[cInd d];
                 end
+                % ugly workaround to check if a was zero --> gives nasty
+                % errors if not checked.
                 if cInd(1)==0
                     cInd=cInd(2:size(cInd,2));
                 end
+                % set the current grid cell to the lowest available Index
                 shgrid(x,y)=min(cInd);
                 %fprintf('and has been set to %d \n',shgrid(x,y));
-              
+                % for all the other clusters, the indices are changed to
+                % the new, common index.
                 for k=1:size(cInd,2)
                     changeIndex(cInd(k),min(cInd));
                 end
@@ -104,18 +108,32 @@ for i=1:t
     end
     %check if Grid point is a tree
     if grid(x,y)==1
-        
+        % if the condition for fire is satisfied
         if valrand<f
+            % burn the cluster. See description in the function for closer
+            % insight.
         clusterburn(x,y);
         end
     end
  
-    
+    % Since the diagnostics function is by far the most time-consuming part
+    % of the simulation, it is only called at distinct timesteps with a
+    % period of d_rate.
     if mod(i,d_rate)==0
+        % run the diagnostics and retrieve the data.
     [cSize,cRadius,N]=diagnostics();
+    % store the data in a bigger vector. It is not necessary to sort this,
+    % since it will only be used in histograms later on. Note that it is
+    % impossible to determine the size of these vectors at the beginning of
+    % the program, therefore they change their size in every loop. The
+    % effects on the overall performance of the program are though
+    % marginal.
    sizevec=[sizevec; cSize];
    radvec=[radvec; cRadius];
    Ntrees(i/d_rate)=N;
+   % for every percent the simulation advances, there is a print at the
+   % command window. this can be suppressed with setting the output option
+   % to zero.
    op=op+1;
    if mod(op,t/d_rate/100)==0
        if output
@@ -126,7 +144,8 @@ for i=1:t
     end
   
    
- 
+  % commented out section for live-plotting of the grid, the shadow grid
+  % and histograms of the radius and size distribution
 %    subplot(2,2,1);
 %    image(shgrid*3);
 %    subplot(2,2,2);
@@ -137,14 +156,20 @@ for i=1:t
 %    hist(cSize);
 %    getframe;
 %    end
+  %
+  %
    
     
 end
+
+% applying a low-pass filter to the tree evolution data for smoother
+% visualization
 fourierTrees=fft(Ntrees);
 for i=50:size(fourierTrees,2)
     fourierTrees(i)=0;
 end
 cleanTrees=ifft(fourierTrees);
+
 % Data Preview
 if output
 fprintf('preparing data preview...\n');
@@ -172,9 +197,10 @@ fprintf('preparing data preview...\n');
     ylabel('Alive Trees');
     
     fprintf('saving data...\n');
-    % Saving Data
+   
 end
     
+ % Saving Data in a custom struct
 data=struct('rad_dist',radvec,'size_dist',sizevec,'trees',Ntrees,'d_period',d_rate);
 Theta=p/f;
 a=num2str(GSize);
@@ -182,7 +208,11 @@ b=num2str(Theta);
 c=num2str(t);
 i=0;
 cd Results
+% making a custom folder with information about the grid size, theta and
+% the simulation time
 folder_name=[a '_' b '_' c];
+% if such a simulation has already been run, it just adds increasing
+% numbers to the end of the folder name.
 while exist(folder_name)==7
     d=num2str(i);
     folder_name=[a '_' b '_' c '_' d];
@@ -196,28 +226,6 @@ cd ..
 if output
 fprintf('simulation finished. \n');
 end
-
-
-
-
-
-
-            
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
