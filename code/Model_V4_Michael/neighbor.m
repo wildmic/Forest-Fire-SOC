@@ -2,6 +2,7 @@ function [a,b,c,d,e,f,g,h] = neighbor(j,k,m,n)
 % This sub-function returns the 1st order moore neighbourhood for a grid
 % cell [j,k] on a mxn grid with periodic bc. [a,b]: West; [c,d]: North;
 % [e,f]: East; [g,h]: South;
+% Treat the standard case
 a=j-1;
 b=k;
 c=j;
@@ -10,6 +11,7 @@ e=j+1;
 f=k;
 g=j;
 h=k+1;
+% treat special cases is the current grid cell is a boundary cell.
 if j==1
     a=m;
 end
