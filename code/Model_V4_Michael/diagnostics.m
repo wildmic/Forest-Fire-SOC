@@ -41,7 +41,7 @@ for i=1:size(cIndex,2);
         dist(h)=sqrt((x(h)-x_center)^2+(y(h)-y_center)^2);
     end
     % compute the cluster radius as the mean of all radii.
-    cRadius(i)=round(mean(dist));
+    cRadius(i)=round(sqrt((mean(dist.^2))));
     
 end
 % This step is necessary to make the above loop suitable for parallel

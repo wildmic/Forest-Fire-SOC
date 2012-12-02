@@ -1,4 +1,9 @@
+%% FORFIRE
+
+%%
 function [data]= ForFire (GSize, f, p, t, d_rate,output)
+% Syntax: ForFire(Grid Size, Lightning parameter, Growth parameter,
+% Simulation time, Diagnostics rate, Output option)
 %% Input variables
 % The input variables are:
 % GSize (for creating a grid GSize x GSize
@@ -15,7 +20,8 @@ if output
 fprintf('Initializing Simulation...\n');
 tic
 end
-%%Initialization
+
+%% Initialization
 % Both the original and the shadow grid are initialized empty and global.
 % The original grid contains the information about the state of a cell
 % The shadow grid contains the information about the cluster Index of a
@@ -184,7 +190,7 @@ for i=50:size(fourierTrees,2)
 end
 cleanTrees=ifft(fourierTrees);
 
-% Data Preview
+%% Data Preview
 if output
 fprintf('preparing data preview...\n');
     figure('Name','Data Preview');
@@ -214,7 +220,7 @@ fprintf('preparing data preview...\n');
    
 end
     
- % Saving Data in a custom struct
+%% Saving Data in a custom struct
 data=struct('rad_dist',radvec,'size_dist',sizevec,'trees',Ntrees,'d_period',d_rate);
 Theta=p/f;
 a=num2str(GSize);
