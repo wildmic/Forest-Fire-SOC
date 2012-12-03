@@ -1,4 +1,9 @@
+%% FORFIRE
+
+%%
 function [data]= ForFire (GSize, f, p, t, d_rate,output)
+% Syntax: ForFire(Grid Size, Lightning parameter, Growth parameter,
+% Simulation time, Diagnostics rate, Output option)
 %% Input variables
 % The input variables are:
 % GSize (for creating a grid GSize x GSize
@@ -7,11 +12,16 @@ function [data]= ForFire (GSize, f, p, t, d_rate,output)
 % t, the simulation time
 % d_rate, the diagnostics rate (set it to 50 or more for performance
 % issues)
+% output, the option of having a command window output (set it to 1) which
+% tells the current state of the simulation, or having no output (set it to
+% 0) which is much more convenient when doing parameter sweeps. Note that
+% the output does not have a relevant effect on the simulation duration.
 if output
 fprintf('Initializing Simulation...\n');
 tic
 end
-%%Initialization
+
+%% Initialization
 % Both the original and the shadow grid are initialized empty and global.
 % The original grid contains the information about the state of a cell
 % The shadow grid contains the information about the cluster Index of a
@@ -41,8 +51,10 @@ sizevec=0;
 % all timesteps. Same problem as above applies.
 radvec=0;
 % Initialize the vector which will store the amount of alive trees over all
-% timesteps. Since we only measure this property at distinc
+% timesteps. Since we only measure this property at distinct intervals, its
+% length is well known.
 Ntrees=zeros(1,t/d_rate);
+% Ugly help variable for later...
 op=0;
 
 
@@ -178,7 +190,7 @@ for i=50:size(fourierTrees,2)
 end
 cleanTrees=ifft(fourierTrees);
 
-% Data Preview
+%% Data Preview
 if output
 fprintf('preparing data preview...\n');
     figure('Name','Data Preview');
@@ -208,7 +220,7 @@ fprintf('preparing data preview...\n');
    
 end
     
- % Saving Data in a custom struct
+%% Saving Data in a custom struct
 data=struct('rad_dist',radvec,'size_dist',sizevec,'trees',Ntrees,'d_period',d_rate);
 Theta=p/f;
 a=num2str(GSize);
@@ -229,6 +241,8 @@ end
 mkdir (folder_name)
 cd (folder_name)
 save(folder_name,'data');
+% save the plots
+[a,
 cd ..
 cd ..
 if output

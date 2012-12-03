@@ -271,6 +271,9 @@ Treat Special cases
 \end{verbatim}
 Note that the \emph{neighbor} function creates periodic boundary conditions. 
 
+\subsection{Saving the data}
+Because we were doing a lot of parameter sweeps and thus generating a lot of data, it was crucial to implement an automatic data saving procedure. This would store all the relevant information of a single simultation in a custom matlab struct and save the important figures. We also created a custom naming concept which allows for quick search for the desired data. All simulation results are named after their input parameters: 
+
 
 \section{Simulation Results and Discussion}
 \emph{note that in this section, $\Theta$ is defined as $p/f$.}

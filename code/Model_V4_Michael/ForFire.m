@@ -241,6 +241,28 @@ end
 mkdir (folder_name)
 cd (folder_name)
 save(folder_name,'data');
+% save the plots
+[a,b]=hist(data.rad_dist,50);
+a=log10(a);
+b=log10(b);
+radplot=figure;
+plot(b,a);
+title('Radius distribution','FontSize',15);
+xlabel('log10(radius)','FontSize',15);
+ylabel('log10(# occurrences)','FontSize',15);
+hgsave(radplot,'RadiusDist','-v6');
+close all
+
+[a,b]=hist(data.size_dist,50);
+a=log10(a);
+b=log10(b);
+sizeplot=figure;
+plot(b,a);
+title('Size distribution','FontSize',15);
+xlabel('log10(size)','FontSize',15);
+ylabel('log10(# occurrences)','FontSize',15);
+hgsave(sizeplot,'SizeDist','-v6');
+close all
 cd ..
 cd ..
 if output

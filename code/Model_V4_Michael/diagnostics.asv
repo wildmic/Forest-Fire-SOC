@@ -36,13 +36,21 @@ for i=1:size(cIndex,2);
     y_center=mean(y);
     % initialize the distance vector as zero
     dist=zeros(size(x,1),1);
-    % for every cluster cell
+    % for every cluster cell, compute its distance to the cluster center
     for h=1:size(x)
         dist(h)=sqrt((x(h)-x_center)^2+(y(h)-y_center)^2);
     end
-    cRadius(i)=round(mean(dist));
+    
+    % compute the cluster radius as the mean of all radii.
+    cRadius(i)=round(sqrt((mean(dist.^2))));
+    
+    
     
 end
+% This step is necessary to make the above loop suitable for parallel
+% execution. Otherwise, one could just have written for i=cIndex.
+% Here, we find all non-zero entries in the cRadius and cSize vectors and
+% condense them into smaller vectors which hold no zero-elements.
 temp=find(cIndex);
 cRadius=cRadius(temp);
 cSize=cSize(temp);
