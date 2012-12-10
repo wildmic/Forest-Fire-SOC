@@ -7,6 +7,20 @@
 \usepackage{epstopdf}
 \usepackage{natbib}
 \usepackage{amssymb, amsmath}
+\def \beq{\begin{equation}}
+\def \eeq{\end{equation}}
+\def \bea{\begin{eqnarray}}
+\def \eea{\end{eqnarray}}
+\def \bem{\begin{displaymath}}
+\def \eem{\end{displaymath}}
+\def \P{\Psi}
+\def \Pd{|\Psi(\boldsymbol{r})|}
+\def \Pds{|\Psi^{\ast}(\boldsymbol{r})|}
+\def \Po{\overline{\Psi}}
+\def \bs{\boldsymbol}
+\def \bl{\bar{\boldsymbol{l}}}
+\def \beq{\begin{equation}}
+\def \eeq{\end{equation}}
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -90,42 +104,63 @@
 
 \section{Introduction and Motivations}
 \subsection{What is Self-Organized Criticality?}
-Self-Organized Criticality is the Concept that the dynamics of a physical system converge to a critical point independant of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. The concept is best understood by example, so we shall bring up a very educative one introduced first by (P.Bak, C.Tang, K.Wiesenfeld, Phys. Rev. A 38, 1988). 
-Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independant of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
+Self-Organized Criticality involves 2 very important concepts: Self-Organization and Critical behavior. These 2 phenomenon arouse in various fields in very different forms.In certain class of systems, the dynamics can be very well explained by a few collective degrees of freedom. This dimensional reduction is termed as "Self Organization". It leads to evolution of global patterns in the system even though all the interactions are local. Let us take an example from the field of physics.Crystallization is the process of formation of crystals. It usually requires a small nucleus for the growth of the crystal. Once the nucleus is formed, crystal can grow on this nucleus. If we consider a particle which is going to crystallize on a given site, the choice of this site is decided only by the local environment seen by the particle. It does not depend on the particle on every other site on the crystal. But this local interaction leads to the formation of an ordered crystalline phase. Bird flocking is an example of self organization from the field of Biology.
+
+On the other hand, there is another set of dynamical systems where the individual degree of freedom keep itself more or less in a stable balance and it is not possible to describe such a system by a few collective degrees of freedom. The key point in such systems is that the interdependence of various degrees of freedom make such systems very susceptible to noise. That's why, these systems can be called as "Critical". Critical state usually represent a point where 2 different phases occur simultaneously at the same time. A critical state has specific temporal and spatial signature. The power spectrum of the quantity representing the dynamics of the system is similar to that flicker noise. (More on flicker noise later!). The spatial signature of a critical state is ``self-similarity'' which is what we find for the case of fractals.
+
+Self-Organized criticality combines the above 2 concepts. In it, the dynamics of a physical system converge to a critical point independent of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. We usually say that the \textit{critical point} is an attractor of the system dynamics. The concept is best understood by example, so we shall bring up a very educative one introduced first by \cite{ref3}. 
+Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independent of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
 It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
 
-\subsection{Forest-Fire Model}
-A Forest Fire Model is basically a cellular automata. Each cell has three possible states:
-\begin{enumerate}
-\item Empty Site
-\item Alive Tree
-\item Burning Tree
-\end{enumerate}
-There are four rules defined for each cell, which are executed simultaneously:
-\begin {itemize}
-\item A burning tree turns into an empty site
-\item A tree starts to burn if at least one of its neighbors are burning
-\item A tree will grow on an empty site randomly with probability $p$
-\item A tree will burn randomly with probability $f$
-
+\subsection{Forest-Fire Model (FFM) as an example of Self-Organized Criticality}
+A Forest Fire Model is basically a cellular automata. Each cell can have one of the following three states:
+\begin{itemize}
+  \item 0: A green tree
+  \item 1: Empty site
+  \item 2: Fire
 \end{itemize}
+
+The dynamics of the system is defined though the following rules.They are applied to every step as we go from 1 time step to the next.
+\begin{enumerate}
+\item If a tree is burning at a given time step (2), we make it an empty site during the next time step.
+\item If a site is empty (1), a tree can be grown on it with a probability p. This means that if we found out a site to be empty, we generate a random number between 0 and 1. If the number is less than p, we change the state of the cell to 0, otherwise it stays an empty site.
+\item If a site is a green tree (0), we burn this tree in the next step if:
+
+\begin{itemize}
+\item Either of its neighbors is a burning tree.
+\item We generate a random number between 0 and 1, if it is less than f (lightening probability), we burn this tree.
+\end{itemize}
+\end{enumerate}
+
 It is important to note that the Forest Fire Model does not only apply to forest fires as its name would suggest. A whole class of problems follows the same basic rules and can be treated accordingly. An example would be the spreading of a disease, where one can directly transform the above rules and states.
 
-\subsection{Power Laws}
-Power laws are functions of the form $ P(s) \varpropto s^{-\tau}$ . These functions are found in many data sets, such as the size distribution of cities in a certain area. Take any country, one will find one very large metropolis, a few large cities, many medium sized towns and a huge lot of small towns. Power laws imply that the frequency of a general data point is inversely proportional to its magnitude. 
+This model describes an SOC state in the regime where the ratio of p and f is very large and p itself is very small. An important question is how to characterize a state as an SOC state. This is described in the following 2 sections.
+
+For FFM to be an SOC, we need to ensure 2 things. One is that the probability of growing a tree should be much larger than the probability of lightening. We can intuitively think about the ratio of p and f as the number of trees growing between 2 lightening strokes.This condition ensures long range correlation in the system (which will lead to criticality) building out of purely local interactions (randomly growing trees). Another condition which we need to ensure is that the time needed to burn a large cluster should be much smaller than the time needed to grow a tree. This condition ensures invariance under a change of the length scale \cite{ref1}. The 2 conditions can be written together as:
+\beq
+T_{burn}(cluster_{max})<<p^{-1}<<f^{-1}
+\eeq
+
+
+\subsection{Critical Exponents}
+Usually, a critical point is associated with certain power law distributions of various physical quantities characterizing a critical state. Power laws are functions of the form $ P(s) \varpropto s^{-\tau}$ . These functions are found in many data sets, such as the size distribution of cities in a certain area. Take any country, one will find one very large metropolis, a few large cities, many medium sized towns and a huge lot of small towns. Power laws have also prominently been found in data sets of earthquakes, where they apply almost perfectly, meaning that small earthquakes happen very often in respect to the frequency of big ones. Power laws imply that the frequency of a general data point is inversely proportional to its magnitude. 
+
+At a critical point, the power laws are characterized by critical exponents which are the indicators of the critical state. They usually depend only on the dimension of the system and the nature of interactions/ dynamics involved. These exponents are independent of the initial condition and the size of the system. These critical exponents can be calculated either by mean field approaches or through numerical simulations. The mean field approach becomes more and more exact in higher and higher dimensions.
 
 In context to the FFM, it is proposed as a way of quantifying the frequency of Fires with respect to their cluster size. 
 
-Power laws have also prominently been found in data sets of earthquakes, where they apply almost perfectly, meaning that small earthquakes happen very often in respect to the frequency of big ones.
 
 \subsection{Key Parameters in SOC}
 
-To find out wether a basic FFM exhibits SOC behavior, we need to define a set of parameters which serves as indicators for the desired analysis. 
+To find out whether a basic FFM exhibits SOC behavior, we need to define a set of parameters which serves as indicators for the desired analysis. 
 \begin{itemize}
 
-\item The time needed to burn down a forest cluster: This is heavily dependant on the form of the implementation. If we choose to implement it in a way like [reference needed], we will have an instantaneous fire which essentially takes no time to burn and just resets all the connected trees. If however, we choose the form of a “visible” fire, meaning that the ratio $f/p\ll1$  is not 0  in limit and that it takes the fire one timestep to advance a grid cell, then the time needed to burn a forest cluster is an important variable we need to extract from the simulation.
+\item The time needed to burn down a forest cluster: This is heavily dependent on the form of the implementation. If we choose to implement it in a way like [reference needed], we will have an instantaneous fire which essentially takes no time to burn and just resets all the connected trees. If however, we choose the form of a visible� fire, meaning that the ratio $f/p\ll1$  is not 0  in limit and that it takes the fire one time step to advance a grid cell, then the time needed to burn a forest cluster is an important variable we need to extract from the simulation.
 
-\item Number distribution of the size of clusters: Here we first need to define what a cluster is. A cluster is a set of neighboring cells all obtaining the same state. When we talk about forest clusters, we of course mean connected trees. In the implementation where the fire spreads infinitly fast, the forest cluster containing the ignitor cell is the same as the burnt area. The size distribution therefore is a very good indicator for the fire size distribution. 
+
+
+
+\item Number distribution of the size of clusters: Here we first need to define what a cluster is. A cluster is a set of neighboring cells (Von Neumann neighborhood) all obtaining the same state. When we talk about forest clusters, we of course mean connected trees. In the implementation where the fire spreads infinitly fast, the forest cluster containing the ignitor cell is the same as the burnt area. The size distribution therefore is a very good indicator for the fire size distribution. 
 
 \item The mean number of forest clusters in a unit volume $n(s)$ , where s  is the number of trees in a cluster. 
 
@@ -133,7 +168,7 @@ To find out wether a basic FFM exhibits SOC behavior, we need to define a set of
 
 \item Correlation length.
 \end{itemize}
-We have tried to implement the model in a way that the measurment of these desired variables is possible with the least needed effort.
+We have tried to implement the model in a way that the measurement of these desired variables is possible with the least needed effort.
 
 \subsection{Motivation}
 Why is it important to study these effects? As mentioned before, forest fire models apply to a wide range of problems and are therefore helpful in predicting the behaviour of such systems. Self-Organized criticality is the concept that describes the dynamics of such models and the two fields are therefore closely connected. One has closely studied these effects to make better predictions about forest fires. The main problem was, that in most cases, even relatively small fires were extinguished by the authorities. Since that led to an overcritical state, the probability for a huge, devastating fire rose quickly. This has happended in the past and had a serios impact on the ecosystem of those areas.
@@ -287,8 +322,8 @@ That was the result that we obtained from the simulation. It therefore suggests 
 
 \section{Summary and Outlook}
 
-\section{References}
-
+\bibliographystyle{unsrt}
+\bibliography{ref1}  % list here all the bibliographies that
 
 
 
