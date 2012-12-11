@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  11 DEC 2012 19:31
+=======
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2011.5.27)  3 DEC 2012 08:56
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 entering extended mode
 **C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/r
 eport.tex
@@ -211,6 +215,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
+<<<<<<< HEAD
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
 port.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -225,6 +230,43 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count104
+\float@exts=\toks22
+\float@box=\box28
+\@float@everytoks=\toks23
+\@floatcapt=\box29
+)
+(C:\Users\Michael\Documents\GitHub\Forest-Fire-SOC\doc\latex\report.aux
+
+! Package natbib Error: Bibliography not compatible with author-year citations.
+
+(natbib)                Press <return> to continue in numerical citation style.
+
+
+See the natbib package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.33 ...mand\NAT@force@numbers{}\NAT@force@numbers
+                                                  
+? 
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -262,20 +304,27 @@ LaTeX Font Info:    ... okay on input line 31.
 
 (C:\Users\nishant\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count104
+\scratchcounter=\count105
 \scratchdimen=\dimen122
-\scratchbox=\box28
-\nofMPsegments=\count105
-\nofMParguments=\count106
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count107
+\scratchbox=\box30
+\nofMPsegments=\count106
+\nofMParguments=\count107
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count108
 \MPscratchDim=\dimen123
+<<<<<<< HEAD
 \MPnumerator=\count108
 \makeMPintoPDFobject=\count109
 \everyMPtoPDFconversion=\toks23
 )
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\co
 ver.tex
+=======
+\MPnumerator=\count109
+\makeMPintoPDFobject=\count110
+\everyMPtoPDFconversion=\toks25
+) (C:\Users\Michael\Documents\GitHub\Forest-Fire-SOC\doc\latex\cover.tex
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 Package epstopdf Info: Source file: <ETHlogo.eps>
 (epstopdf)                    date: 2012-11-18 19:05:58
 (epstopdf)                    size: 179075 bytes
@@ -286,7 +335,14 @@ Package epstopdf Info: Source file: <ETHlogo.eps>
 f ETHlogo.eps>
 (epstopdf)             \includegraphics on input line 5.
 Package epstopdf Info: Output file is already uptodate.
+<<<<<<< HEAD
  <ETHlogo-eps-converted-to.pdf, id=1, 179.67125pt x 45.16875pt>
+=======
+
+! I can't write on file `report.pdf'.
+Please type another file name for output: 
+<ETHlogo-eps-converted-to.pdf, id=1, 179.67125pt x 45.16875pt>
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 File: ETHlogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ETHlogo-eps-converted-to.pdf>
@@ -303,10 +359,17 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 34.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )) [1
 
+<<<<<<< HEAD
 {C:/Users/nishant/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/
 nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/ETHlogo-eps-
 converted-to.pdf>]
 Overfull \hbox (5.3226pt too wide) in paragraph at lines 60--78
+=======
+{C:/Users/Michael/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/
+Michael/Documents/GitHub/Forest-Fire-SOC/doc/latex/ETHlogo-eps-converted-to.pdf
+>]
+Overfull \hbox (5.3226pt too wide) in paragraph at lines 47--65
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
  [] 
  []
 
@@ -314,22 +377,34 @@ Overfull \hbox (5.3226pt too wide) in paragraph at lines 60--78
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
 port.toc)
 \tf@toc=\write3
+<<<<<<< HEAD
  [3] [4]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 119.
+=======
+
+[3] [4]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 114.
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+<<<<<<< HEAD
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 119.
 
 [5] [6]
+=======
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 114.
+ [5]
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
+<<<<<<< HEAD
  [7]
 Missing character: There is no ù in font cmr12!
  [8] [9]
@@ -433,6 +508,65 @@ iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.
 Output written on report.pdf (18 pages, 233547 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
+=======
+ [6]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ú in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ù in font cmr12!
+
+[7] [8] [9] [10]
+<Pictures/Tree_Pop_50_1000_500000.png, id=51, 1084.80281pt x 590.95781pt>
+File: Pictures/Tree_Pop_50_1000_500000.png Graphic file (type png)
+
+<use Pictures/Tree_Pop_50_1000_500000.png>
+<Pictures/Tree_Pop_100_100_500000.png, id=52, 1084.80281pt x 590.95781pt>
+File: Pictures/Tree_Pop_100_100_500000.png Graphic file (type png)
+
+<use Pictures/Tree_Pop_100_100_500000.png> [11 <C:/Users/Michael/Documents/GitH
+ub/Forest-Fire-SOC/doc/latex/Pictures/Tree_Pop_50_1000_500000.png (PNG copy)>]
+<Pictures/Radius_dist_1.png, id=57, 1084.80281pt x 590.95781pt>
+File: Pictures/Radius_dist_1.png Graphic file (type png)
+
+<use Pictures/Radius_dist_1.png> [12 <C:/Users/Michael/Documents/GitHub/Forest-
+Fire-SOC/doc/latex/Pictures/Tree_Pop_100_100_500000.png (PNG copy)>]
+<Pictures/Size_dist_1.png, id=61, 1084.80281pt x 590.95781pt>
+File: Pictures/Size_dist_1.png Graphic file (type png)
+
+<use Pictures/Size_dist_1.png> [13 <C:/Users/Michael/Documents/GitHub/Forest-Fi
+re-SOC/doc/latex/Pictures/Radius_dist_1.png (PNG copy)>] [14 <C:/Users/Michael/
+Documents/GitHub/Forest-Fire-SOC/doc/latex/Pictures/Size_dist_1.png (PNG copy)>
+] (C:\Users\Michael\Documents\GitHub\Forest-Fire-SOC\doc\latex\report.aux) ) 
+Here is how much of TeX's memory you used:
+ 3200 strings out of 494053
+ 42815 string characters out of 3148597
+ 107468 words of memory out of 3000000
+ 6426 multiletter control sequences out of 15000+200000
+ 14541 words of font info for 56 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 41i,10n,24p,1250b,254s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/symbols/msam10.pfb>
+Output written on .pdf (14 pages, 277624 bytes).
+PDF statistics:
+ 119 PDF objects out of 1000 (max. 8388607)
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

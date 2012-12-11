@@ -5,8 +5,9 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
-\usepackage{natbib}
+\usepackage[square]{natbib}
 \usepackage{amssymb, amsmath}
+<<<<<<< HEAD
 \def \beq{\begin{equation}}
 \def \eeq{\end{equation}}
 \def \bea{\begin{eqnarray}}
@@ -21,6 +22,9 @@
 \def \bl{\bar{\boldsymbol{l}}}
 \def \beq{\begin{equation}}
 \def \eeq{\end{equation}}
+=======
+\usepackage{float}
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -104,6 +108,7 @@
 
 \section{Introduction and Motivations}
 \subsection{What is Self-Organized Criticality?}
+<<<<<<< HEAD
 Self-Organized Criticality involves 2 very important concepts: Self-Organization and Critical behavior. These 2 phenomenon arouse in various fields in very different forms.In certain class of systems, the dynamics can be very well explained by a few collective degrees of freedom. This dimensional reduction is termed as "Self Organization". It leads to evolution of global patterns in the system even though all the interactions are local. Let us take an example from the field of physics.Crystallization is the process of formation of crystals. It usually requires a small nucleus for the growth of the crystal. Once the nucleus is formed, crystal can grow on this nucleus. If we consider a particle which is going to crystallize on a given site, the choice of this site is decided only by the local environment seen by the particle. It does not depend on the particle on every other site on the crystal. But this local interaction leads to the formation of an ordered crystalline phase. Bird flocking is an example of self organization from the field of Biology.
 
 On the other hand, there is another set of dynamical systems where the individual degree of freedom keep itself more or less in a stable balance and it is not possible to describe such a system by a few collective degrees of freedom. The key point in such systems is that the interdependence of various degrees of freedom make such systems very susceptible to noise. That's why, these systems can be called as "Critical". Critical state usually represent a point where 2 different phases occur simultaneously at the same time. A critical state has specific temporal and spatial signature. The power spectrum of the quantity representing the dynamics of the system is similar to that flicker noise. (More on flicker noise later!). The spatial signature of a critical state is ``self-similarity'' which is what we find for the case of fractals.
@@ -112,6 +117,32 @@ Self-Organized criticality combines the above 2 concepts. In it, the dynamics of
 Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independent of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
 It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
 
+=======
+Self-Organized Criticality is the Concept that the dynamics of a physical system converge to a critical point independant of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. The concept is best understood by example, so we shall bring up a very educative one introduced first by \cite{bak88} ). 
+Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independant of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system. A further condition for SOC is the presence of the critical point, in the example, that would be the slope that should form in every experiment independant of the starting conditions. 
+It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
+
+\subsection{What is Self-Organized Criticality}
+Self-organized criticality (SOC) is a concept applied to spacially extended dynamic physical systems. It is often quite difficult to descripe the temporal and spatial evolution of such a system and a lot of research happens in that field. Usually, one uses a mean-field approach to such a problem, where the indidual coupled degrees of freedom are replaced by a field. This (external) field then acts on the DOF.  SOC is a different approach to this problem. It is the concept, that a certain class of dissipative, coupled dynamic systems converge to a critical point independantly of their underlying boundary and initial conditions. 
+What are the properties of such a critical point? First of all, it is stable with respect to small disturbances. If this was not true, the system would not evolve to such a point. Note that this does not imply that such a point \emph{exists}. If a certain point is unstable, the system commonly will not evolve to this point. The critical point, however, generally is not the physical equilibrium point of the system.
+
+\subsection{Flicker Noise}
+Flicker noise is something often mentioned when talking about dissipative coupled dynamical systems. Flicker Noise (or $1/f$-Noise) is the description for an often observed phenomenon of such systems; The observation, that the power spectrum $S(f)$ scales with $1/f$ or more generally, with $f^{-\beta}$. This implies that $S(f)\cdot f \varpropto 1$
+
+\subsection{Forest-Fire Model}
+A Forest Fire Model is basically a cellular automata. Each cell has three possible states:
+\begin{enumerate}
+\item Empty Site
+\item Alive Tree
+\item Burning Tree
+\end{enumerate}
+There are four rules defined for each cell, which are executed simultaneously:
+\begin {itemize}
+\item A burning tree turns into an empty site
+\item A tree starts to burn if at least one of its neighbors are burning
+\item A tree will grow on an empty site randomly with probability $p$
+\item A tree will burn randomly with probability $f$
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 \subsection{Forest-Fire Model (FFM) as an example of Self-Organized Criticality}
 A Forest Fire Model is basically a cellular automata. Each cell can have one of the following three states:
@@ -277,6 +308,7 @@ One of the important reasons why we made another model is that the algorithm is 
 
 The next important thing which we need to find out is indexing uniquely all the clusters of trees. The algorithm is described below:
 \begin{verbatim}
+<<<<<<< HEAD
 Index=3;
 m=1;  %looping over the Forest_grid and its copy, 
 while m<N
@@ -313,6 +345,42 @@ while m<N
 	end
 end
 \end{verbatim}
+=======
+for i=1:t % Loop over all timesteps
+    for j=1:size(Grid,1) % Loop over all y-coordinates
+        for k=1:size(Grid,2) % Loop over all x-coordinates
+            if Grid(j,k)==0 %If the grid point is empty
+                //Grid(j,k)=1 with some probability p
+            end
+        end
+    end
+    for j=1:size(Grid,1) % Loop over all y-coordinates
+        for k=1:size(Grid,2) % Loop over all x-coordinates
+            //if Neighbor(j,k)==3 % If grid neighbor is burning
+                Grid(j,k)=2 % Set current grid point on fire
+            end
+        end
+    end
+    for j=1:size(Grid,1) % Loop over all y-coordinates
+        for k=1:size(Grid,2) % Loop over all x-coordinates
+            if Grid(j,k)==3 % If Grid point is burning
+                Grid(j,k)=0; % Turn it into an empty site
+            end
+            if Grid(j,k)==2 % If grid point is ignited
+                Grid(j,k)=3; % Turn it into an empty site.
+            end
+        end
+    end
+end
+\end{verbatim}
+Several things are to note here:
+\begin{itemize}
+\item Commands with // in front are not implemented exactly like that. Check the appendix for the complete source code.
+\item We need several spatial loops in order to successfully suppress updating fragments like infinite fire propagation speed in updating direction. 
+\item For the same reason, we need a differention between newly ignited (state 2) and burning (state 3) trees. 
+\item The Algorithm is quite slow because of all the loops and if-statements.
+\end{itemize}
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 Once the indexing is done, we can simply count the number of trees corresponding to a given index and can find out the number of number of clusters of a given size (where by size, we mean the number of trees in the cluster).
 
@@ -391,59 +459,95 @@ This implementation of the forest fire model has several advantages:
 \item Much shorter implementation
 \item Easier to extract data
 \end{itemize}
-The last point is to be explained more extensively: Every time a tree ignites, the whole connected cluster is burned down. Since the whole process happens in a single timestep, we were able to use a recursive function. This function would search every neighboring cell and pass the function on to it if it is alive, just after burning itself. Now with this function structure, we were easily able to retrieve much wanted data such as total function calls (Fire size) or recursion depth (Cluster size). Problems with this implementation will be discussed later.
-\subsubsection{The "burn" function}
-The burn function makes the magic happen for the whole program. It basically takes the current grid cell coordinates and the recursion depth as input. Here is what it does with that:
-\begin{enumerate}
-\item Set the current cell as 0 (empty)
-\item Add one to the recursion level
-\item Retrieve the direct neighbor coordinates from the \emph{neighbor} function
-\item check every neighbor for being alive. If so, call the \emph{burn} function with the neighbor coordinates.
-\item Add the returned values to the current values (trees burned)
-\item If no neighbor is alive, return trees burned as one.
-\end {enumerate}
-In other words: This function propagates throughout the system until it reaches a grid cell which has no alive neighbors. It then goes back to the last grid cell where it did have another possibility to go to and chooses that one. This process repeats until there are no trees left in the cluster. Each time the function goes back on its path, it accumulates all the trees burned by that branch. In the end, that gives us a very clear picture about how many trees were burned by evaluating the initial call.
-\paragraph*{Problems with the \emph{burn} function}
-The big problem with this function was, that it would exceed the available stack memory pretty fast. This would always happen if the grid is relatively full. What then happens is that there is no boundary to the cluster, since we are using periodic boundary conditions. The function would propagate throughout the whole system in one single branch. This causes \emph{MATLAB} to crash gracefully and tell the user that one should set the recursion limit to a higher value. What we learned from that, is, that a normal computer crashes at about 2'500 recursions. Now this means that we would not be able to simulate grids of size $25 \times 25$ or more which is not acceptable.
-\paragraph*{Solution}
-The solution obviously was to limit the recursion depth of the function. This was relatively easy to implement, we just had to add 1 every time the function was called. There was, however, a payoff. Since the Function did not have "full" freedom anymore, it could happen that it did not burn the whole cluster. The fraction was in the range of 0.99, but still, it was not quite the optimum. 
-\paragraph*{Improvements} were made in these ways:
-\begin{itemize}
-\item The order in which the neighbors were checked was turned into random. This effectively resulted in the "drunkards walk" and proved to be a little more effective.
-\item The recursion depth was discretized into directions, which made it also more effective.
-\end{itemize}
+The last point is to be explained more extensively: Every time a tree ignites, the whole connected cluster is burned down. Since the whole process happens in a single timestep, there are no big issues.
 
-\subsection{Diagnostics}
-Since we wanted to determine some properties of the simulation, we had to implement diagnostics. These were the properties measured:
-\paragraph*{Number of alive trees} 
-The Number of trees alive is relatively easy to measure in the random based updating implementation. This comes from the property that there are only two states, 0 (empty) and 1 (alive). It therefore is sufficient to execute
+\subsubsection{keeping track of the clusters}
+Keeping track of the different clusters was more difficult than we thought at first, but we managed to find an elegant solution. It works by keeping a second grid which stores all the cluster indices. This has several advantages:
+\begin{itemize}
+\item if a new tree grows, we can just look at the neighbor cluster index to determine the current cell index
+\item if a tree burns, we simply delete all the trees with the same index as the burned tree.
+\end {itemize}
+ \paragraph * {Problems and Solutions}
+Problems arose quickly. Here is a short summary of all the major problems and the corresponding solutions:
+\subparagraph {Storing the indices}
+The problem here was to find a way to store all possible cluster indices and their availability. Since the maximum number of clusters can be easily found to be $Nc_{max}= \frac{G^2}{2}$  (imagine a perfect chessboard-layout filling half of the grid; if one more is added, they combine into a bigger cluster), we already knew the size of the vector. The final format was a Matrix with $Nc_{max}$ Columns and 2 rows. The first row would simply store all the possible indices from 1 to $Nc_{max}$ and the second row would store the corresponding binary information about the availability.
+\subparagraph{growing a tree between two clusters}
+It is simple to determine the cluster index of a new tree if there is just one neighbor. The big problem arises if there are more than two neighbors with \emph{different} cluster indices. The solution to this problem was that we set the index as the lower of both neighbors and changed the whole cluster with the higher index to the lower one. This was relatively easy to do by using the matlab built-in function |ismember| which searches for all entries with a certain value and returns a matrix containing only that information. 
+
+\subsection{The \emph{neighbor} function}
+The \emph{neighbor} function is the same for both implementations. It takes the current cell coordinates  $(j,k)$ and returns a vector containing the coordinates of its direct neighbors. It works like this:
 \begin{verbatim}
-N=sum(sum(Grid));
+Set all neighbors to standard
+// Ex: West_X=j-1; West_Y=k;
+Treat Special cases
+// Ex: if j==1
+// West_X=size(Grid,1);
 \end{verbatim}
-This value also allows us to compute other properties very quickly, like the mean number of alive trees in a simulation or the number of empty sites.
-In the grid based updating implementation, this was implemented with a loop and a counting variable. The Loop would simply check every entry of the grid for being 1 (alive) and subsequently add 1 to the counting variable.
-\paragraph*{Trees burned in a fire}
-This was quite difficult to measure in the grid updating version. The big problem was that there was a possibility of multiple fires happening at the same time. It is therefore not possible to just loop over the whole grid and count the burning trees. One needs to track single fires and only add the trees burned by this incident. The other big problem is, that there is also the possibility of trees growing at the edge of the cluster that is on fire. This means that it is not possible to just search for the entire connected cluster, since its size can (and does!) vary during the fire.
-In the random updating version, this was a lot easier, since the fires would spread instantaneously. Since we were using a recursive function to burn the cluster, we could just pass the trees burned by each sub-branch of the function back to the branch head (initial function call). There are also no issues of multiple fires happening simultaneously and changing cluster sizes.
-\paragraph*{Cluster size distribution}
-For long simulation times, the cluster size distribution approaches the fire size distribution if the fires spread instantaneously. 
+Note that the \emph{neighbor} function creates periodic boundary conditions. 
+
+\subsection{Saving the data}
+Because we were doing a lot of parameter sweeps and thus generating a lot of data, it was crucial to implement an automatic data saving procedure. This would store all the relevant information of a single simultation in a custom matlab struct and save the important figures. We also created a custom naming concept which allows for quick search for the desired data. All simulation results are named after their input parameters: 
 
 
 \section{Simulation Results and Discussion}
-The first step in the simulation was to see if we could reproduce some of the results found in the references. For starters, we wanted to see if the Formula $\overline s \varpropto  \Theta^{-1}$ would hold. This shold be explained: We define the factor $f \over p$ as $\Theta$ and the mean number of trees burned by one fire as $\overline s$. Then the change in the Number of trees present in the system for some large time t is given as $$\Delta N = p\cdot t - f\cdot \overline s \cdot t$$ 
-If we reach a critical point, then this difference should be zero for large times. Then we can write $$p\cdot t = f\cdot \overline s \cdot t \mbox{ or }p=f\cdot \overline s$$ 
-Since we defined $\Theta = f / p$, we can now write $$\overline s \approx \Theta ^{-1}$$
-What does it tell us if we find this to be true? It tells us, that the system dynamics have a stationary point. However, since we average over quite a large time, the result is not a strong one, but merely a check if the simulations work right.
-In a first attempt to recreate this result, it did not work. We plotted the curve $\overline s \cdot \Theta $ for values of very small to very large $\Theta$ (which shold be constant), and observed a small, but relevant slope with quite big differences for small values of $\Theta$. 
-Now there comes a problem with the implementation. Since we only plant a tree with probability $p$ if the site is \emph{empty} and only set a site on fire if the site has an alive tree (and no actions are taken if these requirements are not fulfilled), the above equation has to be rewritten in terms of the probabilities: $$\Delta N= \frac{(G-N)} {G} \cdot p\cdot t- \frac{N}{G} \cdot f\cdot \overline s\cdot t$$
-where $G$ is the total Number of Grid Points. For a stationary point, this $\Delta N$ again has to be $0$, therefore we can write $$(G-N)\cdot p = N\cdot f \cdot \overline s$$
-This means that $$\Theta \cdot \overline s=\frac{G-N}{N}$$ should hold. Now $\frac {G-N}{N}$ is indeed a constant, which should not change. However, it is implicitly dependant on $\Theta$, since this has a direct impact on the mean number $N$ of alive trees in the system. Imagine for example a very small $f$, meaning that fires are very rare. Then this constant factor is very small because $N$ approaches $G$. For larger values of $\Theta$, $N$ will become smaller and therefore, the factor $\frac{G-N}{N}$ will become larger. 
-That was the result that we obtained from the simulation. It therefore suggests that the simulation is working as expected. 
+\emph{note that in this section, $\Theta$ is defined as $p/f$.}
+\subsection{Tree population}
+A first step in the analysis of the results is to have a close look a the tree population during the simulation. Here are two examples:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/Tree_Pop_50_1000_500000.png}
+\caption{$N=50$, $\Theta=1000$, Simulation time 500'000}
+\end{figure}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/Tree_Pop_100_100_500000.png}
+\caption{$N=100$, $\Theta=100$, Simulation time 500'000}
+\end{figure}
+What can we learn from these plots? Well, in the first figure, Theta is equal to $10^3$, which is a moderatly large number. Yet, the plot of the tree fraction looks like random noise.We are not quite sure what we should interpret from such a plot. At $\Theta=100$, the plot looks a lot more stable, more like an actual \emph{equilibrium} point. Re-running the simulation with the same $\Theta$ but changed $f$ yields the same, consistent picture; after a short transient period to overcome the initial condition, the plot approximates a straight line. 
+Now we know that the SOC state is not generally an equilibrium state and further insight into the properties of the system can only be achieved by analysis of other properties.
+\subsection{Cluster Radius}
+The Cluster Radius is defined as the root mean of all the distances of all cells of a cluster to their common center. This property should, given an SOC behaviour of the system, exhibit a power-law-behaviour that would be described as $S(r)=r^{-\beta}$ where$S(r)$ is the number of occurrences of clusters with radius r. In theory, what this means is, if you plot a double-logarithmic histogram of all cluster radii, it should give us a straight line with slope $\beta$. Of course, we expected a little "noise", given that our simulation was not infinite in time and space, but it should have approached it pretty well. Here is one of those double-logarithmic histograms:
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth,keepaspectratio=true]{Pictures/Radius_dist_1.png}
+\caption{Cluster radius distribution ($N=100$, $\Theta=1000$, Sim Time 500'000)}
+\end{figure}
+\paragraph*{The Problem} that we see here is one that's closely related to the periodic boundary conditions. Imagine an empty grid with a small cluster that stretches from one side \emph{over the boundary} to the other side. Its center will be in the middle, but its radius will be much larger than it actually is. We guess that this causes the tilt that one can observe at medium sized clusters. We are currently working on a way to get around that problem. 
+
+
+\subsection{Cluster Size}
+The cluster size is another variable that we can easily measure. Here is a log-log-histogram of a simulation:
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth,keepaspectratio=true]{Pictures/Size_dist_1.png}
+\caption{Cluster size distribution ($N=100$, $\Theta= 1000 $, Sim Time 500'000  ) }
+\end{figure}
+
+
+\section{Open Questions}
+We are wondering if it is "correct" to implement the forest fire in such a way with zero fire burning time like stated in \cite{pruessner04}. We have thus implemented two separate models, one of which uses finite burning speeds, while the other one (described in this text) uses infinite burning speed. Looking at the different timescales, it is obvious that the spreading of a fire should be very fast, but is it correct to use this in the limit of instantaneous fires?
+
+
 
 \section{Summary and Outlook}
 
+<<<<<<< HEAD
 \bibliographystyle{unsrt}
 \bibliography{ref1}  % list here all the bibliographies that
+=======
+\begin{thebibliography}{9}
+\bibitem{pruessner04}
+	Gunnar Pruessner, Henrik Jeldtoft Jensen.
+	\emph {A new, efficient algorithm for the Forest Fire Model},
+	Phys. Rev. E 70 066707-1--25,
+	2004
+\bibitem{bak88}
+	Per Bak, Chao Tang, Kurt Wiesenfeld.
+	\emph{Self-organized criticality}
+	Phys Rev. A 38 1,
+	1988
+\end{thebibliography}
+
+
+>>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 
 

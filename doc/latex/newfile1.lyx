@@ -129,8 +129,15 @@ Imagine a line which is discretisized into
 \end_layout
 
 \begin_layout Itemize
-Every interval or cell has a number of particles in it, which is directly
- proportional to the height 
+Every interval or cell has a number of particles
+\begin_inset Formula 
+\[
+z
+\]
+
+\end_inset
+
+ in it, which is directly proportional to the height 
 \begin_inset Formula $h(z_{i})$
 \end_inset
 
@@ -587,7 +594,7 @@ The random based updating procedure is much simpler and faster and eliminates
 \end_inset
 
 .
- It follows these steps:
+ It follows these steps: 
 \end_layout
 
 \begin_layout Enumerate

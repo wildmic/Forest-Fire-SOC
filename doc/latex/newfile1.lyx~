@@ -499,6 +499,9 @@ The next two loops go over all grid points.
 
 \begin_layout Enumerate
 For every grid point, the following actions are taken in order:
+\end_layout
+
+\begin_layout Enumerate
 \begin_inset Box Frameless
 position "t"
 hor_pos "c"
