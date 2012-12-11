@@ -2,17 +2,18 @@
 \contentsline {section}{\numberline {2}Individual contributions}{4}
 \contentsline {section}{\numberline {3}Introduction and Motivations}{4}
 \contentsline {subsection}{\numberline {3.1}What is Self-Organized Criticality?}{4}
-\contentsline {subsection}{\numberline {3.2}Forest-Fire Model}{4}
-\contentsline {subsection}{\numberline {3.3}Power Laws}{5}
-\contentsline {subsection}{\numberline {3.4}Key Parameters in SOC}{5}
-\contentsline {subsection}{\numberline {3.5}Motivation}{6}
-\contentsline {section}{\numberline {4}Description of the Model}{6}
-\contentsline {subsection}{\numberline {4.1}Cellular automata}{6}
-\contentsline {section}{\numberline {5}Implementation}{7}
-\contentsline {subsection}{\numberline {5.1}Grid Based Updating}{7}
-\contentsline {subsection}{\numberline {5.2}Random Based Updating}{8}
-\contentsline {subsubsection}{\numberline {5.2.1}The "burn" function}{9}
-\contentsline {subsection}{\numberline {5.3}Diagnostics}{10}
-\contentsline {section}{\numberline {6}Simulation Results and Discussion}{11}
-\contentsline {section}{\numberline {7}Summary and Outlook}{12}
-\contentsline {section}{\numberline {8}References}{12}
+\contentsline {subsection}{\numberline {3.2}Forest-Fire Model (FFM) as an example of Self-Organized Criticality}{5}
+\contentsline {subsection}{\numberline {3.3}Motivation to study Forest Fire Model}{6}
+\contentsline {subsection}{\numberline {3.4}What do we want to know from the Forest Fore Model- The QUESTIONS}{6}
+\contentsline {section}{\numberline {4}Description of the Model}{7}
+\contentsline {subsection}{\numberline {4.1}Understanding the SOC regime of Forest Fire Model}{7}
+\contentsline {subsection}{\numberline {4.2}Cellular automata}{7}
+\contentsline {subsection}{\numberline {4.3}Critical Exponents}{7}
+\contentsline {subsection}{\numberline {4.4}Key Parameters in FFM SOC}{8}
+\contentsline {section}{\numberline {5}Implementation}{9}
+\contentsline {subsection}{\numberline {5.1}Grid Based Updating}{9}
+\contentsline {subsection}{\numberline {5.2}Random Based Updating}{13}
+\contentsline {subsubsection}{\numberline {5.2.1}The "burn" function}{14}
+\contentsline {subsection}{\numberline {5.3}Diagnostics}{16}
+\contentsline {section}{\numberline {6}Simulation Results and Discussion}{16}
+\contentsline {section}{\numberline {7}Summary and Outlook}{18}
