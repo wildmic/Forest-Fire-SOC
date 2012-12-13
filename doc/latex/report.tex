@@ -7,7 +7,6 @@
 \usepackage{epstopdf}
 \usepackage[square]{natbib}
 \usepackage{amssymb, amsmath}
-<<<<<<< HEAD
 \def \beq{\begin{equation}}
 \def \eeq{\end{equation}}
 \def \bea{\begin{eqnarray}}
@@ -22,9 +21,7 @@
 \def \bl{\bar{\boldsymbol{l}}}
 \def \beq{\begin{equation}}
 \def \eeq{\end{equation}}
-=======
 \usepackage{float}
->>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -108,7 +105,6 @@
 
 \section{Introduction and Motivations}
 \subsection{What is Self-Organized Criticality?}
-<<<<<<< HEAD
 Self-Organized Criticality involves 2 very important concepts: Self-Organization and Critical behavior. These 2 phenomenon arouse in various fields in very different forms.In certain class of systems, the dynamics can be very well explained by a few collective degrees of freedom. This dimensional reduction is termed as "Self Organization". It leads to evolution of global patterns in the system even though all the interactions are local. Let us take an example from the field of physics.Crystallization is the process of formation of crystals. It usually requires a small nucleus for the growth of the crystal. Once the nucleus is formed, crystal can grow on this nucleus. If we consider a particle which is going to crystallize on a given site, the choice of this site is decided only by the local environment seen by the particle. It does not depend on the particle on every other site on the crystal. But this local interaction leads to the formation of an ordered crystalline phase. Bird flocking is an example of self organization from the field of Biology.
 
 On the other hand, there is another set of dynamical systems where the individual degree of freedom keep itself more or less in a stable balance and it is not possible to describe such a system by a few collective degrees of freedom. The key point in such systems is that the interdependence of various degrees of freedom make such systems very susceptible to noise. That's why, these systems can be called as "Critical". Critical state usually represent a point where 2 different phases occur simultaneously at the same time. A critical state has specific temporal and spatial signature. The power spectrum of the quantity representing the dynamics of the system is similar to that flicker noise. (More on flicker noise later!). The spatial signature of a critical state is ``self-similarity'' which is what we find for the case of fractals.
@@ -117,7 +113,6 @@ Self-Organized criticality combines the above 2 concepts. In it, the dynamics of
 Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independent of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
 It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
 
-=======
 Self-Organized Criticality is the Concept that the dynamics of a physical system converge to a critical point independant of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. The concept is best understood by example, so we shall bring up a very educative one introduced first by \cite{bak88} ). 
 Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independant of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system. A further condition for SOC is the presence of the critical point, in the example, that would be the slope that should form in every experiment independant of the starting conditions. 
 It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
@@ -142,7 +137,6 @@ There are four rules defined for each cell, which are executed simultaneously:
 \item A tree starts to burn if at least one of its neighbors are burning
 \item A tree will grow on an empty site randomly with probability $p$
 \item A tree will burn randomly with probability $f$
->>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 \subsection{Forest-Fire Model (FFM) as an example of Self-Organized Criticality}
 A Forest Fire Model is basically a cellular automata. Each cell can have one of the following three states:
@@ -175,7 +169,7 @@ The same ideas can be applied to a variety of problems such as disease spreading
 
 \subsection{What do we want to know from the Forest Fore Model- The QUESTIONS}
 First, we would like to understand what are the quantitative characteristics of a Self Organized Critical state in the Forest-Fire model? We would like to have a well defined idea regarding when does the Forest Fire model manifest SOC behavior and why. We would like to understand what are the various phases seen in a Forest Fire model besides the Self Organized Critical phase. It will be important to know what are the parameters characterizing the phase transition in the Forest Fire Model.
-Some of the ambitious questions will be to understand the dependence of SOC of the Forest Fire model on the dimensionality of the Lattice or on the neighborhood selection on the grid.//
+Some of the ambitious questions will be to understand the dependence of SOC of the Forest Fire model on the dimensionality of the Lattice or on the neighborhood selection on the grid.\\
 It will also be interesting to find out if computational restrictions like finite size grids, periodic boundary conditions and cell updating procedures have a quantitative effect on the behavior of the model?
 
 
@@ -308,7 +302,6 @@ One of the important reasons why we made another model is that the algorithm is 
 
 The next important thing which we need to find out is indexing uniquely all the clusters of trees. The algorithm is described below:
 \begin{verbatim}
-<<<<<<< HEAD
 Index=3;
 m=1;  %looping over the Forest_grid and its copy, 
 while m<N
@@ -344,8 +337,7 @@ while m<N
 			end
 	end
 end
-\end{verbatim}
-=======
+
 for i=1:t % Loop over all timesteps
     for j=1:size(Grid,1) % Loop over all y-coordinates
         for k=1:size(Grid,2) % Loop over all x-coordinates
@@ -373,6 +365,7 @@ for i=1:t % Loop over all timesteps
     end
 end
 \end{verbatim}
+
 Several things are to note here:
 \begin{itemize}
 \item Commands with // in front are not implemented exactly like that. Check the appendix for the complete source code.
@@ -380,7 +373,6 @@ Several things are to note here:
 \item For the same reason, we need a differention between newly ignited (state 2) and burning (state 3) trees. 
 \item The Algorithm is quite slow because of all the loops and if-statements.
 \end{itemize}
->>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
 
 Once the indexing is done, we can simply count the number of trees corresponding to a given index and can find out the number of number of clusters of a given size (where by size, we mean the number of trees in the cluster).
 
@@ -441,6 +433,7 @@ In a random based updating implementation, at the beginning of every time step, 
 \item If cell is a tree, with probabiltiy $f$, burn it and the connected cluster
 \end{enumerate}
 In Matlab, this looks something like this:
+
 \begin{verbatim}
 for i=1:t % Loop over all timesteps
 (j,k)=ceil(Grid_Size*rand(1,2)); % Choose a random cell
@@ -490,19 +483,92 @@ Because we were doing a lot of parameter sweeps and thus generating a lot of dat
 
 
 \section{Simulation Results and Discussion}
-\emph{note that in this section, $\Theta$ is defined as $p/f$.}
-\subsection{Tree population}
-A first step in the analysis of the results is to have a close look a the tree population during the simulation. Here are two examples:
+We will first present to understand the traditional model of Forest fire. Here we can consider 4 different regimes. 
+\begin{itemize}
+\item small p ($< 0.001$) and small $\frac{p}{f}$ ($\approx 1$)
+\item large p ($< 0.001$) and large $\frac{p}{f}$ ($\approx 10^4$)
+\item large p ($< 0.001$) and small $\frac{p}{f}$ ($\approx 1$)
+\item small p ($< 0.001$) and large $\frac{p}{f}$ ($\approx 10^4$)
+\end{itemize}
+
+Let us first try to understand what we expect intuitively for these cases. In the first case, we will have growth rate of trees to be very small and comparable rate of fires.(The smaller values of usually make the time scale of variation of the system very large.) As a result, we don't expect long-range correlations for the system to build up.\\
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/Tree_Pop_50_1000_500000.png}
-\caption{$N=50$, $\Theta=1000$, Simulation time 500'000}
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/case1_size_500.png}
+\caption{$N=500$, $\ p=0.001$, $\frac{p}{f}=10$(Case1)}
 \end{figure}
+
+In the second case, system will try to build long correlations since the tree growth rate is large. But since p is large, it won't be possible to make the system critical because before a large cluster is burnt by the fire, trees will start growing again in the cluster and the system won't really be in a critical condition.\\
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/case2_size500_1000iter_p_0point1_ratio_1000.png}
+\caption{$N=500$, $\ p=0.1$, $\frac{p}{f}=1000$(Case2)}
+\end{figure}
+
+The 3rd case takes the worst part of the above 2 cases. The large tree growth rate don't let the system to become critical. The small $\frac{p}{f}$ wont let the formation of long range correlation in the system and avoid from making the system being critical.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/case3_size500_1000iter_p_0point1_ratio_10.png}
+\caption{$N=500$, $\ p=0.1$, $\frac{p}{f}=10$(Case3)}
+\end{figure}
+
+In conclusion, these 3 cases are some sort of equilibrium populations where system never becomes critical.
+
+The final case is the one we are interested in. Since $\frac{p}{f}$ is large, large correlations can be built in the system. Since p is small, formation of large correlations make the system critical.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/case4_size500_10000iter_p_0point001_ratio_1000.png}
+\caption{$N=500$, $\ p=0.001$, $\frac{p}{f}=1000$(Case4)}
+\end{figure}
+
+From the way we model our system (we are considering case 4 above), it is very difficult to find out whether for a given set of parameters the time required to burn the biggest cluster in system is much smaller than the time needed to grow a tree. But there is a very simple qualitative way to see this through the variation of various fractions as the system evolves. When an event of lightening happens in the system, the fraction of empty sites grows quickly. But shortly after that when the cluster is fully burnt, the trees again start growing and the fraction of empty sites start to decrease again. If the slope of the slope of increase of the fraction of empty sites when the fire is burning the cluster is much larger than the slope of decrease of fraction of empty sites when the trees start growing, it implies that the cluster burning process is almost instantaneous in comparison to the tree growth. Hence, in the 4th case we expect the system to be in SOC state. In the following figure, we show the case when the system is critical in the sense that long range correlations are forming (a fire is burning big cluster) but the fire is not instantaneous in comparison to the tree growth rate.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/case4_size500_10000iter_p_0point01_ratio_1000.png}
+\caption{$N=500$, $\ p=0.01$, $\frac{p}{f}=1000$(Case4)}
+\end{figure}
+
+
+
+An important point to make here is how the size of the grid affects this self-organized critical state. We see that if the grid is big, we will be having larger long range correlations. It will take larger time for a fire to burn a cluster and hence the regime where the cluster burning is almost instantaneous as compared to tree growth will require lower values of p.
+This has been shown in the following figure by considering a much smaller grid size as for the case 4 but same parameters.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/case4_size50_10000iter_p_0point001_ratio_1000.png}
+\caption{$N=50$, $\ p=0.001$, $\frac{p}{f}=1000$(Case4)}
+\end{figure}
+
+Now, we plot the radius distribution and the frequency of clusters as a function of number of trees in the cluster. Thes eare plotted in the figures below.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/frequency_distribution_4_different_cases.png}
+\caption{$N=200$, Frequency Distribution}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/radius_4_cases.png}
+\caption{$N=200$, Radius Distribution}
+\end{figure}
+
+I don't see any difference in the 4 cases. I hope the other method will show us something.
+I will write some more discussion here.
+
+\subsection{Tree population}
+\emph{note that in this section, $\Theta$ is defined as $p/f$.}
+
+A first step in the analysis of the results is to have a close look a the tree population during the simulation. Here are two examples:
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/Tree_Pop_100_100_500000.png}
 \caption{$N=100$, $\Theta=100$, Simulation time 500'000}
 \end{figure}
+
 What can we learn from these plots? Well, in the first figure, Theta is equal to $10^3$, which is a moderatly large number. Yet, the plot of the tree fraction looks like random noise.We are not quite sure what we should interpret from such a plot. At $\Theta=100$, the plot looks a lot more stable, more like an actual \emph{equilibrium} point. Re-running the simulation with the same $\Theta$ but changed $f$ yields the same, consistent picture; after a short transient period to overcome the initial condition, the plot approximates a straight line. 
 Now we know that the SOC state is not generally an equilibrium state and further insight into the properties of the system can only be achieved by analysis of other properties.
 \subsection{Cluster Radius}
@@ -529,34 +595,7 @@ We are wondering if it is "correct" to implement the forest fire in such a way w
 
 \section{Summary and Outlook}
 
-<<<<<<< HEAD
 \bibliographystyle{unsrt}
 \bibliography{ref1}  % list here all the bibliographies that
-=======
-\begin{thebibliography}{9}
-\bibitem{pruessner04}
-	Gunnar Pruessner, Henrik Jeldtoft Jensen.
-	\emph {A new, efficient algorithm for the Forest Fire Model},
-	Phys. Rev. E 70 066707-1--25,
-	2004
-\bibitem{bak88}
-	Per Bak, Chao Tang, Kurt Wiesenfeld.
-	\emph{Self-organized criticality}
-	Phys Rev. A 38 1,
-	1988
-\end{thebibliography}
-
-
->>>>>>> bcb8d105ff89915b1c62dfdb1b74f63d139e726b
-
-
-
-
-
-
 
 \end{document}  
-
-
-
- 
