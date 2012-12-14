@@ -1,3 +1,4 @@
 # Code Folder 
-
-Your code goes here. You could also replace the content of this file with something more meaningful
+There are 2 folders: one of them contains the traditional model as developed by Nishant
+and other contains the Forest Fire model with instantaneous burning of clusters as developed by Michael.
+The 2 folders are more or less independent.
