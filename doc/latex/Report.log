@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  14 DEC 2012 21:17
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  14 DEC 2012 21:40
 entering extended mode
-**C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/r
-eport_semi.tex
+**C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/R
+eport.tex
 
-(C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/re
-port_semi.tex
+(C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/Re
+port.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -334,8 +334,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks24
 \@floatcapt=\box31
 )
-(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
-port_semi.aux
+(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Re
+port.aux
 
 ! Package natbib Error: Bibliography not compatible with author-year citations.
 
@@ -346,7 +346,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.88 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -458,8 +458,8 @@ Overfull \hbox (5.3226pt too wide) in paragraph at lines 63--81
  []
 
 [2]
-(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
-port_semi.toc [3])
+(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Re
+port.toc [3])
 \tf@toc=\write3
  [4] [5] [6] [7] [8] [9] [10]
 Overfull \hbox (33.1206pt too wide) in paragraph at lines 281--281
@@ -679,8 +679,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 620--621
  []
 
 
-(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
-port_semi.bbl [33]
+(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Re
+port.bbl [33]
 Missing character: There is no Î in font cmr12!
 Missing character: There is no ² in font cmr12!
 Missing character: There is no â in font cmr12!
@@ -821,37 +821,37 @@ ogram/Michael/lowIndex.m)
 ogram/Michael/neighbor.m) [62]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/computeradius.m) [63]
-(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
-port_semi.aux) ) 
+(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Re
+port.aux) ) 
 Here is how much of TeX's memory you used:
  5895 strings out of 494053
- 86092 string characters out of 3148597
- 207150 words of memory out of 3000000
+ 86022 string characters out of 3148597
+ 207145 words of memory out of 3000000
  8995 multiletter control sequences out of 15000+200000
  17447 words of font info for 67 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,10n,42p,1300b,1554s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc} <
-C:\Users\nishant\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tc
-rm1200.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
-12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
-/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on report_semi.pdf (63 pages, 862612 bytes).
+ 42i,10n,42p,1295b,1554s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc} <C:\Us
+ers\nishant\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm120
+0.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam
+10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on Report.pdf (63 pages, 862619 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
