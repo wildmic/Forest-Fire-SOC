@@ -7,6 +7,8 @@
 \usepackage{epstopdf}
 \usepackage[square]{natbib}
 \usepackage{amssymb, amsmath}
+\usepackage{listings}
+\usepackage[framed]{mcode}
 \def \beq{\begin{equation}}
 \def \eeq{\end{equation}}
 \def \bea{\begin{eqnarray}}
@@ -27,7 +29,7 @@
 
 %\title{Self-Organized Criticality}
 %\author{Nishant Dogra, Michael Wild}
-%\date{date} 
+%\date{14.12.2012} 
 
 \begin{document}
 
@@ -64,7 +66,7 @@
 \end{minipage}
 &
 \begin{minipage}{6cm}
-\vspace{2mm} \large Name 1
+\vspace{2mm} \large Nishant Dogra
 
  \vspace{\baselineskip}
 
@@ -72,7 +74,7 @@
 &
 \begin{minipage}{6cm}
 
-\large Name 2
+\large Michael Wild
 
 \end{minipage}
 \end{tabular}
@@ -100,8 +102,14 @@
 
 
 \section{Abstract}
+In the scope of the ETH lecture "Modeling and Simulating Social Systems with Matlab", we attempt to produce a state of self-organized criticality in a forest-fire model. The concept is implemented as a cellular automata and several important data sets are extracted from the simulation. We describe the concept of self-organized criticality and cellular automata. We discuss the results found from the simulations and the implications of the input parameters on these. We try to explain what the quantitative characteristics of a SOC state in a forest fire model are and at which point such a state arises. 
 
 \section{Individual contributions}
+The Model with finite burning time was implemented by Nishant Dogra.
+The Model with instantaneous burning time was implemented by Michael Wild.
+The respective plots and results sections are also written in that way.
+Both have contributed in writing the report and most of the sections are a work of collaboration and discussion.
+
 
 \section{Introduction and Motivations}
 \subsection{What is Self-Organized Criticality?}
@@ -113,9 +121,7 @@ Self-Organized criticality combines the above 2 concepts. In it, the dynamics of
 Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independent of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
 It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
 
-Self-Organized Criticality is the Concept that the dynamics of a physical system converge to a critical point independant of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. The concept is best understood by example, so we shall bring up a very educative one introduced first by \cite{bak88} ). 
-Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independant of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system. A further condition for SOC is the presence of the critical point, in the example, that would be the slope that should form in every experiment independant of the starting conditions. 
-It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
+
 
 \subsection{What is Self-Organized Criticality}
 Self-organized criticality (SOC) is a concept applied to spacially extended dynamic physical systems. It is often quite difficult to descripe the temporal and spatial evolution of such a system and a lot of research happens in that field. Usually, one uses a mean-field approach to such a problem, where the indidual coupled degrees of freedom are replaced by a field. This (external) field then acts on the DOF.  SOC is a different approach to this problem. It is the concept, that a certain class of dissipative, coupled dynamic systems converge to a critical point independantly of their underlying boundary and initial conditions. 
@@ -124,19 +130,7 @@ What are the properties of such a critical point? First of all, it is stable wit
 \subsection{Flicker Noise}
 Flicker noise is something often mentioned when talking about dissipative coupled dynamical systems. Flicker Noise (or $1/f$-Noise) is the description for an often observed phenomenon of such systems; The observation, that the power spectrum $S(f)$ scales with $1/f$ or more generally, with $f^{-\beta}$. This implies that $S(f)\cdot f \varpropto 1$
 
-\subsection{Forest-Fire Model}
-A Forest Fire Model is basically a cellular automata. Each cell has three possible states:
-\begin{enumerate}
-\item Empty Site
-\item Alive Tree
-\item Burning Tree
-\end{enumerate}
-There are four rules defined for each cell, which are executed simultaneously:
-\begin {itemize}
-\item A burning tree turns into an empty site
-\item A tree starts to burn if at least one of its neighbors are burning
-\item A tree will grow on an empty site randomly with probability $p$
-\item A tree will burn randomly with probability $f$
+
 
 \subsection{Forest-Fire Model (FFM) as an example of Self-Organized Criticality}
 A Forest Fire Model is basically a cellular automata. Each cell can have one of the following three states:
@@ -213,7 +207,7 @@ In context to the FFM, it is proposed as a way of quantifying the frequency of F
 To find out whether a basic FFM exhibits SOC behavior, we need to define a set of parameters which serves as indicators for the desired analysis. 
 \begin{itemize}
 
-\item The time needed to burn down a forest cluster: This is heavily dependent on the form of the implementation. If we choose to implement it in a way like [reference needed], we will have an instantaneous fire which essentially takes no time to burn and just resets all the connected trees. If however, we choose the form of a visible fire, meaning that the ratio $f/p\ll1$  is not 0  in limit and that it takes the fire one time step to advance a grid cell, then the time needed to burn a forest cluster is an important variable we need to extract from the simulation.
+\item The time needed to burn down a forest cluster: This is heavily dependent on the form of the implementation. We can implement it in a way where we will have an instantaneous fire which essentially takes no time to burn and just resets all the connected trees. If however, we choose the form of a visible fire, meaning that the ratio $f/p\ll1$  is not 0  in limit and that it takes the fire one time step to advance a grid cell, then the time needed to burn a forest cluster is an important variable we need to extract from the simulation.
 
 
 \item Number distribution of the size of clusters: Here we first need to define what a cluster is. A cluster is a set of neighboring cells (Von Neumann neighborhood) all obtaining the same state. When we talk about forest clusters, we of course mean connected trees. In the implementation where the fire spreads infinitely fast, the forest cluster containing the igniter cell is the same as the burnt area. The size distribution therefore is a very good indicator for the fire size distribution. 
@@ -453,6 +447,7 @@ This implementation of the forest fire model has several advantages:
 \item Easier to extract data
 \end{itemize}
 The last point is to be explained more extensively: Every time a tree ignites, the whole connected cluster is burned down. Since the whole process happens in a single timestep, there are no big issues.
+This implementation, however, also comes with quite a big disadvantage: It fails to capture dynamics. This leads to a quasi-static simulation. We are not totally sure how this affects the simulation results.
 
 \subsubsection{keeping track of the clusters}
 Keeping track of the different clusters was more difficult than we thought at first, but we managed to find an elegant solution. It works by keeping a second grid which stores all the cluster indices. This has several advantages:
@@ -559,25 +554,14 @@ Now, we plot the radius distribution and the frequency of clusters as a function
 I don't see any difference in the 4 cases. I hope the other method will show us something.
 I will write some more discussion here.
 
-\subsection{Tree population}
-\emph{note that in this section, $\Theta$ is defined as $p/f$.}
-
-A first step in the analysis of the results is to have a close look a the tree population during the simulation. Here are two examples:
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\textwidth,keepaspectratio=true,]{Pictures/Tree_Pop_100_100_500000.png}
-\caption{$N=100$, $\Theta=100$, Simulation time 500'000}
-\end{figure}
-
-What can we learn from these plots? Well, in the first figure, Theta is equal to $10^3$, which is a moderatly large number. Yet, the plot of the tree fraction looks like random noise.We are not quite sure what we should interpret from such a plot. At $\Theta=100$, the plot looks a lot more stable, more like an actual \emph{equilibrium} point. Re-running the simulation with the same $\Theta$ but changed $f$ yields the same, consistent picture; after a short transient period to overcome the initial condition, the plot approximates a straight line. 
-Now we know that the SOC state is not generally an equilibrium state and further insight into the properties of the system can only be achieved by analysis of other properties.
 \subsection{Cluster Radius}
-The Cluster Radius is defined as the root mean of all the distances of all cells of a cluster to their common center. This property should, given an SOC behaviour of the system, exhibit a power-law-behaviour that would be described as $S(r)=r^{-\beta}$ where$S(r)$ is the number of occurrences of clusters with radius r. In theory, what this means is, if you plot a double-logarithmic histogram of all cluster radii, it should give us a straight line with slope $\beta$. Of course, we expected a little "noise", given that our simulation was not infinite in time and space, but it should have approached it pretty well. Here is one of those double-logarithmic histograms:
+The Cluster Radius is defined as the root mean of all the distances of all cells of a cluster to their common center. According to the literature, the cluster radius distribution should exhibit a power law behavior and therefore form a straight line in a log-log-plot. We were having some small issues with the cluster radius calculation, but ended up with something that very much resembled such a straight line, as can be seen in Fig.\ref{raddist1}. The "transient" behavior at large cluster radii is mostly due to too small simulation duration. We did longer simulations, but that constrained the grid size since at some point, the available memory would be gone. 
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth,keepaspectratio=true]{Pictures/Radius_dist_1.png}
-\caption{Cluster radius distribution ($N=100$, $\Theta=1000$, Sim Time 500'000)}
+\includegraphics[width=0.9\textwidth,keepaspectratio=true]{Pictures/RadiusDist_100_200_1M.jpg}
+\caption{Cluster radius distribution ($N=100$, $\Theta=200$, Sim Time 1'000'000)}
+\label{raddist1}
 \end{figure}
-\paragraph*{The Problem} that we see here is one that's closely related to the periodic boundary conditions. Imagine an empty grid with a small cluster that stretches from one side \emph{over the boundary} to the other side. Its center will be in the middle, but its radius will be much larger than it actually is. We guess that this causes the tilt that one can observe at medium sized clusters. We are currently working on a way to get around that problem. 
+What we could find was a best slope estimation, which turned out to be around $\beta \approx -3$ for the parameters seen in Fig.\ref{raddist1}. Since the cluster radius distribution seems to be the most important attribute of the simulation, we thested the effects of various parameters on the simulation by the respective resulting cluster radius distributions. This will be discussed later.
 
 
 \subsection{Cluster Size}
@@ -587,15 +571,77 @@ The cluster size is another variable that we can easily measure. Here is a log-l
 \caption{Cluster size distribution ($N=100$, $\Theta= 1000 $, Sim Time 500'000  ) }
 \end{figure}
 
+\subsection{Effect of different parameters}
+\subsubsection{Effect of p,f}
+In the case where the time needed to burn down a cluster is significantly shorter than the time required to grow one, these effects happen on a separated timescale. Looking at fire incidents on a "growth"-timescale, fires spread instantaneously. The question was, would the values of p and f have any effect on the simulation outcome if the ratio $f/p$ is kept constant? 
+We tried to explain it intuitively: the larger the value of p is, the smaller the "time resolution". If it takes $n$ timesteps to grow a certain cluster at $p=1$, intuition says it will take $2n$ timesteps at $p=0.5$. Given that the lightning factor f varies proportionally, it also takes twice the time for a fire to happen. Of course, we are talking about expected values here, but since the whole process is a stochastic one by nature, it all pans out in the end. We ran a bulk simulation to verify this claim and ended up with the results seen in Fig.\ref{varpctheta}.
+\begin{figure}[H]
+\includegraphics[width= 0.9\textwidth,keepaspectratio=true]{Pictures/varpconsttheta.jpg}
+\caption{Log cluster radius distributions of simulations with constant $\Theta$ and changing p}
+\label{varpctheta}
+\end{figure}
+The results came out as expected. Note that we are only interested in the \emph{slope} of the curves, not the position of the curves themselves. In fact, the simulations in Fig.\ref{varpctheta} were all run for a different number of timesteps to adjust for the "time resolution", so that they fit nicely on top of each other and the resemblance is visible. We therefore conclude that at constant values of $\Theta$, the values of p and f are not significant as long as they dont get too small. But in the case of instantaneous fire propagation, $p=1$ is the obvious choice to maximize simulation speed.
+
+\subsubsection{Effect of $\Theta$}
+Since an SOC state is also characterized in a way that $\Theta$ should be the only relevant tuning parameter, we ran some bulk simulations to test this statement. The results can be seen in Fig.\ref{varthetaconstp}.
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth,keepaspectratio=true]{Pictures/constpvartheta2.jpg}
+\caption{Log cluster radius distributions of simulations with constant p and changing $\Theta$}
+\label{varthetaconstp}
+\end{figure}
+For $\Theta > 70$ we start to see a very consistent slope. Having a lower value, the curves do not anymore fit the pattern and do not exhibit a straight slope. It is important to remember that we only focus on the shape and slope of the curve, not on the location.
+
+\subsubsection{Effect of the grid size}
+The third parameter having an impact on the simulation results was the grid size. Since we were applying periodic boundary conditions, it was not clear from the beginning as to what extent this parameter would be important. We run several simulations with all parameters except the grid size fixed. The results are shown in Fig.\ref{vargridsize}.
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth,keepaspectratio=true]{Pictures/vargridsize.jpg}
+\caption{Log cluster radius distributions with variable grid sizes}
+\label{vargridsize}
+\end{figure}
+Since all the different simulations yield the same slope, we conclude that the grid size only has a marginal impact on the qualitative simulation results.
+
+\subsubsection{Effect of the Initial conditions}
+One of the main properties of an SOC state is, that it is an attractor of the system dynamics, much like a minimum potential location. It is stable with respect to small disturbances. If that would not be the case, then the system would not evolve to that state in the first place. Now to check if our state can in fact be an SOC state, it needs to evolve to a certain point independant of the initial conditions. A property of the system, in the Limit $T_{burn} \rightarrow 0$, is, that it is in fact memoryless. Beside the current grid configuration, no other information is used to compute the next iteration. This basically means that if we initialize the system in any starting configuration and end up with an SOC state, we can look at all past grid configurations as initial conditions for (smaller) simulations that have lead to an SOC state. In the course of our simulations, with the right choice of parameters, we thus have possibly created a significant fraction of all possible initial conditions (for a given grid), which have always lead to an SOC state. We therefore conclude that the simulation is \emph{not} dependant on the initial conditions. 
+
+\subsection{Research questions}
+
+To our understanding, the forest fire model exhibits SOC behavior independantly of all parameters except the $p/f$-ratio. Finding an appropriate value is often not too difficult. We have employed simulations with very high values $p/f>N^{2}$, leading the simulation to mostly filling the whole grid before a fire occurs. This does not result in an SOC behavior and is related to finite grid size effects. We have also tried to simulate with $p/f \rightarrow 1$ which has also not lead to satisfying results. We have found that choosing a value of around $p/f \approx N$ will let the system exhibit SOC behavior. A quantitative analysis of theis statement would be very time consuming because the critical threshholds of $p/f$ are most probably dependant on the grid size and therefore have to be tested on a wide range of grid sizes.
+
+
 
 \section{Open Questions}
-We are wondering if it is "correct" to implement the forest fire in such a way with zero fire burning time like stated in \cite{pruessner04}. We have thus implemented two separate models, one of which uses finite burning speeds, while the other one (described in this text) uses infinite burning speed. Looking at the different timescales, it is obvious that the spreading of a fire should be very fast, but is it correct to use this in the limit of instantaneous fires?
+\begin{itemize}
+\item How does the dimensionality of the lattice influence the results?
+\item How does the choice of computational neighborhood influence the results?
+
+
+
+\end{itemize}
+
 
 
 
 \section{Summary and Outlook}
+We were able to reproduce many of the results found in the literature. Looking at the plots, we see a very consistent picture. We have found very prominent power laws regarding the cluster radii and the cluster sizes. 
+Yet, after all these simulations, we are still not totally sure if we understood the concept correctly. Though we were able to reproduce the results, we have some doubts about the simulations. We were not able to complety distinguish different phases in the system or differ between equilibria and SOC states. 
+Programming in Matlab is a very fast approach to this sort of problem. It is incredibly convenient and offers a lot of useful built-in functions. But it obviously has its limits. The most prominent was the simulation time. We think that the simulation could have been implemented more efficiently using other programming environments like C++, but since Matlab was the topic of the course, we worked with that. 
+The course helped very much to make the program more efficient. We have learned a lot about how to implement efficient code, structuring data and organizing results in an efficient manner. 
+For lack of time, we were not able to test everything we wanted. What we feel is the most important thing that we missed, is the critical threshhold at which a system turns into an SOC state. We were able to compute the critical $f/p$-ratio, but only for one given set of parameters. Since a single Simulation could take as long as half a day if the results had to be good, it was impossible for us to find the dependancies of the critical threshhold with other parameters such as the grid size or the fire burning time. 
+The topic of self-organized criticality is an interesting and challenging one. It can explain phenomena which are not understood intuitively and is appliable to a wide variety of problems. 
+
 
 \bibliographystyle{unsrt}
 \bibliography{ref1}  % list here all the bibliographies that
 
+\begin{appendix}
+\section{Instantaneous fire implementation}
+\lstinputlisting{Program/ForFire.m}
+\lstinputlisting{Program/diagnostics.m}
+\lstinputlisting{Program/changeIndex.m}
+\lstinputlisting{Program/clusterburn.m}
+\lstinputlisting{Program/getNcIndex.m}
+\lstinputlisting{Program/lowIndex.m}
+\lstinputlisting{Program/neighbor.m}
+\lstinputlisting{Program/computeradius.m}
+\end{appendix}
 \end{document}  
