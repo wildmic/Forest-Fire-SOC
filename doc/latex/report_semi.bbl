@@ -5,6 +5,33 @@ Per Bak, Chao Tang, and Kurt Wiesenfeld.
 \newblock Self-organized criticality.
 \newblock {\em Phys. Rev. A}, 38:364--374, Jul 1988.
 
+\bibitem{ref4}
+Per Bak, Chao Tang, and Kurt Wiesenfeld.
+\newblock Self-organized criticality.
+\newblock {\em Phys. Rev. A}, 38:364--374, Jul 1988.
+
+\bibitem{ref5}
+Peter Grassberger and Holger Kantz.
+\newblock On a forest fire model with supposed self-organized criticality.
+\newblock {\em Journal of Statistical Physics}, 63:685--700, 1991.
+
+\bibitem{ref6}
+W.K. Moβner, B.~Drossel, and F.~Schwabl.
+\newblock Computer simulations of the forest-fire model.
+\newblock {\em Physica A: Statistical Mechanics and its Applications},
+  190(3–4):205 -- 217, 1992.
+
+\bibitem{ref7}
+B.~Drossel and F.~Schwabl.
+\newblock Self-organized critical forest-fire model.
+\newblock {\em Phys. Rev. Lett.}, 69:1629--1632, Sep 1992.
+
+\bibitem{ref9}
+S.~Clar, B.~Drossel, and F.~Schwabl.
+\newblock Scaling laws and simulation results for the self-organized critical
+  forest-fire model.
+\newblock {\em Phys. Rev. E}, 50:1009--1018, Aug 1994.
+
 \bibitem{ref1}
 Siegfried Clar, Barbara Drossel, and Franz Schwabl.
 \newblock Forest fires and other examples of self-organized criticality.

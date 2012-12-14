@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  14 DEC 2012 17:43
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  14 DEC 2012 21:17
 entering extended mode
 **C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/r
 eport_semi.tex
@@ -346,7 +346,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.80 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.88 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -461,87 +461,90 @@ Overfull \hbox (5.3226pt too wide) in paragraph at lines 63--81
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
 port_semi.toc [3])
 \tf@toc=\write3
- [4] [5] [6] [7] [8]
-Missing character: There is no “ in font cmr12!
-Missing character: There is no ” in font cmr12!
- [9] [10] [11]
-Overfull \hbox (33.1206pt too wide) in paragraph at lines 294--294
+ [4] [5] [6] [7] [8] [9] [10]
+Overfull \hbox (33.1206pt too wide) in paragraph at lines 281--281
 []    \OT1/cmtt/m/n/12 Copy the first column of Forest_grid to last column of F
 orest_grid_copy[] 
  []
 
 
-Overfull \hbox (33.1206pt too wide) in paragraph at lines 294--294
+Overfull \hbox (33.1206pt too wide) in paragraph at lines 281--281
 []    \OT1/cmtt/m/n/12 Copy the last column of Forest_grid to first column of F
 orest_grid_copy[] 
  []
 
 
-Overfull \hbox (33.1206pt too wide) in paragraph at lines 294--294
-[]              \OT1/cmtt/m/n/12 %an empty site becomes a tree if a generated r
-andom no. is <p[] 
+Overfull \hbox (39.29561pt too wide) in paragraph at lines 281--281
+[]              \OT1/cmtt/m/n/12 //an empty site becomes a tree if a generated 
+random no. is <p[] 
  []
 
-
-Overfull \hbox (33.1206pt too wide) in paragraph at lines 294--294
+[11]
+Overfull \hbox (33.1206pt too wide) in paragraph at lines 281--281
 []                \OT1/cmtt/m/n/12 Forest_grid_temp(m+1,n)==2 || Forest_grid_te
 mp(m,n-1)==2 ||[] 
  []
 
 
-Overfull \hbox (45.47061pt too wide) in paragraph at lines 294--294
-[]                \OT1/cmtt/m/n/12 %if any of the neighbours of the current sit
-e is burning or a[] 
+Overfull \hbox (51.64561pt too wide) in paragraph at lines 281--281
+[]                \OT1/cmtt/m/n/12 //if any of the neighbours of the current si
+te is burning or a[] 
  []
 
 
-Overfull \hbox (45.47061pt too wide) in paragraph at lines 294--294
-[]                \OT1/cmtt/m/n/12 % random number is generated which is greate
+Overfull \hbox (45.47061pt too wide) in paragraph at lines 281--281
+[]                \OT1/cmtt/m/n/12 //random number is generated which is greate
 r than lightening[] 
  []
 
 [12]
-Overfull \hbox (39.29561pt too wide) in paragraph at lines 361--361
-[]\OT1/cmtt/m/n/12 %The above loop will be sufficient if we have absorbing boun
-dary conditions.[] 
+Overfull \hbox (45.47061pt too wide) in paragraph at lines 348--348
+[]\OT1/cmtt/m/n/12 //The above loop will be sufficient if we have absorbing bou
+ndary conditions.[] 
  []
 
 
-Overfull \hbox (33.1206pt too wide) in paragraph at lines 361--361
-[]\OT1/cmtt/m/n/12 %Periodic boundary condition requires that we should check a
-ll the indexing[] 
+Overfull \hbox (39.29561pt too wide) in paragraph at lines 348--348
+[]\OT1/cmtt/m/n/12 //Periodic boundary condition requires that we should check 
+all the indexing[] 
  []
 
-[13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 376--378
-
- []
-
-[15]
-Overfull \hbox (101.04564pt too wide) in paragraph at lines 419--419
-[]\OT1/cmtt/m/n/12 %An exactly similar procedure is followed to calculate the r
-ow shift for every cluster[] 
- []
-
-
-Overfull \hbox (63.99562pt too wide) in paragraph at lines 419--419
-[]\OT1/cmtt/m/n/12 %index where we go though all the columns for a gicen row an
-d very all the rows.[] 
- []
-
-[16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 491--492
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
 
-<Pictures/case1_size_500.png, id=78, 508.14844pt x 382.42876pt>
+[14]
+Overfull \hbox (2.24559pt too wide) in paragraph at lines 406--406
+[]\OT1/cmtt/m/n/12 //this is the case when we have atleast one column in betwee
+n where no[] 
+ []
+
+
+Overfull \hbox (107.22064pt too wide) in paragraph at lines 406--406
+[]\OT1/cmtt/m/n/12 //An exactly similar procedure is followed to calculate the 
+row shift for every cluster[] 
+ []
+
+
+Overfull \hbox (70.17062pt too wide) in paragraph at lines 406--406
+[]\OT1/cmtt/m/n/12 //index where we go though all the columns for a gicen row a
+nd very all the rows.[] 
+ []
+
+[15] [16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
+
+ []
+
+<Pictures/case1_size_500.png, id=75, 508.14844pt x 382.42876pt>
 File: Pictures/case1_size_500.png Graphic file (type png)
 
 <use Pictures/case1_size_500.png>
-Package pdftex.def Info: Pictures/case1_size_500.png used on input line 495.
+Package pdftex.def Info: Pictures/case1_size_500.png used on input line 482.
 (pdftex.def)             Requested size: 387.00153pt x 291.26158pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+ [18]
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 
  []
 
@@ -552,7 +555,7 @@ File: Pictures/case2_size500_1000iter_p_0point1_ratio_1000.png Graphic file (ty
 pe png)
  <use Pictures/case2_size500_1000iter_p_0point1_ratio_1000.png>
 Package pdftex.def Info: Pictures/case2_size500_1000iter_p_0point1_ratio_1000.p
-ng used on input line 503.
+ng used on input line 490.
 (pdftex.def)             Requested size: 387.00153pt x 314.60513pt.
 
 [19 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/late
@@ -563,10 +566,10 @@ File: Pictures/case3_size500_1000iter_p_0point1_ratio_10.png Graphic file (type
  png)
  <use Pictures/case3_size500_1000iter_p_0point1_ratio_10.png>
 Package pdftex.def Info: Pictures/case3_size500_1000iter_p_0point1_ratio_10.png
- used on input line 510.
+ used on input line 497.
 (pdftex.def)             Requested size: 387.00153pt x 295.53534pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 507--512
+Underfull \hbox (badness 10000) in paragraph at lines 494--499
 
  []
 
@@ -579,7 +582,7 @@ File: Pictures/case4_size500_10000iter_p_0point001_ratio_1000.png Graphic file
 
 <use Pictures/case4_size500_10000iter_p_0point001_ratio_1000.png>
 Package pdftex.def Info: Pictures/case4_size500_10000iter_p_0point001_ratio_100
-0.png used on input line 519.
+0.png used on input line 506.
 (pdftex.def)             Requested size: 387.00153pt x 329.41737pt.
  [21 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/case3_size500_1000iter_p_0point1_ratio_10.png (PNG copy)>] [22 <C:/
@@ -592,7 +595,7 @@ type png)
 
 <use Pictures/case4_size500_10000iter_p_0point01_ratio_1000.png>
 Package pdftex.def Info: Pictures/case4_size500_10000iter_p_0point01_ratio_1000
-.png used on input line 527.
+.png used on input line 514.
 (pdftex.def)             Requested size: 387.00153pt x 289.74203pt.
 
 <Pictures/case4_size50_10000iter_p_0point001_ratio_1000.png, id=97, 521.69907pt
@@ -602,26 +605,25 @@ type png)
 
 <use Pictures/case4_size50_10000iter_p_0point001_ratio_1000.png>
 Package pdftex.def Info: Pictures/case4_size50_10000iter_p_0point001_ratio_1000
-.png used on input line 537.
+.png used on input line 524.
 (pdftex.def)             Requested size: 387.00153pt x 323.3431pt.
  [23 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/case4_size500_10000iter_p_0point01_ratio_1000.png (PNG copy)>]
-<Pictures/frequency_distribution_4_different_cases.png, id=101, 492.33937pt x 3
-81.67593pt>
+<Pictures/frequency_distribution_4_different_cases.png, id=101, 555.57562pt x 3
+68.1253pt>
 File: Pictures/frequency_distribution_4_different_cases.png Graphic file (type 
 png)
  <use Pictures/frequency_distribution_4_different_cases.png>
 Package pdftex.def Info: Pictures/frequency_distribution_4_different_cases.png 
-used on input line 546.
-(pdftex.def)             Requested size: 387.00153pt x 300.02977pt.
-
-[24 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/late
-x/Pictures/case4_size50_10000iter_p_0point001_ratio_1000.png (PNG copy)>]
+used on input line 533.
+(pdftex.def)             Requested size: 387.00153pt x 256.42772pt.
+ [24 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
+ex/Pictures/case4_size50_10000iter_p_0point001_ratio_1000.png (PNG copy)>]
 <Pictures/radius_4_cases.png, id=105, 475.7775pt x 363.60844pt>
 File: Pictures/radius_4_cases.png Graphic file (type png)
 
 <use Pictures/radius_4_cases.png>
-Package pdftex.def Info: Pictures/radius_4_cases.png used on input line 552.
+Package pdftex.def Info: Pictures/radius_4_cases.png used on input line 539.
 (pdftex.def)             Requested size: 387.00153pt x 295.77512pt.
  [25 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/frequency_distribution_4_different_cases.png (PNG copy)>]
@@ -630,7 +632,7 @@ File: Pictures/RadiusDist_100_200_1M.jpg Graphic file (type jpg)
 
 <use Pictures/RadiusDist_100_200_1M.jpg>
 Package pdftex.def Info: Pictures/RadiusDist_100_200_1M.jpg used on input line 
-562.
+549.
 (pdftex.def)             Requested size: 387.00153pt x 285.59653pt.
  [26 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/radius_4_cases.png (PNG copy)>] <Pictures/Size_dist_1.png, id=114, 
@@ -638,7 +640,7 @@ ex/Pictures/radius_4_cases.png (PNG copy)>] <Pictures/Size_dist_1.png, id=114,
 File: Pictures/Size_dist_1.png Graphic file (type png)
 
 <use Pictures/Size_dist_1.png>
-Package pdftex.def Info: Pictures/Size_dist_1.png used on input line 572.
+Package pdftex.def Info: Pictures/Size_dist_1.png used on input line 559.
 (pdftex.def)             Requested size: 387.00153pt x 210.82396pt.
  [27 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/RadiusDist_100_200_1M.jpg>]
@@ -646,7 +648,7 @@ ex/Pictures/RadiusDist_100_200_1M.jpg>]
 File: Pictures/varpconsttheta.jpg Graphic file (type jpg)
 
 <use Pictures/varpconsttheta.jpg>
-Package pdftex.def Info: Pictures/varpconsttheta.jpg used on input line 581.
+Package pdftex.def Info: Pictures/varpconsttheta.jpg used on input line 568.
 (pdftex.def)             Requested size: 387.00153pt x 290.33667pt.
  [28 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/Size_dist_1.png (PNG copy)>]
@@ -654,7 +656,7 @@ ex/Pictures/Size_dist_1.png (PNG copy)>]
 File: Pictures/constpvartheta2.jpg Graphic file (type jpg)
 
 <use Pictures/constpvartheta2.jpg>
-Package pdftex.def Info: Pictures/constpvartheta2.jpg used on input line 590.
+Package pdftex.def Info: Pictures/constpvartheta2.jpg used on input line 577.
 (pdftex.def)             Requested size: 387.00153pt x 290.33667pt.
  [29 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/varpconsttheta.jpg>]
@@ -662,30 +664,36 @@ ex/Pictures/varpconsttheta.jpg>]
 File: Pictures/vargridsize.jpg Graphic file (type jpg)
 
 <use Pictures/vargridsize.jpg>
-Package pdftex.def Info: Pictures/vargridsize.jpg used on input line 599.
+Package pdftex.def Info: Pictures/vargridsize.jpg used on input line 586.
 (pdftex.def)             Requested size: 387.00153pt x 317.72289pt.
  [30 <C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/lat
 ex/Pictures/constpvartheta2.jpg>] [31 <C:/Users/nishant/Desktop/SelforganizedCr
 iticality/Forest-Fire-SOC/doc/latex/Pictures/vargridsize.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 628--632
+Underfull \hbox (badness 10000) in paragraph at lines 615--619
 
  []
 
 [32]
-Underfull \hbox (badness 10000) in paragraph at lines 633--634
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
 
  []
 
 
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
-port_semi.bbl [33])
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 644.
+port_semi.bbl [33]
+Missing character: There is no Î in font cmr12!
+Missing character: There is no ² in font cmr12!
+Missing character: There is no â in font cmr12!
+Missing character: There is no € in font cmr12!
+Missing character: There is no “ in font cmr12!
+)
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 631.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/basic_fire_model_smaller2.m
+ogram/Nishant/basic_fire_model_smaller2.m [34]
 LaTeX Font Info:    Try loading font information for OML+pcr on input line 40.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlpcr.fd"
@@ -693,7 +701,7 @@ File: omlpcr.fd
 )
 LaTeX Font Info:    Font shape `OML/pcr/m/n' in size <9> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
- [34] [35]
+ [35]
 LaTeX Font Info:    Try loading font information for OMS+pcr on input line 99.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omspcr.fd"
@@ -706,9 +714,9 @@ LaTeX Font Info:    Try loading font information for TS1+pcr on input line 110.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1pcr.fd"
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-))
+) [36])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/cluster_disrtibution2.m [36] [37] [38] [39]
+ogram/Nishant/cluster_disrtibution2.m [37] [38] [39]
 Overfull \hbox (29.00005pt too wide) in paragraph at lines 161--162
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -716,7 +724,7 @@ Overfull \hbox (29.00005pt too wide) in paragraph at lines 161--162
  []
 
 )
-Overfull \hbox (18.49487pt too wide) in paragraph at lines 649--650
+Overfull \hbox (18.49487pt too wide) in paragraph at lines 636--637
 []\OT1/cmr/m/n/12 This func-tion is used by the $\OML/cmm/m/it/12 cluster[]dist
 ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$ \OT1/cmr/m/n/12 and $\OML/cmm/m/i
 t/12 cluster[]distribution\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m$
@@ -724,10 +732,10 @@ t/12 cluster[]distribution\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m$
 
 
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/correct_radius_shift_getter.m [40] [41])
+ogram/Nishant/correct_radius_shift_getter.m [40] [41] [42])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/radius_size_distribution.m [42])
-Overfull \hbox (10.56366pt too wide) in paragraph at lines 655--656
+ogram/Nishant/radius_size_distribution.m [43])
+Overfull \hbox (10.56366pt too wide) in paragraph at lines 642--643
 []\OT1/cmr/m/n/12 This func-tion is used by the $\OML/cmm/m/it/12 basic[]fire[]
 model[]smaller\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/
 m/it/12 cluster[]distribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/
@@ -736,8 +744,8 @@ m/it/12 cluster[]distribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/
 
 
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/neighbour.m [43])
-Overfull \hbox (30.19566pt too wide) in paragraph at lines 658--659
+ogram/Nishant/neighbour.m [44])
+Overfull \hbox (30.19566pt too wide) in paragraph at lines 645--646
 []\OT1/cmr/m/n/12 This func-tion is used by the $\OML/cmm/m/it/12 cluster[]dist
 ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/1
 2 basic[]fire[]model[]smaller\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m$
@@ -746,16 +754,7 @@ ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/1
 
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Nishant/converter.m)
-Overfull \hbox (30.19566pt too wide) in paragraph at lines 661--662
-[]\OT1/cmr/m/n/12 This func-tion is used by the $\OML/cmm/m/it/12 cluster[]dist
-ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/1
-2 basic[]fire[]model[]smaller\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m$
- []
-
-[44]
-(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/changer.m)
-Overfull \hbox (30.19566pt too wide) in paragraph at lines 664--665
+Overfull \hbox (30.19566pt too wide) in paragraph at lines 648--649
 []\OT1/cmr/m/n/12 This func-tion is used by the $\OML/cmm/m/it/12 cluster[]dist
 ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/1
 2 basic[]fire[]model[]smaller\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m$
@@ -763,9 +762,18 @@ ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/1
 
 
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/enforcer.m [45])
+ogram/Nishant/changer.m [45])
+Overfull \hbox (30.19566pt too wide) in paragraph at lines 651--652
+[]\OT1/cmr/m/n/12 This func-tion is used by the $\OML/cmm/m/it/12 cluster[]dist
+ribution\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 :m$\OT1/cmr/m/n/12 , $\OML/cmm/m/it/1
+2 basic[]fire[]model[]smaller\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m$
+ []
+
+
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/basic_fire_model_smaller2_iter.m
+ogram/Nishant/enforcer.m)
+(C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
+ogram/Nishant/basic_fire_model_smaller2_iter.m [46]
 Overfull \hbox (12.79988pt too wide) in paragraph at lines 21--23
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
@@ -779,84 +787,47 @@ Overfull \hbox (18.19994pt too wide) in paragraph at lines 29--30
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[46] [47] [48] [49])
+[47] [48] [49])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Nishant/cluster_disrtibution2_iter.m [50] [51])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Nishant/radius_size_distribution_iter.m [52])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/ForFire.m [53]
-Overfull \hbox (158.60136pt too wide) in paragraph at lines 90--91
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[54]
-Overfull \hbox (164.00142pt too wide) in paragraph at lines 98--99
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (23.59999pt too wide) in paragraph at lines 107--108
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][] 
- []
-
-[55]
-Overfull \hbox (180.20158pt too wide) in paragraph at lines 169--170
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[56]
-Overfull \hbox (169.40147pt too wide) in paragraph at lines 225--226
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (23.59999pt too wide) in paragraph at lines 238--239
+ogram/Michael/ForFire.m [53] [54] [55] [56] [57]
+Overfull \hbox (23.59999pt too wide) in paragraph at lines 242--243
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][] 
  []
 
-[57]) [58]
+[58])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/diagnostics.m [59])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/changeIndex.m)
+ogram/Michael/changeIndex.m [60])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/clusterburn.m
-Overfull \hbox (66.80043pt too wide) in paragraph at lines 14--15
+Overfull \hbox (34.4001pt too wide) in paragraph at lines 14--15
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
+[][][][][][][][][][][][][][][][][][][][] 
  []
 
-[60])
+)
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/getNcIndex.m)
+ogram/Michael/getNcIndex.m) [61]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/lowIndex.m)
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/neighbor.m [61])
+ogram/Michael/neighbor.m) [62]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/computeradius.m [62]) [63]
+ogram/Michael/computeradius.m) [63]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\re
 port_semi.aux) ) 
 Here is how much of TeX's memory you used:
- 5880 strings out of 494053
- 85912 string characters out of 3148597
- 193697 words of memory out of 3000000
- 8980 multiletter control sequences out of 15000+200000
+ 5895 strings out of 494053
+ 86092 string characters out of 3148597
+ 207150 words of memory out of 3000000
+ 8995 multiletter control sequences out of 15000+200000
  17447 words of font info for 67 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  42i,10n,42p,1300b,1554s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -880,7 +851,7 @@ onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
 amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 /cm/cmtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols
 /msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on report_semi.pdf (63 pages, 862947 bytes).
+Output written on report_semi.pdf (63 pages, 862612 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

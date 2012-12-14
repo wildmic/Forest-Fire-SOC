@@ -113,27 +113,43 @@ Both have contributed in writing the report and most of the sections are a work 
 
 \section{Introduction and Motivations}
 \subsection{What is Self-Organized Criticality?}
-Self-Organized Criticality involves 2 very important concepts: Self-Organization and Critical behavior. These 2 phenomenon arouse in various fields in very different forms.In certain class of systems, the dynamics can be very well explained by a few collective degrees of freedom. This dimensional reduction is termed as "Self Organization". It leads to evolution of global patterns in the system even though all the interactions are local. Let us take an example from the field of physics.Crystallization is the process of formation of crystals. It usually requires a small nucleus for the growth of the crystal. Once the nucleus is formed, crystal can grow on this nucleus. If we consider a particle which is going to crystallize on a given site, the choice of this site is decided only by the local environment seen by the particle. It does not depend on the particle on every other site on the crystal. But this local interaction leads to the formation of an ordered crystalline phase. Bird flocking is an example of self organization from the field of Biology.
+Self-Organized Criticality involves 2 very important concepts: Self-Organization and Critical behavior\cite{ref3}. These 2 phenomenon arouse in various fields in very different forms.In certain class of systems, the dynamics can be very well explained by a few collective degrees of freedom. This dimensional reduction is termed as "Self Organization". It leads to evolution of global patterns in the system even though all the interactions are local. Let us take an example from the field of physics.Crystallization is the process of formation of crystals. It usually requires a small nucleus for the growth of the crystal. Once the nucleus is formed, crystal can grow on this nucleus. If we consider a particle which is going to crystallize on a given site, the choice of this site is decided only by the local environment seen by the particle. It does not depend on the particle on every other site on the crystal. But this local interaction leads to the formation of an ordered crystalline phase. Bird flocking is an example of self organization from the field of Biology.
 
-On the other hand, there is another set of dynamical systems where the individual degree of freedom keep itself more or less in a stable balance and it is not possible to describe such a system by a few collective degrees of freedom. The key point in such systems is that the interdependence of various degrees of freedom make such systems very susceptible to noise. That's why, these systems can be called as "Critical". Critical state usually represent a point where 2 different phases occur simultaneously at the same time. A critical state has specific temporal and spatial signature. The power spectrum of the quantity representing the dynamics of the system is similar to that flicker noise. (More on flicker noise later!). The spatial signature of a critical state is ``self-similarity'' which is what we find for the case of fractals.
+On the other hand, there is another set of dynamical systems where the individual degree of freedom keep itself more or less in a stable balance and it is not possible to describe such a system by a few collective degrees of freedom. The key point in such systems is that the interdependence of various degrees of freedom make such systems very susceptible to noise. That's why, these systems can be called as "Critical". Critical state usually represent a point where 2 different phases occur simultaneously at the same time. A critical state has specific temporal and spatial signature. The power spectrum of the quantity representing the dynamics of the system is similar to that flicker noise. The spatial signature of a critical state is ``self-similarity'' which is what we find for the case of fractals.
 
 Self-Organized criticality combines the above 2 concepts. In it, the dynamics of a physical system converge to a critical point independent of the bestowed boundary conditions. This critical point commonly is not the equilibrium point in a traditional, physical sense. We usually say that the \textit{critical point} is an attractor of the system dynamics. The concept is best understood by example, so we shall bring up a very educative one introduced first by \cite{ref3}. 
 Imagine a sand pile in 2 dimensions. One can discretisze this pile into cells, which are denoted with the indices $n$. Each of those cells has an amount of sand grains on it, which is directly corresponding to the height $z_{n}$. Now we state the simple rule, that, if the difference in height between two neighboring cells becomes larger than a predefined limit, the higher cell will give grains to the lower cell (avalanche). Now every timestep, we drop a grain on cell one. Independent of the initial conditions, eventually, a straight slope will evolve. The critical point is reached if every difference between two neighboring cells is exactly the limit. What happens if we drop the next grain? Then the difference $z_{1}-z_{2}>p$ and one grain will drop on $z_{2}$. Subsequently, the difference $z_{2}-z_{3}$ will be too big and the process repeats until it hits the last cell. We therefore call a state critical if a yet so small disturbance can propagate throughout the whole system.
 It is important to note here, that this critical state is \emph{not} the equilibrium state of the system, since that would be a flat surface. 
 
-
-
-\subsection{What is Self-Organized Criticality}
-Self-organized criticality (SOC) is a concept applied to spacially extended dynamic physical systems. It is often quite difficult to descripe the temporal and spatial evolution of such a system and a lot of research happens in that field. Usually, one uses a mean-field approach to such a problem, where the indidual coupled degrees of freedom are replaced by a field. This (external) field then acts on the DOF.  SOC is a different approach to this problem. It is the concept, that a certain class of dissipative, coupled dynamic systems converge to a critical point independantly of their underlying boundary and initial conditions. 
-What are the properties of such a critical point? First of all, it is stable with respect to small disturbances. If this was not true, the system would not evolve to such a point. Note that this does not imply that such a point \emph{exists}. If a certain point is unstable, the system commonly will not evolve to this point. The critical point, however, generally is not the physical equilibrium point of the system.
-
-\subsection{Flicker Noise}
-Flicker noise is something often mentioned when talking about dissipative coupled dynamical systems. Flicker Noise (or $1/f$-Noise) is the description for an often observed phenomenon of such systems; The observation, that the power spectrum $S(f)$ scales with $1/f$ or more generally, with $f^{-\beta}$. This implies that $S(f)\cdot f \varpropto 1$
-
-
-
 \subsection{Forest-Fire Model (FFM) as an example of Self-Organized Criticality}
-A Forest Fire Model is basically a cellular automata. Each cell can have one of the following three states:
+As the name suggests, modeling of the ignition, propagation and extinction of fires in a forest is termed as Forest Fire Model (FFM). This model has been studied extensively as one of the dummy models to show Self-Organized Criticality. Historically, the first model for SOC was proposed by Per Bak,Kan Chen and Chao Tang \cite{ref4}. But it was later on shown that this model does not exhibit SOC state \cite{ref5,ref6}. Later, a slightly modified version of the original model was verified to exhibit SOC \cite{ref7}. After that, a lot of study has been performed on this model with various additive features. 
+
+\subsection{Motivation to study Forest Fire Model}
+Why is it important to study Forest Fire Model? Forest fire models apply to a wide range of problems and are therefore helpful in predicting the behavior of such systems. Self-Organized criticality is the concept that describes the dynamics of such models and the two fields are therefore closely connected. One has closely studied these effects to make better predictions about forest fires. The main problem was, that in most cases, even relatively small fires were extinguished by the authorities. Since that led to an \textit{overcritical state}, the probability for a huge, devastating fire rose quickly. This has happened in the past and had a serious impact on the ecosystem of those areas.
+Since the problem of self-organized criticality has been understood, one has stopped to extinguish every little fire, therefore avoiding to reach an overcritical state at which the disturbance (a small fire) can propagate throughout the whole system (large-scale fire). 
+The same ideas can be applied to a variety of problems such as disease spreading or urban planning.
+
+\subsection{What do we want to know from the Forest Fore Model- The QUESTIONS}
+First, we would like to understand what are the quantitative characteristics of a Self Organized Critical state in the Forest-Fire model? We would like to have a well defined idea regarding when does the Forest Fire model manifest SOC behavior and why. We would like to understand what are the various phases seen in a Forest Fire model besides the Self Organized Critical phase. It will be important to know what are the parameters characterizing the phase transition in the Forest Fire Model.
+Some of the ambitious questions will be to understand the dependence of SOC of the Forest Fire model on the dimensionality of the Lattice or on the neighborhood selection on the grid.\\
+It will also be interesting to find out if computational restrictions like finite size grids, periodic boundary conditions and cell updating procedures have a quantitative effect on the behavior of the model?
+
+
+
+\section{Description of the Model}
+
+\subsection{Cellular automata}
+
+A cellular automata is a very powerful way of simulating problems which are defined by a set of rules. It is usually simulated on a grid, but not necessarily restricted to those geometrical constraints. The main characteristics are:
+\begin{itemize}
+\item Every grid point has a state
+
+\item Grid points change their state depending on the neighbor states according to a set of rules
+
+\item Random actions may be introduced
+\end{itemize}
+
+In the example of the FFM, each cell can have one of the following three states:
 \begin{itemize}
   \item 0: A green tree
   \item 1: Empty site
@@ -156,44 +172,15 @@ It is important to note that the Forest Fire Model does not only apply to forest
 
 This model describes an SOC state in the regime where the ratio of p and f is very large and p itself is very small. An important question is how to characterize a state as an SOC state. This is described below.
 
-\subsection{Motivation to study Forest Fire Model}
-Why is it important to study Forest Fire Model? Forest fire models apply to a wide range of problems and are therefore helpful in predicting the behavior of such systems. Self-Organized criticality is the concept that describes the dynamics of such models and the two fields are therefore closely connected. One has closely studied these effects to make better predictions about forest fires. The main problem was, that in most cases, even relatively small fires were extinguished by the authorities. Since that led to an \textit{overcritical state}, the probability for a huge, devastating fire rose quickly. This has happened in the past and had a serious impact on the ecosystem of those areas.
-Since the problem of self-organized criticality has been understood, one has stopped to extinguish every little fire, therefore avoiding to reach an overcritical state at which the disturbance (a small fire) can propagate throughout the whole system (large-scale fire). 
-The same ideas can be applied to a variety of problems such as disease spreading or urban planning.
 
-\subsection{What do we want to know from the Forest Fore Model- The QUESTIONS}
-First, we would like to understand what are the quantitative characteristics of a Self Organized Critical state in the Forest-Fire model? We would like to have a well defined idea regarding when does the Forest Fire model manifest SOC behavior and why. We would like to understand what are the various phases seen in a Forest Fire model besides the Self Organized Critical phase. It will be important to know what are the parameters characterizing the phase transition in the Forest Fire Model.
-Some of the ambitious questions will be to understand the dependence of SOC of the Forest Fire model on the dimensionality of the Lattice or on the neighborhood selection on the grid.\\
-It will also be interesting to find out if computational restrictions like finite size grids, periodic boundary conditions and cell updating procedures have a quantitative effect on the behavior of the model?
-
-
-
-\section{Description of the Model}
+The second approach to grid-based updating is with a second grid that stores temporary information. \cite{ref9}
 
 \subsection{Understanding the SOC regime of Forest Fire Model}
 
-For FFM to be an SOC, we need to ensure 2 things. One is that the probability of growing a tree should be much larger than the probability of lightening. We can intuitively think about the ratio of p and f as the number of trees growing between 2 lightening strokes.This condition ensures long range correlation in the system (which will lead to criticality) building out of purely local interactions (randomly growing trees). Another condition which we need to ensure is that the time needed to burn a large cluster should be much smaller than the time needed to grow a tree. This condition ensures invariance under a change of the length scale \cite{ref1}. The 2 conditions can be written together as:
+For FFM to be an SOC, we need to ensure 2 things. One is that the probability of growing a tree should be much larger than the probability of lightening. We can intuitively think about the ratio of p and f as the number of trees growing between 2 lightening strokes.This condition ensures long range correlation in the system (which will lead to criticality) building out of purely local interactions (randomly growing trees). Another condition which we need to ensure is that the time needed to burn a large cluster should be much smaller than the time needed to grow a tree. This condition ensures invariance under a change of the length scale \cite{ref1,ref9}. The 2 conditions can be written together as:
 \beq
 T_{burn}(cluster_{max})<<p^{-1}<<f^{-1}
 \eeq
-
-\subsection{Cellular automata}
-
-A cellular automata is a very powerful way of simulating problems which are defined by a set of rules. It is usually simulated on a grid, but not necessarily restricted to those geometrical constraints. The main characteristics are:
-\begin{itemize}
-\item Every grid point has a state
-
-\item Grid points change their state depending on the neighbor states according to a set of rules
-
-\item Random actions may be introduced
-\end{itemize}
-
-In the example of the FFM, every grid point has three states (empty, alive and burning) and four rules, the most obvious of which is “change state to burning if you are alive and your neighbor is burning”. 
-
-Cellular Automata can exhibit very complicated behavior when fed with very simple rules, which is the main reason why they are so powerful. There are similarities to agent-based models and networks, but it is not to be mistaken for one of these.
-
-
-The second approach to grid-based updating is with a second grid that stores temporary information. [Insert Description here]
 
 \subsection{Critical Exponents}
 Usually, a critical point is associated with certain power law distributions of various physical quantities characterizing a critical state. Power laws are functions of the form $ P(s) \varpropto s^{-\tau}$ . These functions are found in many data sets, such as the size distribution of cities in a certain area. Take any country, one will find one very large metropolis, a few large cities, many medium sized towns and a huge lot of small towns. Power laws have also prominently been found in data sets of earthquakes, where they apply almost perfectly, meaning that small earthquakes happen very often in respect to the frequency of big ones. Power laws imply that the frequency of a general data point is inversely proportional to its magnitude. 
@@ -230,59 +217,59 @@ As discussed before, there are two main implementation methods for the model: On
 The algorithm for grid initialization looks like:
 \begin{verbatim}
 Grid(N,N)=zeros(N,N)
-rand_grid=rand(N,N) % we generate a grid of random numbers
+rand_grid=rand(N,N) // we generate a grid of random numbers
 m=1;
-while m<=size(Grid,1) % Loop over all y-coordinates
+while m<=size(Grid,1) // Loop over all y-coordinates
 		n=1;
-		while n<=size(Grid,2) % Loop over all x-coordinates
-			if rand_grid(m,n)<k %If the random number for a site is less than k, 
-													%we make the site empty, else it has a tree
-				Grid(j,k)=1   		% chossing different k will lead to different 
-													%initial state of the grid
+		while n<=size(Grid,2) // Loop over all x-coordinates
+			if rand_grid(m,n)<k //If the random number for a site is less than k, 
+													//we make the site empty, else it has a tree
+				Grid(j,k)=1   		// chossing different k will lead to different 
+													//initial state of the grid
 			end
 		end
 end
 \end{verbatim}
 Basically, we initialize the grid with trees and empty sites distributed randomly on the grid.
-The updating of the grid based on the simple rules described above can be done in 2 different ways. One is when we make a copy of the current grid ($Grid_{copy}$) and then update the current grid using this $grid_copy$. The other is that we use the current grid (which is being updated) as the one which also responsible for updating. The 2nd procedure require us to pick the sites randomly and update them, but it will be hard to keep track about the sites which have been updated at a time step. In our simulations, we follow the first procedure whose algorithm is described below: 
+The updating of the grid based on the simple rules described above can be done in 2 different ways. One is when we make a copy of the current grid ($Grid\_copy$) and then update the current grid using this $grid\_copy$. The other is that we use the current grid (which is being updated) as the one which also responsible for updating. The 2nd procedure require us to pick the sites randomly and update them, but it will be hard to keep track about the sites which have been updated at a time step. In our simulations, we follow the first procedure whose algorithm is described below: 
 
 \begin{verbatim}
 it=1:
-while it<=Iter % Loop over all time steps
-    Forest_grid_temp=Forest_grid;  %Forest_grid_temp is the copy
-    %which is used to update the grid at the next time step.
-		% we need to take care that the neighbors of every cell are correct 
-		%as based on the periodic boundary condition. 
+while it<=Iter // Loop over all time steps
+    Forest_grid_temp=Forest_grid;  //Forest_grid_temp is the copy
+    //which is used to update the grid at the next time step.
+		// we need to take care that the neighbors of every cell are correct 
+		//as based on the periodic boundary condition. 
 
-		%This has been handled by making the size of the copy as 2 units 
-		%larger in each of the dimensions    
+		//This has been handled by making the size of the copy as 2 units 
+		//larger in each of the dimensions    
 		
     Copy the first column of Forest_grid to last column of Forest_grid_copy
     Copy the last column of Forest_grid to first column of Forest_grid_copy
     Copy the first row of Forest_grid to last row of Forest_grid_copy
     Copy the last row of Forest_grid to first row of Forest_grid_copy
-    m=2;  %looping over the Forest_grid and its copy, 
+    m=2;  //looping over the Forest_grid and its copy, 
     while m<N
         n=2;
         while n<N
             if Forest_grid_temp(m,n)==2
                 Forest_grid(m,n)=1;
-              %a fire becomes an empty site  
+              //a fire becomes an empty site  
               
             elseif Forest_grid_temp(m,n)==1
                 emp=emp+1;
                 if rand(1,1)<p
                     Forest_grid(m,n)=0;
                 end
-              %an empty site becomes a tree if a generated random no. is <p
+              //an empty site becomes a tree if a generated random no. is <p
             else
                 if (rand(1,1)<f || Forest_grid_temp(m-1,n)==2 || 
                 Forest_grid_temp(m+1,n)==2 || Forest_grid_temp(m,n-1)==2 ||
                  Forest_grid_temp(m,n+1)==2)
                 					    Forest_grid(m,n)=2;
-                %if any of the neighbours of the current site is burning or a
-                % random number is generated which is greater than lightening 
-                %probability, we burn the tree.
+                //if any of the neighbours of the current site is burning or a
+                //random number is generated which is greater than lightening 
+                //probability, we burn the tree.
                 end
             end
             n=n+1;
@@ -297,7 +284,7 @@ One of the important reasons why we made another model is that the algorithm is 
 The next important thing which we need to find out is indexing uniquely all the clusters of trees. The algorithm is described below:
 \begin{verbatim}
 Index=3;
-m=1;  %looping over the Forest_grid and its copy, 
+m=1;  //looping over the Forest_grid and its copy, 
 while m<N
    n=1;
    while n<N
@@ -316,10 +303,10 @@ while m<N
 			end
 	end
 end
-%The above loop will be sufficient if we have absorbing boundary conditions.
-%Periodic boundary condition requires that we should check all the indexing
-%again
-m=1;  %looping over the Forest_grid and its copy, 
+//The above loop will be sufficient if we have absorbing boundary conditions.
+//Periodic boundary condition requires that we should check all the indexing
+//again
+m=1;  //looping over the Forest_grid and its copy, 
 while m<N
    n=1;
    while n<N
@@ -332,28 +319,28 @@ while m<N
 	end
 end
 
-for i=1:t % Loop over all timesteps
-    for j=1:size(Grid,1) % Loop over all y-coordinates
-        for k=1:size(Grid,2) % Loop over all x-coordinates
-            if Grid(j,k)==0 %If the grid point is empty
+for i=1:t // Loop over all timesteps
+    for j=1:size(Grid,1) // Loop over all y-coordinates
+        for k=1:size(Grid,2) // Loop over all x-coordinates
+            if Grid(j,k)==0 //If the grid point is empty
                 //Grid(j,k)=1 with some probability p
             end
         end
     end
-    for j=1:size(Grid,1) % Loop over all y-coordinates
-        for k=1:size(Grid,2) % Loop over all x-coordinates
-            //if Neighbor(j,k)==3 % If grid neighbor is burning
-                Grid(j,k)=2 % Set current grid point on fire
+    for j=1:size(Grid,1) // Loop over all y-coordinates
+        for k=1:size(Grid,2) // Loop over all x-coordinates
+            //if Neighbor(j,k)==3 // If grid neighbor is burning
+                Grid(j,k)=2 // Set current grid point on fire
             end
         end
     end
-    for j=1:size(Grid,1) % Loop over all y-coordinates
-        for k=1:size(Grid,2) % Loop over all x-coordinates
-            if Grid(j,k)==3 % If Grid point is burning
-                Grid(j,k)=0; % Turn it into an empty site
+    for j=1:size(Grid,1) // Loop over all y-coordinates
+        for k=1:size(Grid,2) // Loop over all x-coordinates
+            if Grid(j,k)==3 // If Grid point is burning
+                Grid(j,k)=0; // Turn it into an empty site
             end
-            if Grid(j,k)==2 % If grid point is ignited
-                Grid(j,k)=3; % Turn it into an empty site.
+            if Grid(j,k)==2 // If grid point is ignited
+                Grid(j,k)=3; // Turn it into an empty site.
             end
         end
     end
@@ -362,7 +349,7 @@ end
 
 Several things are to note here:
 \begin{itemize}
-\item Commands with // in front are not implemented exactly like that. Check the appendix for the complete source code.
+\item Commands with // or  in front are not implemented exactly like that. Check the appendix for the complete source code.
 \item We need several spatial loops in order to successfully suppress updating fragments like infinite fire propagation speed in updating direction. 
 \item For the same reason, we need a differention between newly ignited (state 2) and burning (state 3) trees. 
 \item The Algorithm is quite slow because of all the loops and if-statements.
@@ -377,44 +364,44 @@ R=\sqrt{\frac{1}{N}\sum{x_{i}^{2}}-\frac{1}{N}(\sum{x_{i}})^2}
 This would have worked well if we have absorbing boundary conditions, but since our boundary is periodic; there can be possible a cluster which is going over the boundary. In that case, above formula can lead to a cluster mean which is outside the cluster. In such a situation, we need to rotate our grid to calculate the cluster radius properly and efficiently. The underlying idea is very simple. If you are scanning through different columns (rows) from left to right (top to bottom), you should get an element of a cluster in every column since the starting column for that cluster. In case, there is a break, it implies that you have cluster going though the edges, otherwise it cant be a cluster. Another important property of a cluster going through their boundary is that it should have a member in the leftmost (topmost) and rightmost (down most) column (row). We exploit these in the following algorithm:\\
 
 \begin{verbatim}
-%Column shift
+//Column shift
 define variables F and ml for every cluster index
 initialize F and ml with zero for every cluster
 m=1
 while m<=N  %going through all the columns
 	n=1;
-	while n<=N  %going through all the rows of a given column
+	while n<=N  //going through all the rows of a given column
 			if the current element is a tree,store the index of current 
 			element in variable cl
 			if F(cl)==0
-					%this is the first column where an element of this cluster appears.
+					//this is the first column where an element of this cluster appears.
 					if m~=1
 							F(cl)=3;
-							%this implies that this cluster cannot be connected via the boundary
+							//this implies that this cluster cannot be connected via the boundary
 					else
 							F(cl)=1;
 							ml(cl)=m;
 				  end
 			elseif F(cl)==1
 					if m~=ml(cl)+1
-						%this is the case when we have atleast one column in between where no
-						%element of the given cluster is found and this can happen only if
-						%the cluster passes through the boundary.
+						//this is the case when we have atleast one column in between where no
+						//element of the given cluster is found and this can happen only if
+						//the cluster passes through the boundary.
 							  F(cl)=2;
 					end		  
 					ml(cl)=m;
 			end
 	end
 end			
-%The column shift needed for a given cluster can be calculated as:
+//The column shift needed for a given cluster can be calculated as:
 if F(cl)==2
 			shift_col(cl)=N+1-ml(cl)
 else
 			no shift
 end									  
 
-%An exactly similar procedure is followed to calculate the row shift for every cluster 
-%index where we go though all the columns for a gicen row and very all the rows.
+//An exactly similar procedure is followed to calculate the row shift for every cluster 
+//index where we go though all the columns for a gicen row and very all the rows.
 
 \end{verbatim}
 
@@ -429,13 +416,13 @@ In a random based updating implementation, at the beginning of every time step, 
 In Matlab, this looks something like this:
 
 \begin{verbatim}
-for i=1:t % Loop over all timesteps
-(j,k)=ceil(Grid_Size*rand(1,2)); % Choose a random cell
+for i=1:t // Loop over all timesteps
+(j,k)=ceil(Grid_Size*rand(1,2)); // Choose a random cell
 	if  Grid(j,k)==0 % If the cell is empty
-		\\With some probability p set G(j,k)==1;
+		//With some probability p set G(j,k)==1;
 	end
-	if Grid(j,k)==1 % If the cell is alive
-		\\with some probability f execute burn(j,k);
+	if Grid(j,k)==1 // If the cell is alive
+		//with some probability f execute burn(j,k);
 	end
 end
 \end{verbatim}
@@ -574,7 +561,7 @@ The cluster size is another variable that we can easily measure. Here is a log-l
 \end{figure}
 
 %\subsubsection{Effect of different parameters}
-\subsubsection{Effect of p,f}
+\subsubsection{Effect of p and f}
 In the case where the time needed to burn down a cluster is significantly shorter than the time required to grow one, these effects happen on a separated timescale. Looking at fire incidents on a "growth"-timescale, fires spread instantaneously. The question was, would the values of p and f have any effect on the simulation outcome if the ratio $f/p$ is kept constant? 
 We tried to explain it intuitively: the larger the value of p is, the smaller the "time resolution". If it takes $n$ timesteps to grow a certain cluster at $p=1$, intuition says it will take $2n$ timesteps at $p=0.5$. Given that the lightning factor f varies proportionally, it also takes twice the time for a fire to happen. Of course, we are talking about expected values here, but since the whole process is a stochastic one by nature, it all pans out in the end. We ran a bulk simulation to verify this claim and ended up with the results seen in Fig.\ref{varpctheta}.
 \begin{figure}[H]
