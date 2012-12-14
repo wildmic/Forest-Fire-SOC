@@ -1,7 +1,7 @@
 function [v1,v2,v3,v4]=neighbour(i,j,N)
-%This function calculates the neighbourhood cells of a cell represented by [i,j] in the periodic
+%This function calculates the neighbourhood cells of 
+%a cell represented by [i,j] in the periodic
 %boubdary condition with the size of the grid as N x N
-
 if i>1 && i<N
     v1=[i-1,j];
     v2=[i+1,j];
@@ -41,4 +41,5 @@ else
         v3=[i,1];
         v4=[i,j-1];
     end
+end
 end
