@@ -405,7 +405,7 @@ end
 
 \end{verbatim}
 
-\subsection{Random Based Updating}
+\subsection{Random Based Updating\cite{ref10}}
 In a random based updating implementation, at the beginning of every time step, one random cell is chosen. It then checks for the rules of the model and acts accordingly. In order to see fires, we need to have instantaneous burning, which is actually permitted by the model. However, it changes the dynamics of the system drastically. But more about that later. The following steps are taken for each timestep:
 
 \begin{enumerate}
@@ -475,7 +475,7 @@ In this section, we will explain our results and understanding of the traditiona
 \item small p ($< 0.001$) and large $\frac{p}{f}$ ($\approx 10^4$)
 \end{itemize}
 
-Let us first try to understand what we expect intuitively for these cases. In the first case, we will have growth rate of trees to be very small and comparable rate of fires.(The smaller values of usually make the time scale of variation of the system very large.) As a result, we don't expect long-range correlations for the system to build up.\\
+Let us first try to understand what we expect intuitively for these cases. In the first case, we will have growth rate of trees to be very small and comparable rate of fires.(The smaller values of p usually make the time scale of variation of the system very large.) As a result, we don't expect long-range correlations for the system to build up.\\
 
 \begin{figure}[H]
 \centering
@@ -507,7 +507,7 @@ The final case is the one we are interested in. Since $\frac{p}{f}$ is large, la
 \caption{$N=500$, $\ p=0.001$, $\frac{p}{f}=1000$(Case4)}
 \end{figure}
 
-From the way we model our system (we are considering case 4 above), it is very difficult to find out whether for a given set of parameters the time required to burn the biggest cluster in system is much smaller than the time needed to grow a tree. But there is a very simple qualitative way to see this through the variation of various fractions as the system evolves. When an event of lightening happens in the system, the fraction of empty sites grows quickly. But shortly after that when the cluster is fully burnt, the trees again start growing and the fraction of empty sites start to decrease again. If the slope of the slope of increase of the fraction of empty sites when the fire is burning the cluster is much larger than the slope of decrease of fraction of empty sites when the trees start growing, it implies that the cluster burning process is almost instantaneous in comparison to the tree growth. Hence, in the 4th case we expect the system to be in SOC state. In the following figure, we show the case when the system is critical in the sense that long range correlations are forming (a fire is burning big cluster) but the fire is not instantaneous in comparison to the tree growth rate.
+From the way we model our system (we are considering case 4 above), it is very difficult to find out whether for a given set of parameters the time required to burn the biggest cluster in system is much smaller than the time needed to grow a tree. But there is a very simple qualitative way to see this through the variation of various fractions as the system evolves. When an event of lightening happens in the system, the fraction of empty sites grows quickly. But shortly after that when the cluster is fully burnt, the trees again start growing and the fraction of empty sites start to decrease again. If the slope of increase of the fraction of empty sites when the fire is burning the cluster is much larger than the slope of decrease of fraction of empty sites when the trees start growing, it implies that the cluster burning process is almost instantaneous in comparison to the tree growth. Hence, in the 4th case we expect the system to be in SOC state. In the following figure, we show the case when the system is critical in the sense that long range correlations are forming (a fire is burning big cluster) but the fire is not instantaneous in comparison to the tree growth rate.
 
 \begin{figure}[H]
 \centering

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  17 DEC 2012 10:09
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2012.3.27)  19 DEC 2012 02:06
 entering extended mode
 **C:/Users/nishant/Desktop/SelforganizedCriticality/Forest-Fire-SOC/doc/latex/R
 eport.tex
@@ -346,7 +346,7 @@ See the natbib package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.87 ...mand\NAT@force@numbers{}\NAT@force@numbers
+l.90 ...mand\NAT@force@numbers{}\NAT@force@numbers
                                                   
 Check the bibliography entries for non-compliant syntax,
 or select author-year BibTeX style, e.g. plainnat
@@ -679,11 +679,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 620--621
 
 
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Re
-port.bbl
+port.bbl [33]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [33]
 Missing character: There is no Î in font cmr12!
 Missing character: There is no ² in font cmr12!
 Missing character: There is no â in font cmr12!
@@ -734,9 +733,9 @@ OML/cmm/m/it/12 cluster[]distribution\OT1/cmr/m/n/12 2[]\OML/cmm/m/it/12 iter:m
 $
  []
 
-
+[40]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/correct_radius_shift_getter.m [40] [41] [42])
+ogram/Nishant/correct_radius_shift_getter.m [41] [42])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Nishant/radius_size_distribution.m [43])
 Overfull \hbox (56.19235pt too wide) in paragraph at lines 642--643
@@ -796,9 +795,9 @@ Overfull \hbox (18.19994pt too wide) in paragraph at lines 29--30
 
 [47] [48] [49])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/cluster_disrtibution2_iter.m [50] [51])
+ogram/Nishant/cluster_disrtibution2_iter.m [50] [51]) [52]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Nishant/radius_size_distribution_iter.m [52])
+ogram/Nishant/radius_size_distribution_iter.m)
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/ForFire.m [53] [54] [55] [56] [57]
 Overfull \hbox (23.59999pt too wide) in paragraph at lines 242--243
@@ -821,23 +820,23 @@ Overfull \hbox (34.4001pt too wide) in paragraph at lines 14--15
 
 )
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/getNcIndex.m) [61]
+ogram/Michael/getNcIndex.m [61])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/lowIndex.m)
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
-ogram/Michael/neighbor.m) [62]
+ogram/Michael/neighbor.m [62])
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Pr
 ogram/Michael/computeradius.m) [63]
 (C:\Users\nishant\Desktop\SelforganizedCriticality\Forest-Fire-SOC\doc\latex\Re
 port.aux) ) 
 Here is how much of TeX's memory you used:
- 5895 strings out of 494053
- 86022 string characters out of 3148597
- 207145 words of memory out of 3000000
- 8995 multiletter control sequences out of 15000+200000
+ 5898 strings out of 494053
+ 86061 string characters out of 3148597
+ 208816 words of memory out of 3000000
+ 8998 multiletter control sequences out of 15000+200000
  17447 words of font info for 67 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,10n,42p,1295b,1554s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,10n,42p,1282b,1554s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc} <C:\Us
 ers\nishant\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm120
 0.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
@@ -858,7 +857,7 @@ lic/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mtt12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam
 10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on Report.pdf (63 pages, 863354 bytes).
+Output written on Report.pdf (63 pages, 863726 bytes).
 PDF statistics:
  307 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
